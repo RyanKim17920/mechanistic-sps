@@ -1,0 +1,51 @@
+# Two-tower SPS (the paper's two-tower model): a state (memory) tower and a pred (readout)
+# tower over the same T token positions. The state tower is a plain causal decoder; the
+# pred tower's queries read the state tower's keys at the level chosen by `read_map`.
+#
+# `hidden_size` / `intermediate_size` / `n_layer` are the shared DEFAULTS; the per-tower
+# fields below override them independently. `n_head` fixes the head dim
+# (hidden_size // n_head = 64 here), which both towers share.
+
+defaults:
+  - tokens@config: gpt2_predict   # vocab / eos / pad / predict ids
+  - _self_
+
+_target_: modeling.models.two_tower.core.TwoTowerModel
+config:
+  _target_: modeling.models.two_tower.core.TwoTowerConfig
+  block_size: 4096
+  n_layer: 12          # default depth; the per-tower fields below are authoritative
+  n_head: 12           # head dim = hidden_size / n_head = 64, shared by both towers
+  hidden_size: 768
+  intermediate_size: 2304
+  norm_eps: 1e-6
+  dropout: 0.0
+  bias: false
+
+  # --- per-tower geometry ---
+  state_n_layer: 12
+  pred_n_layer: 12
+  state_hidden: null          # null -> hidden_size
+  pred_hidden: null           # null -> hidden_size
+  state_intermediate: null    # null -> intermediate_size; 0 = attention-only state path
+  pred_intermediate: null
+  # null -> every state block uses `state_intermediate` (all existing runs).
+  # Otherwise a list of `state_n_layer` SwiGLU widths, one per state block.
+  state_intermediate_per_block: null
+
+  # --- reading ---
+  read_map: post              # pre | post | top | final | explicit (+ read_levels)
+  read_source: state_kv       # state_kv | pred_proj
+  # constant  -- one learned pause row at every pred position (no token content).
+  # separate  -- the pred tower's own untied vocab x d_p input table, fed token x_i.
+  predict_embedding: constant # constant | separate
+  tie_lm_head: true
+  # --- cross-tower sharing (Almost-Free SPS), all off by default ---
+  tie_attn_across_towers: false    # pred block i uses state block i's c_attn / c_proj
+  share_ffn_across_towers: false   # ONE gated FFN per position for both towers (read_map=pre)
+  tie_norms_across_towers: false   # pred block i's RMSNorms are state block i's
+  tie_ffn_across_towers: false     # pred block i's MLP is state block i's (weights only)
+
+  # auto -> FlashAttention (FA3 then FA2) when importable and the batch needs no document
+  # mask, else flex_attention, else masked SDPA.
+  attn_backend: auto

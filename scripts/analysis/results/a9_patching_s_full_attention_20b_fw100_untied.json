@@ -1,0 +1,763 @@
+{
+  "analysis": "a9_patching",
+  "run": "s_full_attention_20b_fw100_untied",
+  "model_id": "s_full_attention_20b_fw100_untied",
+  "label": "s_full_attention_20b_fw100_untied",
+  "family": "standard",
+  "checkpoint": "${DATA_ROOT}/out/s_full_attention_20b_fw100_untied/ckpt_tokens_20000145408_final.pt",
+  "question": "does the readout matching head READ the memory prev-token head's output as its key? interchange-patch the clean prev-token head output into a corrupted run, at the key slots only, and measure recovery of the answer-vs-distractor logit difference",
+  "matching_head": {
+    "block": 10,
+    "head": 6,
+    "lift": 115.8627,
+    "key_stream": "state"
+  },
+  "prev_token_heads": [
+    {
+      "block": 8,
+      "head": 9,
+      "prev_token_mass": 0.74207
+    },
+    {
+      "block": 10,
+      "head": 9,
+      "prev_token_mass": 0.395659
+    },
+    {
+      "block": 7,
+      "head": 7,
+      "prev_token_mass": 0.374298
+    }
+  ],
+  "control_heads": [
+    {
+      "block": 8,
+      "head": 5,
+      "prev_token_mass": 0.098203
+    },
+    {
+      "block": 10,
+      "head": 2,
+      "prev_token_mass": 0.019089
+    },
+    {
+      "block": 7,
+      "head": 8,
+      "prev_token_mass": 0.076542
+    }
+  ],
+  "patching": {
+    "random": {
+      "arms": {
+        "clean": {
+          "n": 96,
+          "mean_logit_diff": 0.077,
+          "sem_logit_diff": 0.2712,
+          "top1_answer_rate": 0.0,
+          "top1_distractor_rate": 0.0104,
+          "mean_logprob_answer": -12.5775,
+          "mean_attn_answer_key": 0.04263,
+          "mean_attn_distractor_key": 0.0002,
+          "mean_attn_diff": 0.04243
+        },
+        "corrupted": {
+          "n": 96,
+          "mean_logit_diff": -0.3235,
+          "sem_logit_diff": 0.2728,
+          "top1_answer_rate": 0.0,
+          "top1_distractor_rate": 0.0104,
+          "mean_logprob_answer": -12.8036,
+          "mean_attn_answer_key": 0.00023,
+          "mean_attn_distractor_key": 0.03196,
+          "mean_attn_diff": -0.03173
+        },
+        "prev1_keyslots": {
+          "n": 96,
+          "mean_logit_diff": -0.0571,
+          "sem_logit_diff": 0.2685,
+          "top1_answer_rate": 0.0,
+          "top1_distractor_rate": 0.0104,
+          "mean_logprob_answer": -12.7199,
+          "mean_attn_answer_key": 0.0159,
+          "mean_attn_distractor_key": 0.00043,
+          "mean_attn_diff": 0.01547,
+          "recovery_fraction": 0.6653,
+          "recovery_ci95": [
+            0.5853,
+            0.7504
+          ],
+          "recovery_per_example_median": 0.6,
+          "attn_recovery_fraction": 0.6365,
+          "attn_recovery_ci95": [
+            0.5703,
+            0.7013
+          ]
+        },
+        "prev_top3_keyslots": {
+          "n": 96,
+          "mean_logit_diff": -0.0424,
+          "sem_logit_diff": 0.2688,
+          "top1_answer_rate": 0.0,
+          "top1_distractor_rate": 0.0104,
+          "mean_logprob_answer": -12.705,
+          "mean_attn_answer_key": 0.01897,
+          "mean_attn_distractor_key": 0.00035,
+          "mean_attn_diff": 0.01861,
+          "recovery_fraction": 0.7019,
+          "recovery_ci95": [
+            0.624,
+            0.7837
+          ],
+          "recovery_per_example_median": 0.6667,
+          "attn_recovery_fraction": 0.6789,
+          "attn_recovery_ci95": [
+            0.6139,
+            0.7421
+          ]
+        },
+        "prev1_answer_slot": {
+          "n": 96,
+          "mean_logit_diff": -0.2393,
+          "sem_logit_diff": 0.2729,
+          "top1_answer_rate": 0.0,
+          "top1_distractor_rate": 0.0104,
+          "mean_logprob_answer": -12.7273,
+          "mean_attn_answer_key": 0.01438,
+          "mean_attn_distractor_key": 0.03069,
+          "mean_attn_diff": -0.01631,
+          "recovery_fraction": 0.2101,
+          "recovery_ci95": [
+            0.1675,
+            0.2628
+          ],
+          "recovery_per_example_median": 0.1702,
+          "attn_recovery_fraction": 0.2079,
+          "attn_recovery_ci95": [
+            0.1633,
+            0.2526
+          ]
+        },
+        "prev1_distractor_slot": {
+          "n": 96,
+          "mean_logit_diff": -0.1395,
+          "sem_logit_diff": 0.2669,
+          "top1_answer_rate": 0.0,
+          "top1_distractor_rate": 0.0104,
+          "mean_logprob_answer": -12.8022,
+          "mean_attn_answer_key": 0.00024,
+          "mean_attn_distractor_key": 0.00045,
+          "mean_attn_diff": -0.00021,
+          "recovery_fraction": 0.4593,
+          "recovery_ci95": [
+            0.3822,
+            0.5373
+          ],
+          "recovery_per_example_median": 0.375,
+          "attn_recovery_fraction": 0.4251,
+          "attn_recovery_ci95": [
+            0.3541,
+            0.4973
+          ]
+        },
+        "ctrl_head_keyslots": {
+          "n": 96,
+          "mean_logit_diff": -0.3206,
+          "sem_logit_diff": 0.2728,
+          "top1_answer_rate": 0.0,
+          "top1_distractor_rate": 0.0104,
+          "mean_logprob_answer": -12.8041,
+          "mean_attn_answer_key": 0.00024,
+          "mean_attn_distractor_key": 0.03171,
+          "mean_attn_diff": -0.03147,
+          "recovery_fraction": 0.0071,
+          "recovery_ci95": [
+            -0.0025,
+            0.0168
+          ],
+          "recovery_per_example_median": 0.0,
+          "attn_recovery_fraction": 0.0035,
+          "attn_recovery_ci95": [
+            -0.0009,
+            0.0077
+          ]
+        },
+        "ctrl_donor_prev1": {
+          "n": 96,
+          "mean_logit_diff": -0.1415,
+          "sem_logit_diff": 0.2671,
+          "top1_answer_rate": 0.0,
+          "top1_distractor_rate": 0.0104,
+          "mean_logprob_answer": -12.8055,
+          "mean_attn_answer_key": 7e-05,
+          "mean_attn_distractor_key": 0.00053,
+          "mean_attn_diff": -0.00046,
+          "recovery_fraction": 0.4546,
+          "recovery_ci95": [
+            0.3764,
+            0.5339
+          ],
+          "recovery_per_example_median": 0.3571,
+          "attn_recovery_fraction": 0.4217,
+          "attn_recovery_ci95": [
+            0.3513,
+            0.4937
+          ]
+        },
+        "ctrl_donor_prev1_answer_slot": {
+          "n": 96,
+          "mean_logit_diff": -0.3236,
+          "sem_logit_diff": 0.2726,
+          "top1_answer_rate": 0.0,
+          "top1_distractor_rate": 0.0104,
+          "mean_logprob_answer": -12.805,
+          "mean_attn_answer_key": 7e-05,
+          "mean_attn_distractor_key": 0.03198,
+          "mean_attn_diff": -0.03191,
+          "recovery_fraction": -0.0004,
+          "recovery_ci95": [
+            -0.0084,
+            0.0078
+          ],
+          "recovery_per_example_median": 0.0,
+          "attn_recovery_fraction": -0.0025,
+          "attn_recovery_ci95": [
+            -0.0049,
+            -0.0006
+          ]
+        },
+        "prev_top3_answer_slot": {
+          "n": 96,
+          "mean_logit_diff": -0.2251,
+          "sem_logit_diff": 0.2732,
+          "top1_answer_rate": 0.0,
+          "top1_distractor_rate": 0.0104,
+          "mean_logprob_answer": -12.7115,
+          "mean_attn_answer_key": 0.01716,
+          "mean_attn_distractor_key": 0.03042,
+          "mean_attn_diff": -0.01326,
+          "recovery_fraction": 0.2457,
+          "recovery_ci95": [
+            0.2024,
+            0.2991
+          ],
+          "recovery_per_example_median": 0.2083,
+          "attn_recovery_fraction": 0.2491,
+          "attn_recovery_ci95": [
+            0.2048,
+            0.2927
+          ]
+        },
+        "ceiling_block_all_heads": {
+          "n": 96,
+          "mean_logit_diff": -0.0455,
+          "sem_logit_diff": 0.2691,
+          "top1_answer_rate": 0.0,
+          "top1_distractor_rate": 0.0104,
+          "mean_logprob_answer": -12.7069,
+          "mean_attn_answer_key": 0.01824,
+          "mean_attn_distractor_key": 0.00036,
+          "mean_attn_diff": 0.01788,
+          "recovery_fraction": 0.6941,
+          "recovery_ci95": [
+            0.6079,
+            0.7851
+          ],
+          "recovery_per_example_median": 0.6612,
+          "attn_recovery_fraction": 0.669,
+          "attn_recovery_ci95": [
+            0.5982,
+            0.7372
+          ]
+        },
+        "ceiling_allheads_answer_slot": {
+          "n": 96,
+          "mean_logit_diff": -0.141,
+          "sem_logit_diff": 0.2726,
+          "top1_answer_rate": 0.0,
+          "top1_distractor_rate": 0.0104,
+          "mean_logprob_answer": -12.6371,
+          "mean_attn_answer_key": 0.03259,
+          "mean_attn_distractor_key": 0.02879,
+          "mean_attn_diff": 0.0038,
+          "recovery_fraction": 0.4556,
+          "recovery_ci95": [
+            0.3951,
+            0.5157
+          ],
+          "recovery_per_example_median": 0.4,
+          "attn_recovery_fraction": 0.4792,
+          "attn_recovery_ci95": [
+            0.416,
+            0.5338
+          ]
+        },
+        "ceiling_allheads_keyslots": {
+          "n": 96,
+          "mean_logit_diff": 0.0379,
+          "sem_logit_diff": 0.2694,
+          "top1_answer_rate": 0.0,
+          "top1_distractor_rate": 0.0104,
+          "mean_logprob_answer": -12.6253,
+          "mean_attn_answer_key": 0.03556,
+          "mean_attn_distractor_key": 0.0002,
+          "mean_attn_diff": 0.03536,
+          "recovery_fraction": 0.9025,
+          "recovery_ci95": [
+            0.8346,
+            0.9697
+          ],
+          "recovery_per_example_median": 0.9167,
+          "attn_recovery_fraction": 0.9047,
+          "attn_recovery_ci95": [
+            0.8579,
+            0.9449
+          ]
+        }
+      },
+      "effect_size": {
+        "mean_clean_minus_corrupted": 0.4004,
+        "frac_examples_with_positive_effect": 0.8542,
+        "n_examples": 96,
+        "mean_attn_clean_minus_corrupted": 0.07416
+      },
+      "design": {
+        "probe": "random",
+        "probe_source": "a5_induction.synthetic_batch (verbatim)",
+        "construction": "2-token counterfactual swap inside the first copy",
+        "metric_behavioural": "logit[answer] - logit[distractor] at the query position",
+        "metric_circuit": "the matching head's attention on the answer key minus its attention on the distractor key",
+        "patch_sites": "the two edited key slots (COPY_A+i+1, COPY_A+j+1)",
+        "matching_head": {
+          "block": 10,
+          "head": 6,
+          "stream": "single"
+        },
+        "n_examples": 96,
+        "pair_seed": 20260919,
+        "min_sep": 3,
+        "bootstrap": 10000,
+        "copies": [
+          1024,
+          3072
+        ],
+        "block_len": 256
+      }
+    },
+    "natural": {
+      "arms": {
+        "clean": {
+          "n": 96,
+          "mean_logit_diff": 7.5904,
+          "sem_logit_diff": 0.6218,
+          "top1_answer_rate": 0.4479,
+          "top1_distractor_rate": 0.0208,
+          "mean_logprob_answer": -3.0946,
+          "mean_attn_answer_key": 0.0336,
+          "mean_attn_distractor_key": 0.0004,
+          "mean_attn_diff": 0.03319
+        },
+        "corrupted": {
+          "n": 96,
+          "mean_logit_diff": 7.409,
+          "sem_logit_diff": 0.6199,
+          "top1_answer_rate": 0.4375,
+          "top1_distractor_rate": 0.0208,
+          "mean_logprob_answer": -3.1516,
+          "mean_attn_answer_key": 0.00176,
+          "mean_attn_distractor_key": 0.01375,
+          "mean_attn_diff": -0.01199
+        },
+        "prev1_keyslots": {
+          "n": 96,
+          "mean_logit_diff": 7.5424,
+          "sem_logit_diff": 0.6257,
+          "top1_answer_rate": 0.4375,
+          "top1_distractor_rate": 0.0208,
+          "mean_logprob_answer": -3.1082,
+          "mean_attn_answer_key": 0.03126,
+          "mean_attn_distractor_key": 0.00075,
+          "mean_attn_diff": 0.03051,
+          "recovery_fraction": 0.7355,
+          "recovery_ci95": [
+            0.5226,
+            1.1071
+          ],
+          "recovery_per_example_median": 0.6923,
+          "attn_recovery_fraction": 0.9406,
+          "attn_recovery_ci95": [
+            0.8327,
+            1.1129
+          ]
+        },
+        "prev_top3_keyslots": {
+          "n": 96,
+          "mean_logit_diff": 7.5454,
+          "sem_logit_diff": 0.6258,
+          "top1_answer_rate": 0.4375,
+          "top1_distractor_rate": 0.0208,
+          "mean_logprob_answer": -3.1064,
+          "mean_attn_answer_key": 0.03246,
+          "mean_attn_distractor_key": 0.00074,
+          "mean_attn_diff": 0.03173,
+          "recovery_fraction": 0.7518,
+          "recovery_ci95": [
+            0.5323,
+            1.1369
+          ],
+          "recovery_per_example_median": 0.6923,
+          "attn_recovery_fraction": 0.9675,
+          "attn_recovery_ci95": [
+            0.8855,
+            1.1089
+          ]
+        },
+        "prev1_answer_slot": {
+          "n": 96,
+          "mean_logit_diff": 7.4998,
+          "sem_logit_diff": 0.6294,
+          "top1_answer_rate": 0.4375,
+          "top1_distractor_rate": 0.0208,
+          "mean_logprob_answer": -3.109,
+          "mean_attn_answer_key": 0.03008,
+          "mean_attn_distractor_key": 0.01162,
+          "mean_attn_diff": 0.01845,
+          "recovery_fraction": 0.5006,
+          "recovery_ci95": [
+            0.1678,
+            1.0073
+          ],
+          "recovery_per_example_median": 0.5,
+          "attn_recovery_fraction": 0.6738,
+          "attn_recovery_ci95": [
+            0.3152,
+            1.0128
+          ]
+        },
+        "prev1_distractor_slot": {
+          "n": 96,
+          "mean_logit_diff": 7.4674,
+          "sem_logit_diff": 0.6183,
+          "top1_answer_rate": 0.4375,
+          "top1_distractor_rate": 0.0208,
+          "mean_logprob_answer": -3.1511,
+          "mean_attn_answer_key": 0.00179,
+          "mean_attn_distractor_key": 0.00089,
+          "mean_attn_diff": 0.0009,
+          "recovery_fraction": 0.3219,
+          "recovery_ci95": [
+            0.0344,
+            0.5047
+          ],
+          "recovery_per_example_median": 0.1,
+          "attn_recovery_fraction": 0.2853,
+          "attn_recovery_ci95": [
+            0.0369,
+            0.5982
+          ]
+        },
+        "ctrl_head_keyslots": {
+          "n": 96,
+          "mean_logit_diff": 7.4056,
+          "sem_logit_diff": 0.6195,
+          "top1_answer_rate": 0.4375,
+          "top1_distractor_rate": 0.0208,
+          "mean_logprob_answer": -3.1522,
+          "mean_attn_answer_key": 0.00177,
+          "mean_attn_distractor_key": 0.01369,
+          "mean_attn_diff": -0.01192,
+          "recovery_fraction": -0.0188,
+          "recovery_ci95": [
+            -0.0594,
+            0.0037
+          ],
+          "recovery_per_example_median": -0.0137,
+          "attn_recovery_fraction": 0.0016,
+          "attn_recovery_ci95": [
+            -0.0019,
+            0.0039
+          ]
+        },
+        "ctrl_donor_prev1": {
+          "n": 96,
+          "mean_logit_diff": 7.4584,
+          "sem_logit_diff": 0.6164,
+          "top1_answer_rate": 0.4375,
+          "top1_distractor_rate": 0.0208,
+          "mean_logprob_answer": -3.1504,
+          "mean_attn_answer_key": 0.00014,
+          "mean_attn_distractor_key": 0.00064,
+          "mean_attn_diff": -0.0005,
+          "recovery_fraction": 0.2726,
+          "recovery_ci95": [
+            -0.0542,
+            0.4402
+          ],
+          "recovery_per_example_median": 0.0,
+          "attn_recovery_fraction": 0.2543,
+          "attn_recovery_ci95": [
+            -0.0437,
+            0.626
+          ]
+        },
+        "ctrl_donor_prev1_answer_slot": {
+          "n": 96,
+          "mean_logit_diff": 7.4009,
+          "sem_logit_diff": 0.6192,
+          "top1_answer_rate": 0.4375,
+          "top1_distractor_rate": 0.0208,
+          "mean_logprob_answer": -3.1506,
+          "mean_attn_answer_key": 0.00012,
+          "mean_attn_distractor_key": 0.01378,
+          "mean_attn_diff": -0.01366,
+          "recovery_fraction": -0.0446,
+          "recovery_ci95": [
+            -0.163,
+            0.0154
+          ],
+          "recovery_per_example_median": 0.0,
+          "attn_recovery_fraction": -0.0369,
+          "attn_recovery_ci95": [
+            -0.12,
+            0.0015
+          ]
+        },
+        "prev_top3_answer_slot": {
+          "n": 96,
+          "mean_logit_diff": 7.4999,
+          "sem_logit_diff": 0.6296,
+          "top1_answer_rate": 0.4479,
+          "top1_distractor_rate": 0.0208,
+          "mean_logprob_answer": -3.1075,
+          "mean_attn_answer_key": 0.03139,
+          "mean_attn_distractor_key": 0.01131,
+          "mean_attn_diff": 0.02008,
+          "recovery_fraction": 0.5011,
+          "recovery_ci95": [
+            0.1639,
+            1.0124
+          ],
+          "recovery_per_example_median": 0.5219,
+          "attn_recovery_fraction": 0.7099,
+          "attn_recovery_ci95": [
+            0.3304,
+            1.0165
+          ]
+        },
+        "ceiling_block_all_heads": {
+          "n": 96,
+          "mean_logit_diff": 7.5411,
+          "sem_logit_diff": 0.625,
+          "top1_answer_rate": 0.4375,
+          "top1_distractor_rate": 0.0208,
+          "mean_logprob_answer": -3.1058,
+          "mean_attn_answer_key": 0.03231,
+          "mean_attn_distractor_key": 0.00052,
+          "mean_attn_diff": 0.03179,
+          "recovery_fraction": 0.7279,
+          "recovery_ci95": [
+            0.5222,
+            1.1133
+          ],
+          "recovery_per_example_median": 0.761,
+          "attn_recovery_fraction": 0.969,
+          "attn_recovery_ci95": [
+            0.8748,
+            1.1069
+          ]
+        },
+        "ceiling_allheads_answer_slot": {
+          "n": 96,
+          "mean_logit_diff": 7.4724,
+          "sem_logit_diff": 0.6262,
+          "top1_answer_rate": 0.4479,
+          "top1_distractor_rate": 0.0208,
+          "mean_logprob_answer": -3.1175,
+          "mean_attn_answer_key": 0.03069,
+          "mean_attn_distractor_key": 0.01121,
+          "mean_attn_diff": 0.01948,
+          "recovery_fraction": 0.3494,
+          "recovery_ci95": [
+            0.1287,
+            0.6077
+          ],
+          "recovery_per_example_median": 0.4,
+          "attn_recovery_fraction": 0.6966,
+          "attn_recovery_ci95": [
+            0.3013,
+            0.927
+          ]
+        },
+        "ceiling_allheads_keyslots": {
+          "n": 96,
+          "mean_logit_diff": 7.5301,
+          "sem_logit_diff": 0.6234,
+          "top1_answer_rate": 0.4479,
+          "top1_distractor_rate": 0.0208,
+          "mean_logprob_answer": -3.1159,
+          "mean_attn_answer_key": 0.03182,
+          "mean_attn_distractor_key": 5e-05,
+          "mean_attn_diff": 0.03176,
+          "recovery_fraction": 0.6676,
+          "recovery_ci95": [
+            0.5173,
+            0.8844
+          ],
+          "recovery_per_example_median": 0.6923,
+          "attn_recovery_fraction": 0.9684,
+          "attn_recovery_ci95": [
+            0.9282,
+            0.9937
+          ]
+        }
+      },
+      "effect_size": {
+        "mean_clean_minus_corrupted": 0.1814,
+        "frac_examples_with_positive_effect": 0.1354,
+        "n_examples": 96,
+        "mean_attn_clean_minus_corrupted": 0.04519
+      },
+      "design": {
+        "probe": "natural",
+        "probe_source": "validation text with a 256-token segment duplicated",
+        "construction": "2-token counterfactual swap inside the first copy",
+        "metric_behavioural": "logit[answer] - logit[distractor] at the query position",
+        "metric_circuit": "the matching head's attention on the answer key minus its attention on the distractor key",
+        "patch_sites": "the two edited key slots (COPY_A+i+1, COPY_A+j+1)",
+        "matching_head": {
+          "block": 10,
+          "head": 6,
+          "stream": "single"
+        },
+        "n_examples": 96,
+        "pair_seed": 20260919,
+        "min_sep": 3,
+        "bootstrap": 10000,
+        "copies": [
+          1024,
+          3072
+        ],
+        "block_len": 256
+      }
+    }
+  },
+  "natural": {
+    "all": {
+      "n": 65520,
+      "clean_acc": 0.4226,
+      "ablated_acc": 0.4061,
+      "d_acc": -0.0164,
+      "clean_nll": 2.9934,
+      "ablated_nll": 3.0801,
+      "d_nll": 0.0867,
+      "d_nll_sem": 0.00198,
+      "control_acc": 0.4188,
+      "d_acc_control": -0.0038,
+      "control_nll": 3.035,
+      "d_nll_control": 0.0416,
+      "d_nll_control_sem": 0.0013
+    },
+    "induction": {
+      "n": 12651,
+      "clean_acc": 0.7047,
+      "ablated_acc": 0.6537,
+      "d_acc": -0.051,
+      "clean_nll": 1.3181,
+      "ablated_nll": 1.5936,
+      "d_nll": 0.2755,
+      "d_nll_sem": 0.00633,
+      "control_acc": 0.7022,
+      "d_acc_control": -0.0025,
+      "control_nll": 1.3441,
+      "d_nll_control": 0.0259,
+      "d_nll_control_sem": 0.00232
+    },
+    "induction_clean_top1": {
+      "n": 8915,
+      "clean_acc": 1.0,
+      "ablated_acc": 0.9063,
+      "d_acc": -0.0937,
+      "clean_nll": 0.4976,
+      "ablated_nll": 0.82,
+      "d_nll": 0.3224,
+      "d_nll_sem": 0.00734,
+      "control_acc": 0.9758,
+      "d_acc_control": -0.0242,
+      "control_nll": 0.5241,
+      "d_nll_control": 0.0265,
+      "d_nll_control_sem": 0.00178
+    },
+    "repeat_ctrl": {
+      "n": 27381,
+      "clean_acc": 0.4531,
+      "ablated_acc": 0.4447,
+      "d_acc": -0.0084,
+      "clean_nll": 2.426,
+      "ablated_nll": 2.4693,
+      "d_nll": 0.0433,
+      "d_nll_sem": 0.00238,
+      "control_acc": 0.4491,
+      "d_acc_control": -0.0039,
+      "control_nll": 2.4687,
+      "d_nll_control": 0.0428,
+      "d_nll_control_sem": 0.00184
+    },
+    "repeat_ctrl_clean_top1": {
+      "n": 12405,
+      "clean_acc": 1.0,
+      "ablated_acc": 0.9399,
+      "d_acc": -0.0601,
+      "clean_nll": 0.6746,
+      "ablated_nll": 0.7982,
+      "d_nll": 0.1236,
+      "d_nll_sem": 0.00297,
+      "control_acc": 0.964,
+      "d_acc_control": -0.036,
+      "control_nll": 0.7176,
+      "d_nll_control": 0.043,
+      "d_nll_control_sem": 0.00169
+    },
+    "_definition": {
+      "min_gap": 64,
+      "n_val_seq": 16,
+      "block": 4096,
+      "induction": "exists u <= t-MIN_GAP with x[u]==x[t+1] and x[u-1]==x[t]",
+      "repeat_ctrl": "target occurred >= MIN_GAP back but never preceded by x[t]",
+      "ablation": [
+        {
+          "block": 8,
+          "head": 9,
+          "prev_token_mass": 0.74207
+        },
+        {
+          "block": 10,
+          "head": 9,
+          "prev_token_mass": 0.395659
+        },
+        {
+          "block": 7,
+          "head": 7,
+          "prev_token_mass": 0.374298
+        }
+      ],
+      "control_ablation": [
+        {
+          "block": 8,
+          "head": 5,
+          "prev_token_mass": 0.098203
+        },
+        {
+          "block": 10,
+          "head": 2,
+          "prev_token_mass": 0.019089
+        },
+        {
+          "block": 7,
+          "head": 8,
+          "prev_token_mass": 0.076542
+        }
+      ],
+      "control_selection": "a8_headpatch.pick_heads rule, reused verbatim via a9.pick_heads: same block as each previous-token head, prev-token mass <= that block's median, not a previous-token head, rng seed a8_headpatch.CTRL_SEED; the matching head and the previous-token heads are then excluded explicitly and duplicates collapsed",
+      "control_measures": "control_acc / control_nll: the same zero-ablation of the same number of memory-stream heads, on the same sequences, with unrelated heads substituted for the previous-token heads"
+    }
+  }
+}

@@ -1,0 +1,154 @@
+WROTE /tmp/tmpo1zrpbkr/figs/fig_teaser.pdf
+[roleprobe] P3 Transformer/single max seed range 0.758 nats
+[roleprobe] P3 untrained s_full_attention_20b_fw100_untied/single: ['a20_role_probe_s_full_attention_20b_fw100_untied_init.json', 'a20_role_probe_s_full_attention_20b_fw100_untied_seed2_init.json']
+[roleprobe] P3 SPS/state max seed range 0.844 nats
+[roleprobe] P3 untrained s_sps_w64_20b_fw100_untied/state: ['a20_role_probe_s_sps_w64_20b_fw100_untied_init.json', 'a20_role_probe_s_sps_w64_20b_fw100_untied_seed2_init.json']
+[roleprobe] P3 Two-tower 12+12/state max seed range 0.654 nats
+[roleprobe] P3 untrained s_two_tower_w0_equal_20b/state: ['a20_role_probe_s_two_tower_w0_equal_20b_init.json', 'a20_role_probe_s_two_tower_w0_equal_20b_init_s4321.json']
+[roleprobe] P3 Sequential 12+12/state max seed range 0.657 nats
+[roleprobe] P3 untrained s_two_tower_seq12_20b/state: ['a20_role_probe_s_two_tower_seq12_20b_init.json']
+[roleprobe] P3: bigram floor 5.235791500429612
+[roleprobe] P1 Transformer/single max seed range 0.091 nats
+[roleprobe] P1 untrained s_full_attention_20b_fw100_untied/single: ['a20_role_probe_s_full_attention_20b_fw100_untied_init.json', 'a20_role_probe_s_full_attention_20b_fw100_untied_seed2_init.json']
+[roleprobe] P1 SPS/pred max seed range 0.106 nats
+[roleprobe] P1 untrained s_sps_w64_20b_fw100_untied/pred: ['a20_role_probe_s_sps_w64_20b_fw100_untied_init.json', 'a20_role_probe_s_sps_w64_20b_fw100_untied_seed2_init.json']
+[roleprobe] P1 Two-tower 12+12/pred max seed range 0.087 nats
+[roleprobe] P1 untrained s_two_tower_w0_equal_20b/pred: ['a20_role_probe_s_two_tower_w0_equal_20b_init.json', 'a20_role_probe_s_two_tower_w0_equal_20b_init_s4321.json']
+[roleprobe] P1 Sequential 12+12/pred max seed range 0.061 nats
+[roleprobe] P1 untrained s_two_tower_seq12_20b/pred: ['a20_role_probe_s_two_tower_seq12_20b_init.json']
+[roleprobe] P1: bigram floor 5.241024069780717
+[fig_state_access] seeds (a): {'SPS': 2, 'Two-tower 12+12': 2, 'Sequential 12+12': 2, 'Transformer': 2} (b): {'Transformer': 2, 'SPS': 2, 'Two-tower 12+12': 2, 'Sequential 12+12': 2} (c): {'Transformer': 2, 'SPS': 2, 'Two-tower 12+12': 2, 'Sequential 12+12': 2}; untrained (b): (4, 0.10959722348173884) (c): (4, 0.6977529759063739)
+[fig_state_access] layout check: OK, all text inside canvas, no panel overlap
+WROTE /tmp/tmpo1zrpbkr/figs/fig_state_access.pdf
+[fig_read_depth] (a) floors seed range per m [11, 9, 7, 5, 3, 1]: [0.043, 0.0666, 0.0761, 0.0653, 0.0128, 0.083]
+[fig_read_depth] (a) caps seed range per m [2, 4, 6, 8, 10]: [0.0936, 0.1011, 0.0659, 0.0189, 0.0065]
+[lesion] s_two_tower_w0_equal_20b state block deltas (mean): [4.586, 1.39, 0.165, 0.148, 0.141, 0.188, 0.173, 0.35, 0.092, 0.07, 0.066, 0.073]
+[lesion] s_two_tower_w0_equal_20b pred block deltas (mean): [0.452, 0.047, 0.03, 0.038, 0.055, 0.074, 0.126, 0.119, 0.127, 0.176, 0.219, 0.803]
+[lesion] s_two_tower_w0_equal_20b state per-seed block deltas at layer 12: [0.0777, 0.0692]
+[lesion] s_two_tower_w0_equal_20b pred per-seed block deltas at layer 12: [0.7708, 0.8345]
+[lesion] s_sps_w64_20b_fw100_untied state block deltas (mean): [3.317, 0.06, 0.064, 0.045, 0.041, 0.047, 0.028, 0.024, 0.021, 0.022, 0.025, 0.0]
+[lesion] s_sps_w64_20b_fw100_untied pred block deltas (mean): [4.372, 0.155, 0.118, 0.113, 0.151, 0.134, 0.122, 0.156, 0.204, 0.245, 0.333, 0.792]
+[lesion] s_sps_w64_20b_fw100_untied state per-seed block deltas at layer 12: [nan, nan]
+[lesion] s_sps_w64_20b_fw100_untied pred per-seed block deltas at layer 12: [0.7979, 0.7855]
+[lesion] exact-zero blocks for s_sps_w64_20b_fw100_untied: {'state': [12]}
+[lesion] s_two_tower_seq12_20b state block deltas (mean): [3.854, 0.214, 0.108, 0.068, 0.068, 0.051, 0.068, 0.075, 0.089, 0.119, 0.218, 1.407]
+[lesion] s_two_tower_seq12_20b pred block deltas (mean): [0.756, 0.205, 0.076, 0.079, 0.08, 0.097, 0.114, 0.126, 0.114, 0.112, 0.187, 0.43]
+[lesion] s_two_tower_seq12_20b state per-seed block deltas at layer 12: [2.2554, 0.5594]
+[lesion] s_two_tower_seq12_20b pred per-seed block deltas at layer 12: [0.4373, 0.4233]
+[fig_read_depth] seeds: (a) 2, (b) 2, (c) 2, (d) 2; SPS arm s_sps_w64_20b_fw100_untied
+[fig_read_depth] layout check: OK, all text inside canvas, no panel overlap
+WROTE /tmp/tmpo1zrpbkr/figs/fig_read_depth.pdf
+[roleprobe] P1 Transformer/single max seed range 0.091 nats
+[roleprobe] P1 untrained s_full_attention_20b_fw100_untied/single: ['a20_role_probe_s_full_attention_20b_fw100_untied_init.json', 'a20_role_probe_s_full_attention_20b_fw100_untied_seed2_init.json']
+[roleprobe] P1 SPS/pred max seed range 0.106 nats
+[roleprobe] P1 untrained s_sps_w64_20b_fw100_untied/pred: ['a20_role_probe_s_sps_w64_20b_fw100_untied_init.json', 'a20_role_probe_s_sps_w64_20b_fw100_untied_seed2_init.json']
+[roleprobe] P1 Two-tower 12+12/pred max seed range 0.087 nats
+[roleprobe] P1 untrained s_two_tower_w0_equal_20b/pred: ['a20_role_probe_s_two_tower_w0_equal_20b_init.json', 'a20_role_probe_s_two_tower_w0_equal_20b_init_s4321.json']
+[roleprobe] P1 Sequential 12+12/pred max seed range 0.061 nats
+[roleprobe] P1 untrained s_two_tower_seq12_20b/pred: ['a20_role_probe_s_two_tower_seq12_20b_init.json']
+[roleprobe] P1: bigram floor 5.241024069780717
+[lesion] s_two_tower_seq12_20b state block deltas (mean): [3.854, 0.214, 0.108, 0.068, 0.068, 0.051, 0.068, 0.075, 0.089, 0.119, 0.218, 1.407]
+[lesion] s_two_tower_seq12_20b pred block deltas (mean): [0.756, 0.205, 0.076, 0.079, 0.08, 0.097, 0.114, 0.126, 0.114, 0.112, 0.187, 0.43]
+[lesion] s_two_tower_seq12_20b state per-seed block deltas at layer 12: [2.2554, 0.5594]
+[lesion] s_two_tower_seq12_20b pred per-seed block deltas at layer 12: [0.4373, 0.4233]
+[fig_gain_diag] seeds (a): {'Transformer': 2, 'SPS': 2, 'Two-tower 12+12': 2, 'Sequential 12+12': 2} (b): 2; untrained (a): (4, 0.6977529759063739)
+[fig_gain_diag] layout check: OK, all text inside canvas, no panel overlap
+WROTE /tmp/tmpo1zrpbkr/figs/fig_gain_diag.pdf
+[fig_frontier (d)] Transformer (ref): 2 seed(s), 8 pts, final 2.8649 at 24839 PFLOPs
+[fig_frontier (d)] SPS (ref): 2 seed(s), 9 pts, final 2.7966 at 45333 PFLOPs
+[fig_frontier (d)] Two-tower 12+12 (12+12): 2 seed(s), 21 pts, final 2.7327 at 45046 PFLOPs
+[fig_frontier (d)] Sequential 12+12 (12+12): 2 seed(s), 21 pts, final 2.7016 at 45046 PFLOPs
+[fig_frontier (d)] Two-tower 6+6 (6+6): 2 seed(s), 21 pts, final 2.8381 at 24839 PFLOPs
+[fig_frontier (d)] Sequential 6+6 (6+6): 2 seed(s), 21 pts, final 2.8014 at 24839 PFLOPs
+[fig_frontier] (a): {'Sequential 12+12': (2.8813, [2.8796, 2.8831], 'interpolated'), 'Two-tower 12+12': (2.9101, [2.9088, 2.9114], 'interpolated'), 'Sequential 6+6': (2.9216, [2.9241, 2.919], 'checkpoint'), 'Two-tower 6+6': (2.957, [2.9581, 2.956], 'checkpoint'), 'SPS': (2.9598, [2.9614, 2.9583], 'interpolated'), 'Transformer': (2.9882, [2.9873, 2.989], 'checkpoint')}
+[fig_frontier] (b): {'Sequential 6+6': (2.8014, [2.803, 2.7998], 'checkpoint'), 'Two-tower 6+6': (2.8381, [2.8381, 2.838], 'checkpoint'), 'Transformer': (2.8649, [2.8621, 2.8677], 'checkpoint')}
+[fig_frontier] (c): {'Sequential 12+12': (2.7016, [2.7019, 2.7014], 'checkpoint'), 'Two-tower 12+12': (2.7327, [2.7321, 2.7333], 'checkpoint'), 'SPS': (2.7966, [2.798, 2.7953], 'checkpoint')}
+[fig_frontier] layout check: OK, all text inside canvas, no panel overlap
+[fig_frontier] a = 22355.5 PFLOPs (Transformer 18B pre-decay), b = 24839.2, c = 45141.9 (mean end of ['SPS', 'Two-tower 12+12', 'Sequential 12+12']: [45333, 45046, 45046]); Transformer-cost / SPS-cost = 0.548; Sequential 6+6 - SPS = +0.0048
+WROTE /tmp/tmpo1zrpbkr/figs/fig_frontier.pdf
+[fig_frontier_full] Transformer (ref): 2 seed(s), 8 pts, final 2.8649 at 24839 PFLOPs
+[fig_frontier_full] SPS (ref): 2 seed(s), 9 pts, final 2.7966 at 45333 PFLOPs
+[fig_frontier_full] Two-tower 12+12 (12+12): 2 seed(s), 21 pts, final 2.7327 at 45046 PFLOPs
+[fig_frontier_full] Sequential 12+12 (12+12): 2 seed(s), 21 pts, final 2.7016 at 45046 PFLOPs
+[fig_frontier_full] Two-tower 6+6 (6+6): 2 seed(s), 21 pts, final 2.8381 at 24839 PFLOPs
+[fig_frontier_full] Sequential 6+6 (6+6): 2 seed(s), 21 pts, final 2.8014 at 24839 PFLOPs
+[fig_frontier_full] layout check: OK, all text inside canvas, no panel overlap
+WROTE /tmp/tmpo1zrpbkr/figs/fig_frontier_full.pdf
+[app_ctrl_dist] Transformer                      prev=0.0937 k: {'random_any-n100': 2, 'random_any-n100-exL1': 2, 'pattern_matched-n100-k5': 0, 'pattern_matched-n100-k5-exL1': 0} (drawn)
+[app_ctrl_dist] SPS                              prev=0.0371 k: {'random_any-n100': 9, 'random_any-n100-exL1': 2, 'pattern_matched-n100-k5': 28, 'pattern_matched-n100-k5-exL1': 0} (drawn)
+[app_ctrl_dist] Two-tower 12+12                  prev=0.0362 k: {'random_any-n100': 4, 'random_any-n100-exL1': 4, 'pattern_matched-n100-k5': 0, 'pattern_matched-n100-k5-exL1': 0} (drawn)
+[app_ctrl_dist] Sequential 12+12                 prev=0.0624 k: {'random_any-n100': 3, 'random_any-n100-exL1': 1, 'pattern_matched-n100-k5': 0, 'pattern_matched-n100-k5-exL1': 0} (drawn)
+[app_ctrl_dist] Two-tower 6+6                    prev=0.0782 k: {'random_any-n100': 19, 'random_any-n100-exL1': 0, 'pattern_matched-n100-k5': 65, 'pattern_matched-n100-k5-exL1': 0} (drawn)
+[app_ctrl_dist] Sequential 6+6                   prev=0.0991 k: {'random_any-n100': 0, 'random_any-n100-exL1': 0, 'pattern_matched-n100-k5': 43, 'pattern_matched-n100-k5-exL1': 0} (drawn)
+[app_ctrl_dist] SPS, seed 2                      prev=0.0486 k: {'random_any-n100': 7, 'random_any-n100-exL1': 2, 'pattern_matched-n100-k5': 19, 'pattern_matched-n100-k5-exL1': 19} (table only)
+[app_ctrl_dist] SPS, seed 3                      prev=0.1043 k: {'random_any-n100': 0, 'random_any-n100-exL1': 0, 'pattern_matched-n100-k5': 0, 'pattern_matched-n100-k5-exL1': 0} (table only)
+[app_ctrl_dist] Two-tower 12+12, seed 2          prev=0.0491 k: {'random_any-n100': 0, 'random_any-n100-exL1': 0, 'pattern_matched-n100-k5': 0, 'pattern_matched-n100-k5-exL1': 0} (table only)
+[app_ctrl_dist] Sequential 12+12, seed 2         prev=0.0527 k: {'random_any-n100': 0, 'random_any-n100-exL1': 0, 'pattern_matched-n100-k5': 0, 'pattern_matched-n100-k5-exL1': 0} (table only)
+[app_ctrl_dist] Sequential 6+6, seed 2           prev=0.0565 k: {'random_any-n100': 7, 'random_any-n100-exL1': 7, 'pattern_matched-n100-k5': 38, 'pattern_matched-n100-k5-exL1': 0} (table only)
+[app_ctrl_dist] layout check: OK, all text inside canvas, no panel overlap
+WROTE /tmp/tmpo1zrpbkr/figs/app_ctrl_dist.pdf
+  app_gradcos s_two_tower_w0_equal_tiedattn_20b: seeds ['s_two_tower_w0_equal_tiedattn_20b'], init ['s_two_tower_w0_equal_tiedattn_20b_init']
+  app_gradcos s_two_tower_afsps_faithful_20b: seeds ['s_two_tower_afsps_faithful_20b'], init ['s_two_tower_afsps_faithful_20b_init']
+  app_gradcos s_sps_w64_20b_fw100: seeds ['s_sps_w64_20b_fw100_seed2', 's_sps_w64_20b_fw100_seed3'], init ['s_sps_w64_20b_fw100_seed2_init', 's_sps_w64_20b_fw100_seed3_init_s4321']
+  app_gradcos s_two_tower_w0_shared_20b: seeds ['s_two_tower_w0_shared_20b'], init ['s_two_tower_w0_shared_20b_init']
+  app_gradcos s_two_tower_seq12_tied_20b: seeds ['s_two_tower_seq12_tied_20b', 's_two_tower_seq12_tied_20b_seed2'], init ['s_two_tower_seq12_tied_20b_init', 's_two_tower_seq12_tied_20b_seed2_init']
+  app_gradcos s_two_tower_w0_equal_tiedattn_20b: 12 layers, [4] points/layer (weight matrices only); frac cos<0 trained 0.29 vs init 0.56
+  app_gradcos caption (Two-tower 12+12 (shared attn. only), n=48 paired matrices): mean cos trained 0.0795 [0.0425, 0.1159] vs init -0.0028 [-0.0101, 0.0048]; frac(cos>0) trained 0.71 vs init 0.44; paired Wilcoxon W=202.0 p=3.39e-05
+  app_gradcos s_two_tower_afsps_faithful_20b: restricted to the trained/init tensor-name intersection (69 tensors)
+  app_gradcos s_two_tower_afsps_faithful_20b: 12 layers, [2, 6] points/layer (weight matrices only); frac cos<0 trained 0.16 vs init 0.18
+  app_gradcos caption (AF-SPS, n=68 paired matrices): mean cos trained 0.1552 [0.0936, 0.2091] vs init 0.0624 [-0.0117, 0.1307]; frac(cos>0) trained 0.84 vs init 0.82; paired Wilcoxon W=623.0 p=7.77e-04
+  app_gradcos s_sps_w64_20b_fw100: 11 layers, [14] points/layer (weight matrices only); frac cos<0 trained 0.12 vs init 0.13
+  app_gradcos caption (SPS, tied head, n=154 paired matrices): mean cos trained 0.1514 [0.1271, 0.1765] vs init 0.0402 [0.0324, 0.0483]; frac(cos>0) trained 0.88 vs init 0.87; paired Wilcoxon W=1436.0 p=2.98e-16
+  app_gradcos s_two_tower_w0_shared_20b: 11 layers, [5] points/layer (weight matrices only); frac cos<0 trained 0.38 vs init 0.69
+  app_gradcos caption (Shared Two-tower 12+12, n=55 paired matrices): mean cos trained 0.0302 [0.0029, 0.0602] vs init -0.0044 [-0.0096, 0.0003]; frac(cos>0) trained 0.62 vs init 0.31; paired Wilcoxon W=510.0 p=2.94e-02
+  app_gradcos s_two_tower_seq12_tied_20b: 12 layers, [10] points/layer (weight matrices only); frac cos<0 trained 0.54 vs init 0.58
+  app_gradcos caption (Shared Sequential 12+12, n=120 paired matrices): mean cos trained -0.0009 [-0.0028, 0.0007] vs init -0.0003 [-0.0006, 0.0001]; frac(cos>0) trained 0.46 vs init 0.42; paired Wilcoxon W=3574.0 p=8.83e-01
+  app_gradcos (ladder, not drawn) tiedattn: B=[np.float64(1.0), np.float64(2.0), np.float64(3.0), np.float64(4.0), np.float64(6.0), np.float64(8.0), np.float64(12.0), np.float64(16.0), np.float64(20.0)] frac_neg=[0.477, 0.5, 0.341, 0.455, 0.386, 0.227, 0.364, 0.25, 0.227] p10=[-0.136, -0.131, -0.108, -0.194, -0.08, -0.013, -0.098, -0.022, -0.008]
+  app_gradcos (ladder, not drawn) afsps: B=[np.float64(1.0), np.float64(2.0), np.float64(3.0), np.float64(4.0), np.float64(6.0), np.float64(8.0), np.float64(12.0), np.float64(16.0), np.float64(20.0)] frac_neg=[0.09, 0.079, 0.101, 0.09, 0.112, 0.112, 0.124, 0.124, 0.169] p10=[0.015, 0.051, 0.008, 0.055, -0.004, -0.023, -0.024, -0.014, -0.161]
+  app_gradcos (not drawn, caption only) s_sps_w64_20b_fw100_untied: seeds ['s_sps_w64_20b_fw100_untied']
+  app_gradcos caption (s_sps_w64_20b_fw100_untied, n=77 paired matrices): mean cos trained 0.1643 [0.1325, 0.1986] vs init 0.0360 [0.0254, 0.0465]; frac(cos>0) trained 0.94 vs init 0.87; paired Wilcoxon W=151.0 p=7.03e-12
+[app_gradcos] layout check: OK, all text inside canvas, no panel overlap
+WROTE /tmp/tmpo1zrpbkr/figs/app_gradcos.pdf
+[app_depth_split] Sequential 3+9: ['s_two_tower_seq3p9_20b']
+[app_depth_split] Sequential 6+6 (untied head, own table): ['s_two_tower_seq6_20b', 's_two_tower_seq6_20b_seed2']
+[app_depth_split] Sequential 9+3: ['s_two_tower_seq9p3_20b']
+[app_depth_split] Sequential 3+9 state attn: [3.5141, 0.5263, 1.1218]
+[app_depth_split] Sequential 6+6 (untied head, own table) state attn: [5.1321, 0.3005, 0.2121, 0.2791, 0.2181, 0.1667]
+[app_depth_split] Sequential 9+3 state attn: [5.0238, 0.1047, 0.1638, 0.1269, 0.14, 0.1077, 0.1827, 0.0934, 0.0958]
+[app_depth_split] Sequential 3+9 state mlp: [1.4553, 0.433, 0.3052]
+[app_depth_split] Sequential 6+6 (untied head, own table) state mlp: [0.8245, 0.1334, 0.1497, 0.169, 0.1427, 0.3413]
+[app_depth_split] Sequential 9+3 state mlp: [0.7144, 0.0846, 0.1019, 0.1079, 0.0875, 0.1125, 0.1036, 0.1187, 0.2382]
+[app_depth_split] Sequential 3+9 pred mlp: [1.0053, 0.086, 0.0747, 0.0842, 0.0959, 0.1347, 0.1184, 0.1615, 0.432]
+[app_depth_split] Sequential 6+6 (untied head, own table) pred mlp: [1.7421, 0.1096, 0.1198, 0.1556, 0.193, 0.4834]
+[app_depth_split] Sequential 9+3 pred mlp: [2.7097, 0.3063, 0.6773]
+[app_depth_split] (not drawn) Sequential 3+9 pred attn: [0.5785, 0.1791, 0.1176, 0.0763, 0.0583, 0.0919, 0.1456, 0.0567, 0.0687]
+[app_depth_split] (not drawn) Sequential 6+6 (untied head, own table) pred attn: [0.6666, 0.3995, 0.1482, 0.1057, 0.1386, 0.1661]
+[app_depth_split] (not drawn) Sequential 9+3 pred attn: [0.9888, 1.478, 0.4633]
+WROTE /tmp/tmpo1zrpbkr/figs/app_depth_split.pdf
+WROTE /tmp/tmpo1zrpbkr/tables/tab_model_definitions.tex
+WROTE /tmp/tmpo1zrpbkr/tables/tab_2x2.tex
+[tab_circuit] Transformer (s_full_attention_20b_fw100_untied): seeds used = ['s_full_attention_20b_fw100_untied', 's_full_attention_20b_fw100_untied_seed2']
+[tab_circuit] Two-tower 12+12 (s_two_tower_w0_equal_20b): seeds used = ['s_two_tower_w0_equal_20b', 's_two_tower_w0_equal_20b_seed2']
+[tab_circuit] Sequential 12+12 (s_two_tower_seq12_20b): seeds used = ['s_two_tower_seq12_20b', 's_two_tower_seq12_20b_seed2']
+[tab_circuit] Two-tower 6+6 (s_two_tower_w0_equal6_20b): seeds used = ['s_two_tower_w0_equal6_20b', 's_two_tower_w0_equal6_20b_seed2']
+[tab_circuit] Sequential 6+6 (s_two_tower_seq6_20b): seeds used = ['s_two_tower_seq6_20b', 's_two_tower_seq6_20b_seed2']
+[tab_circuit] SPS (s_sps_w64_20b_fw100_untied): seeds used = ['s_sps_w64_20b_fw100_untied', 's_sps_w64_20b_fw100_untied_seed2']
+[tab_circuit] exL1 exception s_two_tower_w0_equal6_20b_seed2 random_any_exL1: p=0.069 drivers={(4, 11)}
+[tab_circuit] exL1 exception s_two_tower_seq6_20b_seed2 random_any_exL1: p=0.079 drivers={(4, 4)}
+WROTE /tmp/tmpo1zrpbkr/tables/tab_circuit.tex
+WROTE /tmp/tmpo1zrpbkr/tables/tab_token_gain.tex
+WROTE /tmp/tmpo1zrpbkr/tables/tab_roster_full.tex
+WROTE /tmp/tmpo1zrpbkr/tables/tab_circuit_full.tex
+WROTE /tmp/tmpo1zrpbkr/tables/tab_control_counts.tex
+WROTE /tmp/tmpo1zrpbkr/tables/tab_patching.tex
+WARNING: a13_read_depth_cap_s_two_tower_seq12_tied_20b.json: read_source=state_kv -> read-depth sweep invalid (untrained K/V source); not drawn
+WARNING: a13_read_depth_cap_s_two_tower_seq12_tied_20b.json: read_source=state_kv -> read-depth sweep invalid (untrained K/V source); not drawn
+WARNING: a13_read_depth_cap_s_two_tower_seq12_tied_20b.json: read_source=state_kv -> read-depth sweep invalid (untrained K/V source); not drawn
+WROTE /tmp/tmpo1zrpbkr/tables/tab_readdepth_full.tex
+WROTE /tmp/tmpo1zrpbkr/tables/tab_probe_floors.tex
+[lesion_mean] no zero-vs-mean profiles for s_full_attention_20b_fw100_untied; skipped
+WROTE /tmp/tmpo1zrpbkr/tables/tab_lesion_mean.tex
+WROTE /tmp/tmpo1zrpbkr/tables/tab_finalread.tex
+WROTE /tmp/tmpo1zrpbkr/tables/tab_efficiency.tex
+WROTE /tmp/tmpo1zrpbkr/tables/numbers.tex
+config facts agree with the manifest for every arm checked

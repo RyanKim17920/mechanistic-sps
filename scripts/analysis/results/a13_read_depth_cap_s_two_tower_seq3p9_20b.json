@@ -1,0 +1,123 @@
+{
+  "analysis": "a13_read_depth_cap",
+  "run": "s_two_tower_seq3p9_20b",
+  "model_id": "s_two_tower_seq3p9_20b",
+  "label": "s_two_tower_seq3p9_20b",
+  "family": "two_tower",
+  "checkpoint": "${DATA_ROOT}/out/s_two_tower_seq3p9_20b/ckpt_tokens_20000145408_final.pt",
+  "geometry": {
+    "state_n_layer": 3,
+    "pred_n_layer": 9,
+    "state_hidden": 768,
+    "pred_hidden": 768,
+    "state_intermediate": 2304,
+    "pred_intermediate": 2304,
+    "read_map": "final",
+    "read_source": "pred_proj",
+    "native_read_levels": [
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3
+    ],
+    "pred_window": 0,
+    "max_available_level": 3
+  },
+  "scoring": {
+    "kind": "sub-sweep",
+    "n_seq": 512,
+    "n_tokens": 2094978,
+    "val_bin": "${DATA_ROOT}/data/fineweb-edu-100bt/val.bin",
+    "paired_floor": 0.0005,
+    "seed_floor": 0.00219,
+    "full_sweep_tokens": 13085928,
+    "sub_sweep_offset": 0.005848
+  },
+  "native_sub_sweep_nll": 2.818813,
+  "baseline_flops_per_token": 413984256.0,
+  "caps": {
+    "1": {
+      "K": 1,
+      "read_levels": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "val_nll": 4.084124,
+      "delta": 1.26531,
+      "seconds": 3.9
+    },
+    "2": {
+      "K": 2,
+      "read_levels": [
+        1,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "val_nll": 3.434561,
+      "delta": 0.615747,
+      "seconds": 4.1
+    },
+    "3": {
+      "K": 3,
+      "read_levels": [
+        1,
+        2,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "val_nll": 2.966087,
+      "delta": 0.147274,
+      "seconds": 3.9
+    }
+  },
+  "floors": {},
+  "native_full_sweep_nll": 2.812965,
+  "identity_gate_passed": null,
+  "identity_gate_note": "native map is [3, 3, 3, 3, 3, 3, 3, 3, 3], not min(i+1, 3); the identity gate does not apply to this read_map",
+  "proposal": {
+    "flat_tol": 0.01,
+    "flat_caps": [],
+    "proposal_not_measured": true,
+    "note": "An eval-time cap on a model trained uncapped is a LESION. A flat cap curve motivates training an L_s=K / L_p=12 two-tower; it is not that model's measured NLL. Such a model also needs a read_map that CAPS (f(i)=min(i+1,K)) rather than COMPRESSES (the existing 'scaled', f(i)=floor((i+1)L_s/L_p)) -- a one-line addition to src/modeling/models/two_tower/core.py:read_level, not made here.",
+    "flops_by_state_depth": {
+      "1": {
+        "flops_per_token": 357852672.0,
+        "saving_pct": 13.559,
+        "cap_delta": 1.26531
+      },
+      "2": {
+        "flops_per_token": 385918464.0,
+        "saving_pct": 6.779,
+        "cap_delta": 0.615747
+      },
+      "3": {
+        "flops_per_token": 413984256.0,
+        "saving_pct": 0.0,
+        "cap_delta": 0.147274
+      }
+    }
+  }
+}

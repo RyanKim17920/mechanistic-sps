@@ -1,0 +1,8 @@
+{
+  "analysis": "a10_pathtrace",
+  "run": "s_sps_w64_20b_fw100_seed2",
+  "model_id": "M1",
+  "family": "sps",
+  "skipped": true,
+  "reason": "the linear key decomposition needs the readout's key projection to be a separate map over a memory residual; in the weight-shared joint families the same projection produces both streams' keys from one interleaved residual, so a per-memory-head decomposition of the readout key is not defined"
+}

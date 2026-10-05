@@ -1,0 +1,6 @@
+# gpt2 plus the SPS <predict> slot id (the first id past the tokenizer's vocabulary).
+defaults:
+  - gpt2
+  - _self_
+
+predict_token_id: 50257

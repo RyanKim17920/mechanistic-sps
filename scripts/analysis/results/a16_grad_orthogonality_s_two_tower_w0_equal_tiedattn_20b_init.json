@@ -1,0 +1,1846 @@
+{
+  "analysis": "a16_grad_orthogonality",
+  "run": "s_two_tower_w0_equal_tiedattn_20b",
+  "checkpoint": "untrained-init(seed=1234)",
+  "untrained": true,
+  "untied_reference": false,
+  "n_seq": 3198,
+  "micro_batch": 4,
+  "n_micro_batches": 800,
+  "tokens": 13099008,
+  "config": {
+    "tie_attn_across_towers": true,
+    "share_ffn_across_towers": false,
+    "tie_lm_head": false,
+    "read_map": "post"
+  },
+  "loss_by_mode": {
+    "total": 10.973174667358398,
+    "state": 10.973174667358398,
+    "pred": 10.973174667358398
+  },
+  "loss_max_spread": 0.0,
+  "loss_mean": 10.973174667358398,
+  "gate": {
+    "applicable": true,
+    "max_rel_err": 0.00017902234051907367,
+    "max_repro_rel_err": 0.0,
+    "max_estimator_spread": 2.7129679824274e-05,
+    "tol": 0.001,
+    "cos_tol": 0.02,
+    "criterion": "repro floor == 0 AND the three cosine estimators (split / total-minus-pred / total-minus-state) agree within cos_tol",
+    "passed": true,
+    "per_tensor": [
+      {
+        "name": "state_h.0.c_attn[q]",
+        "kind": "attn_q",
+        "rel_err": 1.5122512513438843e-11,
+        "repro_rel_err": 0.0,
+        "norm_total": 23.837469037928265
+      },
+      {
+        "name": "state_h.0.c_attn[k]",
+        "kind": "attn_k",
+        "rel_err": 1.479997746251934e-11,
+        "repro_rel_err": 0.0,
+        "norm_total": 24.344186281141234
+      },
+      {
+        "name": "state_h.0.c_attn[v]",
+        "kind": "attn_v",
+        "rel_err": 1.3124026372403898e-11,
+        "repro_rel_err": 0.0,
+        "norm_total": 267.05757661012404
+      },
+      {
+        "name": "state_h.0.c_proj",
+        "kind": "attn_out",
+        "rel_err": 0.00017902234051907367,
+        "repro_rel_err": 0.0,
+        "norm_total": 1335.4671287841084
+      },
+      {
+        "name": "state_h.1.c_attn[q]",
+        "kind": "attn_q",
+        "rel_err": 3.056764695190291e-11,
+        "repro_rel_err": 0.0,
+        "norm_total": 2.0024841141533045
+      },
+      {
+        "name": "state_h.1.c_attn[k]",
+        "kind": "attn_k",
+        "rel_err": 3.075801214548979e-11,
+        "repro_rel_err": 0.0,
+        "norm_total": 1.9926888645378145
+      },
+      {
+        "name": "state_h.1.c_attn[v]",
+        "kind": "attn_v",
+        "rel_err": 1.0636857762454767e-11,
+        "repro_rel_err": 0.0,
+        "norm_total": 33.83924549857123
+      },
+      {
+        "name": "state_h.1.c_proj",
+        "kind": "attn_out",
+        "rel_err": 0.0001223617993338914,
+        "repro_rel_err": 0.0,
+        "norm_total": 165.243096700479
+      },
+      {
+        "name": "state_h.2.c_attn[q]",
+        "kind": "attn_q",
+        "rel_err": 3.3775704370295544e-11,
+        "repro_rel_err": 0.0,
+        "norm_total": 1.138322030456103
+      },
+      {
+        "name": "state_h.2.c_attn[k]",
+        "kind": "attn_k",
+        "rel_err": 3.3700895288367915e-11,
+        "repro_rel_err": 0.0,
+        "norm_total": 1.0740132939654754
+      },
+      {
+        "name": "state_h.2.c_attn[v]",
+        "kind": "attn_v",
+        "rel_err": 9.216894641948144e-12,
+        "repro_rel_err": 0.0,
+        "norm_total": 28.529427003632176
+      },
+      {
+        "name": "state_h.2.c_proj",
+        "kind": "attn_out",
+        "rel_err": 9.512899292877337e-05,
+        "repro_rel_err": 0.0,
+        "norm_total": 138.49473080088498
+      },
+      {
+        "name": "state_h.3.c_attn[q]",
+        "kind": "attn_q",
+        "rel_err": 3.500907294368038e-11,
+        "repro_rel_err": 0.0,
+        "norm_total": 0.7853432072594476
+      },
+      {
+        "name": "state_h.3.c_attn[k]",
+        "kind": "attn_k",
+        "rel_err": 3.411058189379523e-11,
+        "repro_rel_err": 0.0,
+        "norm_total": 0.8278154552411016
+      },
+      {
+        "name": "state_h.3.c_attn[v]",
+        "kind": "attn_v",
+        "rel_err": 8.82661885626234e-12,
+        "repro_rel_err": 0.0,
+        "norm_total": 24.91977966099291
+      },
+      {
+        "name": "state_h.3.c_proj",
+        "kind": "attn_out",
+        "rel_err": 8.45586320687997e-05,
+        "repro_rel_err": 0.0,
+        "norm_total": 125.13452642466906
+      },
+      {
+        "name": "state_h.4.c_attn[q]",
+        "kind": "attn_q",
+        "rel_err": 3.879299867406604e-11,
+        "repro_rel_err": 0.0,
+        "norm_total": 0.5705901474744888
+      },
+      {
+        "name": "state_h.4.c_attn[k]",
+        "kind": "attn_k",
+        "rel_err": 3.630563669541247e-11,
+        "repro_rel_err": 0.0,
+        "norm_total": 0.601617417769369
+      },
+      {
+        "name": "state_h.4.c_attn[v]",
+        "kind": "attn_v",
+        "rel_err": 8.275705823119385e-12,
+        "repro_rel_err": 0.0,
+        "norm_total": 23.173606905417422
+      },
+      {
+        "name": "state_h.4.c_proj",
+        "kind": "attn_out",
+        "rel_err": 7.93826890725681e-05,
+        "repro_rel_err": 0.0,
+        "norm_total": 115.72298881342583
+      },
+      {
+        "name": "state_h.5.c_attn[q]",
+        "kind": "attn_q",
+        "rel_err": 3.646172078089864e-11,
+        "repro_rel_err": 0.0,
+        "norm_total": 0.5201433831019999
+      },
+      {
+        "name": "state_h.5.c_attn[k]",
+        "kind": "attn_k",
+        "rel_err": 3.67341303734395e-11,
+        "repro_rel_err": 0.0,
+        "norm_total": 0.5180298686230402
+      },
+      {
+        "name": "state_h.5.c_attn[v]",
+        "kind": "attn_v",
+        "rel_err": 8.62888639457033e-12,
+        "repro_rel_err": 0.0,
+        "norm_total": 23.051524733034256
+      },
+      {
+        "name": "state_h.5.c_proj",
+        "kind": "attn_out",
+        "rel_err": 7.628691274802337e-05,
+        "repro_rel_err": 0.0,
+        "norm_total": 110.11752776470372
+      },
+      {
+        "name": "state_h.6.c_attn[q]",
+        "kind": "attn_q",
+        "rel_err": 3.833720958990215e-11,
+        "repro_rel_err": 0.0,
+        "norm_total": 0.43409134654744197
+      },
+      {
+        "name": "state_h.6.c_attn[k]",
+        "kind": "attn_k",
+        "rel_err": 3.6874521853551425e-11,
+        "repro_rel_err": 0.0,
+        "norm_total": 0.43108661556266525
+      },
+      {
+        "name": "state_h.6.c_attn[v]",
+        "kind": "attn_v",
+        "rel_err": 8.647562658569983e-12,
+        "repro_rel_err": 0.0,
+        "norm_total": 22.43590899971294
+      },
+      {
+        "name": "state_h.6.c_proj",
+        "kind": "attn_out",
+        "rel_err": 7.312439648722269e-05,
+        "repro_rel_err": 0.0,
+        "norm_total": 111.46159748465008
+      },
+      {
+        "name": "state_h.7.c_attn[q]",
+        "kind": "attn_q",
+        "rel_err": 3.816252063997889e-11,
+        "repro_rel_err": 0.0,
+        "norm_total": 0.3956355168966087
+      },
+      {
+        "name": "state_h.7.c_attn[k]",
+        "kind": "attn_k",
+        "rel_err": 3.720188071604443e-11,
+        "repro_rel_err": 0.0,
+        "norm_total": 0.39493188587029426
+      },
+      {
+        "name": "state_h.7.c_attn[v]",
+        "kind": "attn_v",
+        "rel_err": 9.531218826253809e-12,
+        "repro_rel_err": 0.0,
+        "norm_total": 21.833500566996374
+      },
+      {
+        "name": "state_h.7.c_proj",
+        "kind": "attn_out",
+        "rel_err": 7.195555170065634e-05,
+        "repro_rel_err": 0.0,
+        "norm_total": 103.70094775446266
+      },
+      {
+        "name": "state_h.8.c_attn[q]",
+        "kind": "attn_q",
+        "rel_err": 4.102129865053721e-11,
+        "repro_rel_err": 0.0,
+        "norm_total": 0.34343537120447487
+      },
+      {
+        "name": "state_h.8.c_attn[k]",
+        "kind": "attn_k",
+        "rel_err": 3.998817875330598e-11,
+        "repro_rel_err": 0.0,
+        "norm_total": 0.34224208495023467
+      },
+      {
+        "name": "state_h.8.c_attn[v]",
+        "kind": "attn_v",
+        "rel_err": 9.979841410092362e-12,
+        "repro_rel_err": 0.0,
+        "norm_total": 21.13064916462298
+      },
+      {
+        "name": "state_h.8.c_proj",
+        "kind": "attn_out",
+        "rel_err": 7.118870527528065e-05,
+        "repro_rel_err": 0.0,
+        "norm_total": 101.53287849059157
+      },
+      {
+        "name": "state_h.9.c_attn[q]",
+        "kind": "attn_q",
+        "rel_err": 4.3216411964721087e-11,
+        "repro_rel_err": 0.0,
+        "norm_total": 0.32037277889275007
+      },
+      {
+        "name": "state_h.9.c_attn[k]",
+        "kind": "attn_k",
+        "rel_err": 4.2447952139580763e-11,
+        "repro_rel_err": 0.0,
+        "norm_total": 0.3189041344090925
+      },
+      {
+        "name": "state_h.9.c_attn[v]",
+        "kind": "attn_v",
+        "rel_err": 1.013611741988772e-11,
+        "repro_rel_err": 0.0,
+        "norm_total": 19.66690793912797
+      },
+      {
+        "name": "state_h.9.c_proj",
+        "kind": "attn_out",
+        "rel_err": 7.105690979518308e-05,
+        "repro_rel_err": 0.0,
+        "norm_total": 92.75686821250142
+      },
+      {
+        "name": "state_h.10.c_attn[q]",
+        "kind": "attn_q",
+        "rel_err": 4.897507950664052e-11,
+        "repro_rel_err": 0.0,
+        "norm_total": 0.285081691745762
+      },
+      {
+        "name": "state_h.10.c_attn[k]",
+        "kind": "attn_k",
+        "rel_err": 4.405110401520153e-11,
+        "repro_rel_err": 0.0,
+        "norm_total": 0.3146587877358215
+      },
+      {
+        "name": "state_h.10.c_attn[v]",
+        "kind": "attn_v",
+        "rel_err": 1.2345759250766907e-11,
+        "repro_rel_err": 0.0,
+        "norm_total": 19.9250874551282
+      },
+      {
+        "name": "state_h.10.c_proj",
+        "kind": "attn_out",
+        "rel_err": 6.973404542600721e-05,
+        "repro_rel_err": 0.0,
+        "norm_total": 91.30759236240006
+      },
+      {
+        "name": "state_h.11.c_attn[q]",
+        "kind": "attn_q",
+        "rel_err": 5.4955430688018204e-11,
+        "repro_rel_err": 0.0,
+        "norm_total": 0.27929979673944705
+      },
+      {
+        "name": "state_h.11.c_attn[k]",
+        "kind": "attn_k",
+        "rel_err": 5.5713752240391606e-11,
+        "repro_rel_err": 0.0,
+        "norm_total": 0.2663215605429956
+      },
+      {
+        "name": "state_h.11.c_attn[v]",
+        "kind": "attn_v",
+        "rel_err": 1.4716020509575425e-11,
+        "repro_rel_err": 0.0,
+        "norm_total": 19.30424435045401
+      },
+      {
+        "name": "state_h.11.c_proj",
+        "kind": "attn_out",
+        "rel_err": 6.83818284321118e-05,
+        "repro_rel_err": 0.0,
+        "norm_total": 94.10891007307848
+      }
+    ],
+    "estimators": [
+      {
+        "name": "state_h.0.c_attn[q]",
+        "kind": "attn_q",
+        "cos_split": 0.0012953586431150136,
+        "cos_total_minus_pred": 0.0012953586430722631,
+        "cos_total_minus_state": 0.001295358643090494,
+        "spread": 4.2750525341972434e-14
+      },
+      {
+        "name": "state_h.0.c_attn[k]",
+        "kind": "attn_k",
+        "cos_split": 0.005586046516224864,
+        "cos_total_minus_pred": 0.00558604651622423,
+        "cos_total_minus_state": 0.005586046516249696,
+        "spread": 2.5465740627339528e-14
+      },
+      {
+        "name": "state_h.0.c_attn[v]",
+        "kind": "attn_v",
+        "cos_split": 0.0025196677926416547,
+        "cos_total_minus_pred": 0.002519667792666949,
+        "cos_total_minus_state": 0.0025196677926189103,
+        "spread": 4.803882985848773e-14
+      },
+      {
+        "name": "state_h.0.c_proj",
+        "kind": "attn_out",
+        "cos_split": 0.005676165398141947,
+        "cos_total_minus_pred": 0.0056716676218016475,
+        "cos_total_minus_state": 0.005671704832400079,
+        "spread": 4.497776340299346e-06
+      },
+      {
+        "name": "state_h.1.c_attn[q]",
+        "kind": "attn_q",
+        "cos_split": -0.008905367644744883,
+        "cos_total_minus_pred": -0.008905367644960404,
+        "cos_total_minus_state": -0.008905367644724927,
+        "spread": 2.3547656879951973e-13
+      },
+      {
+        "name": "state_h.1.c_attn[k]",
+        "kind": "attn_k",
+        "cos_split": -0.0027028568960862295,
+        "cos_total_minus_pred": -0.002702856896063548,
+        "cos_total_minus_state": -0.00270285689603562,
+        "spread": 5.060969004988536e-14
+      },
+      {
+        "name": "state_h.1.c_attn[v]",
+        "kind": "attn_v",
+        "cos_split": -0.003271041873373286,
+        "cos_total_minus_pred": -0.0032710418734513643,
+        "cos_total_minus_state": -0.0032710418733782245,
+        "spread": 7.807816893024011e-14
+      },
+      {
+        "name": "state_h.1.c_proj",
+        "kind": "attn_out",
+        "cos_split": -0.03280039072962937,
+        "cos_total_minus_pred": -0.03280933268456048,
+        "cos_total_minus_state": -0.03280273290775604,
+        "spread": 8.941954931111773e-06
+      },
+      {
+        "name": "state_h.2.c_attn[q]",
+        "kind": "attn_q",
+        "cos_split": -5.281534171310098e-05,
+        "cos_total_minus_pred": -5.2815341722769264e-05,
+        "cos_total_minus_state": -5.2815341686865727e-05,
+        "spread": 3.5903537900974086e-14
+      },
+      {
+        "name": "state_h.2.c_attn[k]",
+        "kind": "attn_k",
+        "cos_split": 0.00225348975216616,
+        "cos_total_minus_pred": 0.0022534897519754763,
+        "cos_total_minus_state": 0.0022534897522308354,
+        "spread": 2.553591019194279e-13
+      },
+      {
+        "name": "state_h.2.c_attn[v]",
+        "kind": "attn_v",
+        "cos_split": -0.039469246721751,
+        "cos_total_minus_pred": -0.03946924672182377,
+        "cos_total_minus_state": -0.039469246721749854,
+        "spread": 7.39130978644198e-14
+      },
+      {
+        "name": "state_h.2.c_proj",
+        "kind": "attn_out",
+        "cos_split": -0.011829352105740985,
+        "cos_total_minus_pred": -0.011840171762212826,
+        "cos_total_minus_state": -0.011831127306525108,
+        "spread": 1.0819656471840883e-05
+      },
+      {
+        "name": "state_h.3.c_attn[q]",
+        "kind": "attn_q",
+        "cos_split": -0.003083925965202295,
+        "cos_total_minus_pred": -0.0030839259654875284,
+        "cos_total_minus_state": -0.0030839259651523165,
+        "spread": 3.352118929655923e-13
+      },
+      {
+        "name": "state_h.3.c_attn[k]",
+        "kind": "attn_k",
+        "cos_split": -0.036752894865539586,
+        "cos_total_minus_pred": -0.03675289486519146,
+        "cos_total_minus_state": -0.03675289486556582,
+        "spread": 3.743602650096989e-13
+      },
+      {
+        "name": "state_h.3.c_attn[v]",
+        "kind": "attn_v",
+        "cos_split": -0.07460337091130721,
+        "cos_total_minus_pred": -0.07460337091129597,
+        "cos_total_minus_state": -0.0746033709113051,
+        "spread": 1.124100812432971e-14
+      },
+      {
+        "name": "state_h.3.c_proj",
+        "kind": "attn_out",
+        "cos_split": -0.025096640929038048,
+        "cos_total_minus_pred": -0.025107399321052278,
+        "cos_total_minus_state": -0.025097752229752333,
+        "spread": 1.0758392014229706e-05
+      },
+      {
+        "name": "state_h.4.c_attn[q]",
+        "kind": "attn_q",
+        "cos_split": 0.008660438649428977,
+        "cos_total_minus_pred": 0.008660438649729188,
+        "cos_total_minus_state": 0.008660438649517117,
+        "spread": 3.0021124475254624e-13
+      },
+      {
+        "name": "state_h.4.c_attn[k]",
+        "kind": "attn_k",
+        "cos_split": -0.037545161815348796,
+        "cos_total_minus_pred": -0.037545161815432625,
+        "cos_total_minus_state": -0.037545161815335966,
+        "spread": 9.665879208142769e-14
+      },
+      {
+        "name": "state_h.4.c_attn[v]",
+        "kind": "attn_v",
+        "cos_split": -0.019956464639707787,
+        "cos_total_minus_pred": -0.01995646463976125,
+        "cos_total_minus_state": -0.01995646463970725,
+        "spread": 5.4001941807158005e-14
+      },
+      {
+        "name": "state_h.4.c_proj",
+        "kind": "attn_out",
+        "cos_split": -0.014987924181276058,
+        "cos_total_minus_pred": -0.015000177777753027,
+        "cos_total_minus_state": -0.014988970500445698,
+        "spread": 1.2253596476968776e-05
+      },
+      {
+        "name": "state_h.5.c_attn[q]",
+        "kind": "attn_q",
+        "cos_split": 0.006122800335684252,
+        "cos_total_minus_pred": 0.006122800335703674,
+        "cos_total_minus_state": 0.006122800335771264,
+        "spread": 8.701199483152067e-14
+      },
+      {
+        "name": "state_h.5.c_attn[k]",
+        "kind": "attn_k",
+        "cos_split": 0.020929625702550338,
+        "cos_total_minus_pred": 0.02092962570258855,
+        "cos_total_minus_state": 0.02092962570251616,
+        "spread": 7.239001065251216e-14
+      },
+      {
+        "name": "state_h.5.c_attn[v]",
+        "kind": "attn_v",
+        "cos_split": 0.0828460030191914,
+        "cos_total_minus_pred": 0.08284600301923463,
+        "cos_total_minus_state": 0.08284600301918867,
+        "spread": 4.596323321948148e-14
+      },
+      {
+        "name": "state_h.5.c_proj",
+        "kind": "attn_out",
+        "cos_split": 0.02191017334441559,
+        "cos_total_minus_pred": 0.021897344807206037,
+        "cos_total_minus_state": 0.021909127152238677,
+        "spread": 1.282853720955407e-05
+      },
+      {
+        "name": "state_h.6.c_attn[q]",
+        "kind": "attn_q",
+        "cos_split": -0.007923485556044845,
+        "cos_total_minus_pred": -0.007923485556012399,
+        "cos_total_minus_state": -0.007923485556124456,
+        "spread": 1.1205793237767381e-13
+      },
+      {
+        "name": "state_h.6.c_attn[k]",
+        "kind": "attn_k",
+        "cos_split": -0.01445753843258027,
+        "cos_total_minus_pred": -0.014457538431592054,
+        "cos_total_minus_state": -0.014457538432517441,
+        "spread": 9.882147183892798e-13
+      },
+      {
+        "name": "state_h.6.c_attn[v]",
+        "kind": "attn_v",
+        "cos_split": 0.017747117476317874,
+        "cos_total_minus_pred": 0.01774711747637778,
+        "cos_total_minus_state": 0.017747117476318318,
+        "spread": 5.990694051938306e-14
+      },
+      {
+        "name": "state_h.6.c_proj",
+        "kind": "attn_out",
+        "cos_split": 0.017801236349995624,
+        "cos_total_minus_pred": 0.017785473236003324,
+        "cos_total_minus_state": 0.017800257877556548,
+        "spread": 1.576311399230021e-05
+      },
+      {
+        "name": "state_h.7.c_attn[q]",
+        "kind": "attn_q",
+        "cos_split": 0.0032225055883844545,
+        "cos_total_minus_pred": 0.003222505588609781,
+        "cos_total_minus_state": 0.0032225055884772804,
+        "spread": 2.2532670174157943e-13
+      },
+      {
+        "name": "state_h.7.c_attn[k]",
+        "kind": "attn_k",
+        "cos_split": -0.0030920497515597753,
+        "cos_total_minus_pred": -0.003092049751580776,
+        "cos_total_minus_state": -0.003092049751655712,
+        "spread": 9.593671343455235e-14
+      },
+      {
+        "name": "state_h.7.c_attn[v]",
+        "kind": "attn_v",
+        "cos_split": 0.004224149481433588,
+        "cos_total_minus_pred": 0.004224149481374253,
+        "cos_total_minus_state": 0.004224149481435767,
+        "spread": 6.151416181987557e-14
+      },
+      {
+        "name": "state_h.7.c_proj",
+        "kind": "attn_out",
+        "cos_split": -0.0029315307709975075,
+        "cos_total_minus_pred": -0.0029467740157243577,
+        "cos_total_minus_state": -0.002931969982833838,
+        "spread": 1.5243244726850184e-05
+      },
+      {
+        "name": "state_h.8.c_attn[q]",
+        "kind": "attn_q",
+        "cos_split": 0.007889922998529806,
+        "cos_total_minus_pred": 0.00788992299961827,
+        "cos_total_minus_state": 0.00788992299851864,
+        "spread": 1.0996308030808422e-12
+      },
+      {
+        "name": "state_h.8.c_attn[k]",
+        "kind": "attn_k",
+        "cos_split": -0.025652960520814134,
+        "cos_total_minus_pred": -0.025652960520683273,
+        "cos_total_minus_state": -0.025652960520770377,
+        "spread": 1.3086060013378642e-13
+      },
+      {
+        "name": "state_h.8.c_attn[v]",
+        "kind": "attn_v",
+        "cos_split": -0.013936863831785905,
+        "cos_total_minus_pred": -0.013936863831384164,
+        "cos_total_minus_state": -0.01393686383179343,
+        "spread": 4.092663707933042e-13
+      },
+      {
+        "name": "state_h.8.c_proj",
+        "kind": "attn_out",
+        "cos_split": 0.008065560705418069,
+        "cos_total_minus_pred": 0.008048594051715046,
+        "cos_total_minus_state": 0.008065071709802904,
+        "spread": 1.6966653703022472e-05
+      },
+      {
+        "name": "state_h.9.c_attn[q]",
+        "kind": "attn_q",
+        "cos_split": -0.0010041406777574133,
+        "cos_total_minus_pred": -0.001004140676746626,
+        "cos_total_minus_state": -0.0010041406777039643,
+        "spread": 1.010787373939559e-12
+      },
+      {
+        "name": "state_h.9.c_attn[k]",
+        "kind": "attn_k",
+        "cos_split": -0.00871199788049372,
+        "cos_total_minus_pred": -0.008711997880630429,
+        "cos_total_minus_state": -0.00871199788050496,
+        "spread": 1.3670835297130424e-13
+      },
+      {
+        "name": "state_h.9.c_attn[v]",
+        "kind": "attn_v",
+        "cos_split": -0.008196442693031162,
+        "cos_total_minus_pred": -0.008196442693285738,
+        "cos_total_minus_state": -0.008196442693025966,
+        "spread": 2.597713710805749e-13
+      },
+      {
+        "name": "state_h.9.c_proj",
+        "kind": "attn_out",
+        "cos_split": 0.0021791743879283265,
+        "cos_total_minus_pred": 0.002158597867374633,
+        "cos_total_minus_state": 0.002178954063144081,
+        "spread": 2.057652055369348e-05
+      },
+      {
+        "name": "state_h.10.c_attn[q]",
+        "kind": "attn_q",
+        "cos_split": -0.0036500573870687737,
+        "cos_total_minus_pred": -0.0036500573883883544,
+        "cos_total_minus_state": -0.0036500573869519995,
+        "spread": 1.4363549412366172e-12
+      },
+      {
+        "name": "state_h.10.c_attn[k]",
+        "kind": "attn_k",
+        "cos_split": -0.036859876339360616,
+        "cos_total_minus_pred": -0.0368598763402495,
+        "cos_total_minus_state": -0.03685987633937429,
+        "spread": 8.888861868783238e-13
+      },
+      {
+        "name": "state_h.10.c_attn[v]",
+        "kind": "attn_v",
+        "cos_split": -0.03383884879964522,
+        "cos_total_minus_pred": -0.03383884880009778,
+        "cos_total_minus_state": -0.03383884879965249,
+        "spread": 4.5255466041282943e-13
+      },
+      {
+        "name": "state_h.10.c_proj",
+        "kind": "attn_out",
+        "cos_split": -0.030070225050121496,
+        "cos_total_minus_pred": -0.030093824428830972,
+        "cos_total_minus_state": -0.03007043111741492,
+        "spread": 2.359937870947612e-05
+      },
+      {
+        "name": "state_h.11.c_attn[q]",
+        "kind": "attn_q",
+        "cos_split": 0.01701227318158478,
+        "cos_total_minus_pred": 0.017012273177069957,
+        "cos_total_minus_state": 0.017012273181673296,
+        "spread": 4.603338543684998e-12
+      },
+      {
+        "name": "state_h.11.c_attn[k]",
+        "kind": "attn_k",
+        "cos_split": 0.02387485380666199,
+        "cos_total_minus_pred": 0.023874853806499435,
+        "cos_total_minus_state": 0.023874853806741977,
+        "spread": 2.4254209751717326e-13
+      },
+      {
+        "name": "state_h.11.c_attn[v]",
+        "kind": "attn_v",
+        "cos_split": 0.0758385688289405,
+        "cos_total_minus_pred": 0.07583856882889342,
+        "cos_total_minus_state": 0.07583856882894965,
+        "spread": 5.623279619726418e-14
+      },
+      {
+        "name": "state_h.11.c_proj",
+        "kind": "attn_out",
+        "cos_split": 0.032164697141071334,
+        "cos_total_minus_pred": 0.03213756746124706,
+        "cos_total_minus_state": 0.03216446542908758,
+        "spread": 2.7129679824274e-05
+      }
+    ]
+  },
+  "tensors": [
+    {
+      "name": "state_h.0.c_attn[q]",
+      "kind": "attn_q",
+      "block": 0,
+      "cos_state_pred": 0.0012953586431150136,
+      "norm_state": 12.713501566020904,
+      "norm_pred": 20.14765998347165,
+      "norm_total": 23.837469037928265,
+      "ratio_pred_over_state": 1.5847451529262293,
+      "stream_exclusive": false,
+      "control_batch_split_state": 0.9716106214950606,
+      "control_batch_split_pred": 0.9789290598401186,
+      "control_batch_split_total": 0.9768641926419004,
+      "control_cross_stream_cross_half": 0.001309612626140659,
+      "cos_total_minus_pred": 0.0012953586430722631,
+      "cos_total_minus_state": 0.001295358643090494,
+      "cos_disattenuated": 0.0013149871409398838
+    },
+    {
+      "name": "state_h.0.c_attn[k]",
+      "kind": "attn_k",
+      "block": 0,
+      "cos_state_pred": 0.005586046516224864,
+      "norm_state": 12.902330504318654,
+      "norm_pred": 20.571920485029725,
+      "norm_total": 24.344186281141234,
+      "ratio_pred_over_state": 1.59443446888482,
+      "stream_exclusive": false,
+      "control_batch_split_state": 0.9715788284424218,
+      "control_batch_split_pred": 0.9794064750122944,
+      "control_batch_split_total": 0.9773184284742124,
+      "control_cross_stream_cross_half": 0.005561436959007359,
+      "cos_total_minus_pred": 0.00558604651622423,
+      "cos_total_minus_state": 0.005586046516249696,
+      "cos_disattenuated": 0.005668553245326297
+    },
+    {
+      "name": "state_h.0.c_attn[v]",
+      "kind": "attn_v",
+      "block": 0,
+      "cos_state_pred": 0.0025196677926416547,
+      "norm_state": 183.17648654971825,
+      "norm_pred": 193.8740859403715,
+      "norm_total": 267.05757661012404,
+      "ratio_pred_over_state": 1.0584005053931944,
+      "stream_exclusive": false,
+      "control_batch_split_state": 0.9797685004939948,
+      "control_batch_split_pred": 0.9844427881610562,
+      "control_batch_split_total": 0.9823146511008699,
+      "control_cross_stream_cross_half": 0.0023326263095445115,
+      "cos_total_minus_pred": 0.002519667792666949,
+      "cos_total_minus_state": 0.0025196677926189103,
+      "cos_disattenuated": 0.0025590119682241132
+    },
+    {
+      "name": "state_h.0.c_proj",
+      "kind": "attn_out",
+      "block": 0,
+      "cos_state_pred": 0.005676165398141947,
+      "norm_state": 946.0489802059836,
+      "norm_pred": 937.2373760366994,
+      "norm_total": 1335.4671287841084,
+      "ratio_pred_over_state": 0.9906858901033161,
+      "stream_exclusive": false,
+      "control_batch_split_state": 0.9808569581208741,
+      "control_batch_split_pred": 0.983547019034398,
+      "control_batch_split_total": 0.9822794589738272,
+      "control_cross_stream_cross_half": 0.005415180431819625,
+      "cos_total_minus_pred": 0.0056716676218016475,
+      "cos_total_minus_state": 0.005671704832400079,
+      "cos_disattenuated": 0.005719539512157461
+    },
+    {
+      "name": "state_h.1.c_attn[q]",
+      "kind": "attn_q",
+      "block": 1,
+      "cos_state_pred": -0.008905367644744883,
+      "norm_state": 0.492048805282588,
+      "norm_pred": 1.9454768761450685,
+      "norm_total": 2.0024841141533045,
+      "ratio_pred_over_state": 3.953829082112625,
+      "stream_exclusive": false,
+      "control_batch_split_state": 0.9821591504789491,
+      "control_batch_split_pred": 0.9730375425856085,
+      "control_batch_split_total": 0.9734338820437372,
+      "control_cross_stream_cross_half": -0.0090126583176847,
+      "cos_total_minus_pred": -0.008905367644960404,
+      "cos_total_minus_state": -0.008905367644724927,
+      "cos_disattenuated": -0.009049845018037876
+    },
+    {
+      "name": "state_h.1.c_attn[k]",
+      "kind": "attn_k",
+      "block": 1,
+      "cos_state_pred": -0.0027028568960862295,
+      "norm_state": 0.49096369403988854,
+      "norm_pred": 1.9325870396425642,
+      "norm_total": 1.9926888645378145,
+      "ratio_pred_over_state": 3.936313546405634,
+      "stream_exclusive": false,
+      "control_batch_split_state": 0.9820636939939064,
+      "control_batch_split_pred": 0.972709698227833,
+      "control_batch_split_total": 0.9732629741726277,
+      "control_cross_stream_cross_half": -0.00016050157737811872,
+      "cos_total_minus_pred": -0.002702856896063548,
+      "cos_total_minus_state": -0.00270285689603562,
+      "cos_disattenuated": -0.0027297218181139807
+    },
+    {
+      "name": "state_h.1.c_attn[v]",
+      "kind": "attn_v",
+      "block": 1,
+      "cos_state_pred": -0.003271041873373286,
+      "norm_state": 15.833609767981534,
+      "norm_pred": 29.958213451574284,
+      "norm_total": 33.83924549857123,
+      "ratio_pred_over_state": 1.892064658063968,
+      "stream_exclusive": false,
+      "control_batch_split_state": 0.9925470685541794,
+      "control_batch_split_pred": 0.9924533458332548,
+      "control_batch_split_total": 0.9925822715019339,
+      "control_cross_stream_cross_half": -0.0040298389291489,
+      "cos_total_minus_pred": -0.0032710418734513643,
+      "cos_total_minus_state": -0.0032710418733782245,
+      "cos_disattenuated": -0.003205275308390905
+    },
+    {
+      "name": "state_h.1.c_proj",
+      "kind": "attn_out",
+      "block": 1,
+      "cos_state_pred": -0.03280039072962937,
+      "norm_state": 80.01473765127402,
+      "norm_pred": 147.2276595749949,
+      "norm_total": 165.243096700479,
+      "ratio_pred_over_state": 1.8400067774595859,
+      "stream_exclusive": false,
+      "control_batch_split_state": 0.9930347391487088,
+      "control_batch_split_pred": 0.992629890604619,
+      "control_batch_split_total": 0.9925864430875199,
+      "control_cross_stream_cross_half": -0.03445749937011018,
+      "cos_total_minus_pred": -0.03280933268456048,
+      "cos_total_minus_state": -0.03280273290775604,
+      "cos_disattenuated": -0.03287571212411203
+    },
+    {
+      "name": "state_h.2.c_attn[q]",
+      "kind": "attn_q",
+      "block": 2,
+      "cos_state_pred": -5.281534171310098e-05,
+      "norm_state": 0.2563588524718463,
+      "norm_pred": 1.1090929705438186,
+      "norm_total": 1.138322030456103,
+      "ratio_pred_over_state": 4.326329907665743,
+      "stream_exclusive": false,
+      "control_batch_split_state": 0.9842254467544039,
+      "control_batch_split_pred": 0.9726655333011225,
+      "control_batch_split_total": 0.9732305623406161,
+      "control_cross_stream_cross_half": -8.407337298783268e-05,
+      "cos_total_minus_pred": -5.2815341722769264e-05,
+      "cos_total_minus_state": -5.2815341686865727e-05,
+      "cos_disattenuated": -7.594800997761997e-05
+    },
+    {
+      "name": "state_h.2.c_attn[k]",
+      "kind": "attn_k",
+      "block": 2,
+      "cos_state_pred": 0.00225348975216616,
+      "norm_state": 0.25258312539426087,
+      "norm_pred": 1.0433209560818335,
+      "norm_total": 1.0740132939654754,
+      "ratio_pred_over_state": 4.130604348383518,
+      "stream_exclusive": false,
+      "control_batch_split_state": 0.9837045788585819,
+      "control_batch_split_pred": 0.9696106971229069,
+      "control_batch_split_total": 0.9703774955020866,
+      "control_cross_stream_cross_half": 0.0025961413634156367,
+      "cos_total_minus_pred": 0.0022534897519754763,
+      "cos_total_minus_state": 0.0022534897522308354,
+      "cos_disattenuated": 0.0022385545951588534
+    },
+    {
+      "name": "state_h.2.c_attn[v]",
+      "kind": "attn_v",
+      "block": 2,
+      "cos_state_pred": -0.039469246721751,
+      "norm_state": 11.985084897405125,
+      "norm_pred": 26.36724459975537,
+      "norm_total": 28.529427003632176,
+      "ratio_pred_over_state": 2.2000048247855224,
+      "stream_exclusive": false,
+      "control_batch_split_state": 0.9965287137299211,
+      "control_batch_split_pred": 0.9964796766296906,
+      "control_batch_split_total": 0.9963860271419489,
+      "control_cross_stream_cross_half": -0.04027187657847582,
+      "cos_total_minus_pred": -0.03946924672182377,
+      "cos_total_minus_state": -0.039469246721749854,
+      "cos_disattenuated": -0.039532286156819155
+    },
+    {
+      "name": "state_h.2.c_proj",
+      "kind": "attn_out",
+      "block": 2,
+      "cos_state_pred": -0.011829352105740985,
+      "norm_state": 57.262858521259865,
+      "norm_pred": 126.78208329142066,
+      "norm_total": 138.49473080088498,
+      "ratio_pred_over_state": 2.214036926646799,
+      "stream_exclusive": false,
+      "control_batch_split_state": 0.9963029475097444,
+      "control_batch_split_pred": 0.9964383637936337,
+      "control_batch_split_total": 0.9963987767322974,
+      "control_cross_stream_cross_half": -0.012765794164693178,
+      "cos_total_minus_pred": -0.011840171762212826,
+      "cos_total_minus_state": -0.011831127306525108,
+      "cos_disattenuated": -0.011839844716845054
+    },
+    {
+      "name": "state_h.3.c_attn[q]",
+      "kind": "attn_q",
+      "block": 3,
+      "cos_state_pred": -0.003083925965202295,
+      "norm_state": 0.1817791956284031,
+      "norm_pred": 0.764576687319203,
+      "norm_total": 0.7853432072594476,
+      "ratio_pred_over_state": 4.20607366357901,
+      "stream_exclusive": false,
+      "control_batch_split_state": 0.9868947459712548,
+      "control_batch_split_pred": 0.9709183074391177,
+      "control_batch_split_total": 0.9717164674756716,
+      "control_cross_stream_cross_half": -0.002789336899352532,
+      "cos_total_minus_pred": -0.0030839259654875284,
+      "cos_total_minus_state": -0.0030839259651523165,
+      "cos_disattenuated": -0.0031292594402516417
+    },
+    {
+      "name": "state_h.3.c_attn[k]",
+      "kind": "attn_k",
+      "block": 3,
+      "cos_state_pred": -0.036752894865539586,
+      "norm_state": 0.18619113970157603,
+      "norm_pred": 0.8134768805193532,
+      "norm_total": 0.8278154552411016,
+      "ratio_pred_over_state": 4.369041844972752,
+      "stream_exclusive": false,
+      "control_batch_split_state": 0.9873385118607441,
+      "control_batch_split_pred": 0.9735653867592607,
+      "control_batch_split_total": 0.973842622135248,
+      "control_cross_stream_cross_half": -0.03606053645061945,
+      "cos_total_minus_pred": -0.03675289486519146,
+      "cos_total_minus_state": -0.03675289486556582,
+      "cos_disattenuated": -0.0371197289883989
+    },
+    {
+      "name": "state_h.3.c_attn[v]",
+      "kind": "attn_v",
+      "block": 3,
+      "cos_state_pred": -0.07460337091130721,
+      "norm_state": 9.538057079764204,
+      "norm_pred": 23.744747697123874,
+      "norm_total": 24.91977966099291,
+      "ratio_pred_over_state": 2.4894742711804865,
+      "stream_exclusive": false,
+      "control_batch_split_state": 0.9973450979204951,
+      "control_batch_split_pred": 0.9976386007077592,
+      "control_batch_split_total": 0.9974957342924403,
+      "control_cross_stream_cross_half": -0.07539287252747134,
+      "cos_total_minus_pred": -0.07460337091129597,
+      "cos_total_minus_state": -0.0746033709113051,
+      "cos_disattenuated": -0.07467253522077014
+    },
+    {
+      "name": "state_h.3.c_proj",
+      "kind": "attn_out",
+      "block": 3,
+      "cos_state_pred": -0.025096640929038048,
+      "norm_state": 46.16729317754242,
+      "norm_pred": 117.47158393884621,
+      "norm_total": 125.13452642466906,
+      "ratio_pred_over_state": 2.544476313287282,
+      "stream_exclusive": false,
+      "control_batch_split_state": 0.9973014303707854,
+      "control_batch_split_pred": 0.9976489732557587,
+      "control_batch_split_total": 0.9975760435594585,
+      "control_cross_stream_cross_half": -0.025878779912841564,
+      "cos_total_minus_pred": -0.025107399321052278,
+      "cos_total_minus_state": -0.025097752229752333,
+      "cos_disattenuated": -0.025112651512236746
+    },
+    {
+      "name": "state_h.4.c_attn[q]",
+      "kind": "attn_q",
+      "block": 4,
+      "cos_state_pred": 0.008660438649428977,
+      "norm_state": 0.1241706638419459,
+      "norm_pred": 0.5558410657158772,
+      "norm_total": 0.5705901474744888,
+      "ratio_pred_over_state": 4.476428236087995,
+      "stream_exclusive": false,
+      "control_batch_split_state": 0.9857567569380169,
+      "control_batch_split_pred": 0.9683215761379307,
+      "control_batch_split_total": 0.9692434754365352,
+      "control_cross_stream_cross_half": 0.008115091998016955,
+      "cos_total_minus_pred": 0.008660438649729188,
+      "cos_total_minus_state": 0.008660438649517117,
+      "cos_disattenuated": 0.008751064409742753
+    },
+    {
+      "name": "state_h.4.c_attn[k]",
+      "kind": "attn_k",
+      "block": 4,
+      "cos_state_pred": -0.037545161815348796,
+      "norm_state": 0.12997637570188142,
+      "norm_pred": 0.5923095316355673,
+      "norm_total": 0.601617417769369,
+      "ratio_pred_over_state": 4.557055298988411,
+      "stream_exclusive": false,
+      "control_batch_split_state": 0.9866836259414861,
+      "control_batch_split_pred": 0.9715820916644252,
+      "control_batch_split_total": 0.9718202500956638,
+      "control_cross_stream_cross_half": -0.038945369109731474,
+      "cos_total_minus_pred": -0.037545161815432625,
+      "cos_total_minus_state": -0.037545161815335966,
+      "cos_disattenuated": -0.03796160369795475
+    },
+    {
+      "name": "state_h.4.c_attn[v]",
+      "kind": "attn_v",
+      "block": 4,
+      "cos_state_pred": -0.019956464639707787,
+      "norm_state": 7.775303404106017,
+      "norm_pred": 21.98598960773936,
+      "norm_total": 23.173606905417422,
+      "ratio_pred_over_state": 2.827669669601433,
+      "stream_exclusive": false,
+      "control_batch_split_state": 0.9977621340212106,
+      "control_batch_split_pred": 0.9982433098430897,
+      "control_batch_split_total": 0.9981655403766162,
+      "control_cross_stream_cross_half": -0.01994112635012492,
+      "cos_total_minus_pred": -0.01995646463976125,
+      "cos_total_minus_state": -0.01995646463970725,
+      "cos_disattenuated": -0.019974591707021115
+    },
+    {
+      "name": "state_h.4.c_proj",
+      "kind": "attn_out",
+      "block": 4,
+      "cos_state_pred": -0.014987924181276058,
+      "norm_state": 38.38935903915404,
+      "norm_pred": 109.74730270231511,
+      "norm_total": 115.72298881342583,
+      "ratio_pred_over_state": 2.858794870484338,
+      "stream_exclusive": false,
+      "control_batch_split_state": 0.9977450073754607,
+      "control_batch_split_pred": 0.9982055263536864,
+      "control_batch_split_total": 0.9981370248045045,
+      "control_cross_stream_cross_half": -0.014963476059588362,
+      "cos_total_minus_pred": -0.015000177777753027,
+      "cos_total_minus_state": -0.014988970500445698,
+      "cos_disattenuated": -0.015003007412102497
+    },
+    {
+      "name": "state_h.5.c_attn[q]",
+      "kind": "attn_q",
+      "block": 5,
+      "cos_state_pred": 0.006122800335684252,
+      "norm_state": 0.09450337631618089,
+      "norm_pred": 0.5109080173922007,
+      "norm_total": 0.5201433831019999,
+      "ratio_pred_over_state": 5.4062408911492295,
+      "stream_exclusive": false,
+      "control_batch_split_state": 0.9862586012795262,
+      "control_batch_split_pred": 0.974337212805958,
+      "control_batch_split_total": 0.9747842966613384,
+      "control_cross_stream_cross_half": 0.0066481498181720855,
+      "cos_total_minus_pred": 0.006122800335703674,
+      "cos_total_minus_state": 0.006122800335771264,
+      "cos_disattenuated": 0.0061829858578946
+    },
+    {
+      "name": "state_h.5.c_attn[k]",
+      "kind": "attn_k",
+      "block": 5,
+      "cos_state_pred": 0.020929625702550338,
+      "norm_state": 0.09627367994738677,
+      "norm_pred": 0.5069942453621613,
+      "norm_total": 0.5180298686230402,
+      "ratio_pred_over_state": 5.266177065624082,
+      "stream_exclusive": false,
+      "control_batch_split_state": 0.9865654821117528,
+      "control_batch_split_pred": 0.974452963944834,
+      "control_batch_split_total": 0.9750917445006175,
+      "control_cross_stream_cross_half": 0.020888060096033674,
+      "cos_total_minus_pred": 0.02092962570258855,
+      "cos_total_minus_state": 0.02092962570251616,
+      "cos_disattenuated": 0.021182469010261017
+    },
+    {
+      "name": "state_h.5.c_attn[v]",
+      "kind": "attn_v",
+      "block": 5,
+      "cos_state_pred": 0.0828460030191914,
+      "norm_state": 6.226995487019273,
+      "norm_pred": 21.68464654187003,
+      "norm_total": 23.051524733034256,
+      "ratio_pred_over_state": 3.482361049895348,
+      "stream_exclusive": false,
+      "control_batch_split_state": 0.9977991529674943,
+      "control_batch_split_pred": 0.998533065502847,
+      "control_batch_split_total": 0.9985086794900312,
+      "control_cross_stream_cross_half": 0.0840578203329443,
+      "cos_total_minus_pred": 0.08284600301923463,
+      "cos_total_minus_state": 0.08284600301918867,
+      "cos_disattenuated": 0.08289251036622988
+    },
+    {
+      "name": "state_h.5.c_proj",
+      "kind": "attn_out",
+      "block": 5,
+      "cos_state_pred": 0.02191017334441559,
+      "norm_state": 32.117840063808316,
+      "norm_pred": 104.62864169953195,
+      "norm_total": 110.11752776470372,
+      "ratio_pred_over_state": 3.2576487550740296,
+      "stream_exclusive": false,
+      "control_batch_split_state": 0.99784186661697,
+      "control_batch_split_pred": 0.9984806649513996,
+      "control_batch_split_total": 0.998429191828241,
+      "control_cross_stream_cross_half": 0.022056210231330663,
+      "cos_total_minus_pred": 0.021897344807206037,
+      "cos_total_minus_state": 0.021909127152238677,
+      "cos_disattenuated": 0.02191719165696041
+    },
+    {
+      "name": "state_h.6.c_attn[q]",
+      "kind": "attn_q",
+      "block": 6,
+      "cos_state_pred": -0.007923485556044845,
+      "norm_state": 0.07723818483088306,
+      "norm_pred": 0.4277769924406258,
+      "norm_total": 0.43409134654744197,
+      "ratio_pred_over_state": 5.538413329847993,
+      "stream_exclusive": false,
+      "control_batch_split_state": 0.9868039635520942,
+      "control_batch_split_pred": 0.9744381131965482,
+      "control_batch_split_total": 0.9747568556065432,
+      "control_cross_stream_cross_half": -0.008105626346605914,
+      "cos_total_minus_pred": -0.007923485556012399,
+      "cos_total_minus_state": -0.007923485556124456,
+      "cos_disattenuated": -0.00800150423945533
+    },
+    {
+      "name": "state_h.6.c_attn[k]",
+      "kind": "attn_k",
+      "block": 6,
+      "cos_state_pred": -0.01445753843258027,
+      "norm_state": 0.0829280851723374,
+      "norm_pred": 0.42423562499535844,
+      "norm_total": 0.43108661556266525,
+      "ratio_pred_over_state": 5.115705060761154,
+      "stream_exclusive": false,
+      "control_batch_split_state": 0.9882288035504151,
+      "control_batch_split_pred": 0.973985750141908,
+      "control_batch_split_total": 0.9743909519947186,
+      "control_cross_stream_cross_half": -0.012636011096528954,
+      "cos_total_minus_pred": -0.014457538431592054,
+      "cos_total_minus_state": -0.014457538432517441,
+      "cos_disattenuated": -0.014567590067737115
+    },
+    {
+      "name": "state_h.6.c_attn[v]",
+      "kind": "attn_v",
+      "block": 6,
+      "cos_state_pred": 0.017747117476317874,
+      "norm_state": 6.132417859780542,
+      "norm_pred": 21.472995458611067,
+      "norm_total": 22.43590899971294,
+      "ratio_pred_over_state": 3.501554517255207,
+      "stream_exclusive": false,
+      "control_batch_split_state": 0.9982681944392756,
+      "control_batch_split_pred": 0.9987205745814787,
+      "control_batch_split_total": 0.9986965893882751,
+      "control_cross_stream_cross_half": 0.01841945051339804,
+      "cos_total_minus_pred": 0.01774711747637778,
+      "cos_total_minus_state": 0.017747117476318318,
+      "cos_disattenuated": 0.017763476190862947
+    },
+    {
+      "name": "state_h.6.c_proj",
+      "kind": "attn_out",
+      "block": 6,
+      "cos_state_pred": 0.017801236349995624,
+      "norm_state": 30.173842218799667,
+      "norm_pred": 106.76442564018339,
+      "norm_total": 111.46159748465008,
+      "ratio_pred_over_state": 3.5383105958466348,
+      "stream_exclusive": false,
+      "control_batch_split_state": 0.9983219576174782,
+      "control_batch_split_pred": 0.9987727313501983,
+      "control_batch_split_total": 0.9987428431414184,
+      "control_cross_stream_cross_half": 0.018247044440095107,
+      "cos_total_minus_pred": 0.017785473236003324,
+      "cos_total_minus_state": 0.017800257877556548,
+      "cos_disattenuated": 0.017806979629629002
+    },
+    {
+      "name": "state_h.7.c_attn[q]",
+      "kind": "attn_q",
+      "block": 7,
+      "cos_state_pred": 0.0032225055883844545,
+      "norm_state": 0.06347696403435431,
+      "norm_pred": 0.3903055975059215,
+      "norm_total": 0.3956355168966087,
+      "ratio_pred_over_state": 6.148775440720267,
+      "stream_exclusive": false,
+      "control_batch_split_state": 0.9879391684436596,
+      "control_batch_split_pred": 0.9762903398787562,
+      "control_batch_split_total": 0.9766179508775148,
+      "control_cross_stream_cross_half": 0.003283639607627475,
+      "cos_total_minus_pred": 0.003222505588609781,
+      "cos_total_minus_state": 0.0032225055884772804,
+      "cos_disattenuated": 0.0032601888008441863
+    },
+    {
+      "name": "state_h.7.c_attn[k]",
+      "kind": "attn_k",
+      "block": 7,
+      "cos_state_pred": -0.0030920497515597753,
+      "norm_state": 0.06598303953048049,
+      "norm_pred": 0.38958490911651034,
+      "norm_total": 0.39493188587029426,
+      "ratio_pred_over_state": 5.904318926328695,
+      "stream_exclusive": false,
+      "control_batch_split_state": 0.9886794176269181,
+      "control_batch_split_pred": 0.9766888453015186,
+      "control_batch_split_total": 0.9769554665493341,
+      "control_cross_stream_cross_half": -0.002459802056396781,
+      "cos_total_minus_pred": -0.003092049751580776,
+      "cos_total_minus_state": -0.003092049751655712,
+      "cos_disattenuated": -0.0031926853289937136
+    },
+    {
+      "name": "state_h.7.c_attn[v]",
+      "kind": "attn_v",
+      "block": 7,
+      "cos_state_pred": 0.004224149481433588,
+      "norm_state": 5.287258423524986,
+      "norm_pred": 21.161318588438697,
+      "norm_total": 21.833500566996374,
+      "ratio_pred_over_state": 4.002323490428251,
+      "stream_exclusive": false,
+      "control_batch_split_state": 0.9983514168670334,
+      "control_batch_split_pred": 0.9988761511517431,
+      "control_batch_split_total": 0.9988403759306299,
+      "control_cross_stream_cross_half": 0.004384243192166456,
+      "cos_total_minus_pred": 0.004224149481374253,
+      "cos_total_minus_state": 0.004224149481435767,
+      "cos_disattenuated": 0.004220666913057753
+    },
+    {
+      "name": "state_h.7.c_proj",
+      "kind": "attn_out",
+      "block": 7,
+      "cos_state_pred": -0.0029315307709975075,
+      "norm_state": 25.3543918187916,
+      "norm_pred": 100.62842600630293,
+      "norm_total": 103.70094775446266,
+      "ratio_pred_over_state": 3.9688755591337594,
+      "stream_exclusive": false,
+      "control_batch_split_state": 0.9982793219750509,
+      "control_batch_split_pred": 0.9988288373931203,
+      "control_batch_split_total": 0.9987886859531787,
+      "control_cross_stream_cross_half": -0.0030241353700255712,
+      "cos_total_minus_pred": -0.0029467740157243577,
+      "cos_total_minus_state": -0.002931969982833838,
+      "cos_disattenuated": -0.0029372835621549274
+    },
+    {
+      "name": "state_h.8.c_attn[q]",
+      "kind": "attn_q",
+      "block": 8,
+      "cos_state_pred": 0.007889922998529806,
+      "norm_state": 0.05435190527865011,
+      "norm_pred": 0.3386786852396182,
+      "norm_total": 0.34343537120447487,
+      "ratio_pred_over_state": 6.231220110928734,
+      "stream_exclusive": false,
+      "control_batch_split_state": 0.9900126968375075,
+      "control_batch_split_pred": 0.9763715293578968,
+      "control_batch_split_total": 0.9767840407048612,
+      "control_cross_stream_cross_half": 0.007448645399512193,
+      "cos_total_minus_pred": 0.00788992299961827,
+      "cos_total_minus_state": 0.00788992299851864,
+      "cos_disattenuated": 0.00798492738148341
+    },
+    {
+      "name": "state_h.8.c_attn[k]",
+      "kind": "attn_k",
+      "block": 8,
+      "cos_state_pred": -0.025652960520814134,
+      "norm_state": 0.06276776437756515,
+      "norm_pred": 0.3380510283778096,
+      "norm_total": 0.34224208495023467,
+      "ratio_pred_over_state": 5.385742693404545,
+      "stream_exclusive": false,
+      "control_batch_split_state": 0.9919418649586073,
+      "control_batch_split_pred": 0.9759499291187775,
+      "control_batch_split_total": 0.9762692318364391,
+      "control_cross_stream_cross_half": -0.025749407657372936,
+      "cos_total_minus_pred": -0.025652960520683273,
+      "cos_total_minus_state": -0.025652960520770377,
+      "cos_disattenuated": -0.025850962543555896
+    },
+    {
+      "name": "state_h.8.c_attn[v]",
+      "kind": "attn_v",
+      "block": 8,
+      "cos_state_pred": -0.013936863831785905,
+      "norm_state": 4.392489184700782,
+      "norm_pred": 20.730376201878514,
+      "norm_total": 21.13064916462298,
+      "ratio_pred_over_state": 4.719505348831195,
+      "stream_exclusive": false,
+      "control_batch_split_state": 0.9984012068278412,
+      "control_batch_split_pred": 0.9989524461840404,
+      "control_batch_split_total": 0.9989209826496188,
+      "control_cross_stream_cross_half": -0.013980365215593593,
+      "cos_total_minus_pred": -0.013936863831384164,
+      "cos_total_minus_state": -0.01393686383179343,
+      "cos_disattenuated": -0.013944578571144138
+    },
+    {
+      "name": "state_h.8.c_proj",
+      "kind": "attn_out",
+      "block": 8,
+      "cos_state_pred": 0.008065560705418069,
+      "norm_state": 22.17001622819563,
+      "norm_pred": 98.90460822159338,
+      "norm_total": 101.53287849059157,
+      "ratio_pred_over_state": 4.461187903678995,
+      "stream_exclusive": false,
+      "control_batch_split_state": 0.9984300759193881,
+      "control_batch_split_pred": 0.9988876094878612,
+      "control_batch_split_total": 0.9988649694603837,
+      "control_cross_stream_cross_half": 0.007716012472269807,
+      "cos_total_minus_pred": 0.008048594051715046,
+      "cos_total_minus_state": 0.008065071709802904,
+      "cos_disattenuated": 0.008068652380874805
+    },
+    {
+      "name": "state_h.9.c_attn[q]",
+      "kind": "attn_q",
+      "block": 9,
+      "cos_state_pred": -0.0010041406777574133,
+      "norm_state": 0.038522923789567,
+      "norm_pred": 0.31808695439123263,
+      "norm_total": 0.32037277889275007,
+      "ratio_pred_over_state": 8.257082357735753,
+      "stream_exclusive": false,
+      "control_batch_split_state": 0.9878879177991864,
+      "control_batch_split_pred": 0.9775884781909264,
+      "control_batch_split_total": 0.9777306240135845,
+      "control_cross_stream_cross_half": -0.0013147137312711447,
+      "cos_total_minus_pred": -0.001004140676746626,
+      "cos_total_minus_state": -0.0010041406777039643,
+      "cos_disattenuated": -0.0010126618375360164
+    },
+    {
+      "name": "state_h.9.c_attn[k]",
+      "kind": "attn_k",
+      "block": 9,
+      "cos_state_pred": -0.00871199788049372,
+      "norm_state": 0.038203539849153006,
+      "norm_pred": 0.3169405474176487,
+      "norm_total": 0.3189041344090925,
+      "ratio_pred_over_state": 8.296104200529351,
+      "stream_exclusive": false,
+      "control_batch_split_state": 0.9875430830189158,
+      "control_batch_split_pred": 0.9780151995283313,
+      "control_batch_split_total": 0.9781170842052469,
+      "control_cross_stream_cross_half": -0.008772353328720086,
+      "cos_total_minus_pred": -0.008711997880630429,
+      "cos_total_minus_state": -0.00871199788050496,
+      "cos_disattenuated": -0.00876169004989928
+    },
+    {
+      "name": "state_h.9.c_attn[v]",
+      "kind": "attn_v",
+      "block": 9,
+      "cos_state_pred": -0.008196442693031162,
+      "norm_state": 3.5500799683527244,
+      "norm_pred": 19.372961312297377,
+      "norm_total": 19.66690793912797,
+      "ratio_pred_over_state": 5.457049273536968,
+      "stream_exclusive": false,
+      "control_batch_split_state": 0.9984454363238074,
+      "control_batch_split_pred": 0.9989396348866325,
+      "control_batch_split_total": 0.998916067819228,
+      "control_cross_stream_cross_half": -0.0081321461083002,
+      "cos_total_minus_pred": -0.008196442693285738,
+      "cos_total_minus_state": -0.008196442693025966,
+      "cos_disattenuated": -0.008204486514279163
+    },
+    {
+      "name": "state_h.9.c_proj",
+      "kind": "attn_out",
+      "block": 9,
+      "cos_state_pred": 0.0021791743879283265,
+      "norm_state": 17.266944595083938,
+      "norm_pred": 91.0982931063099,
+      "norm_total": 92.75686821250142,
+      "ratio_pred_over_state": 5.275877999414352,
+      "stream_exclusive": false,
+      "control_batch_split_state": 0.9983794605414741,
+      "control_batch_split_pred": 0.9988619061880923,
+      "control_batch_split_total": 0.9988443254145815,
+      "control_cross_stream_cross_half": 0.0018554709494551943,
+      "cos_total_minus_pred": 0.002158597867374633,
+      "cos_total_minus_state": 0.002178954063144081,
+      "cos_disattenuated": 0.0021800411573336736
+    },
+    {
+      "name": "state_h.10.c_attn[q]",
+      "kind": "attn_q",
+      "block": 10,
+      "cos_state_pred": -0.0036500573870687737,
+      "norm_state": 0.03149390576020107,
+      "norm_pred": 0.2834517119443442,
+      "norm_total": 0.285081691745762,
+      "ratio_pred_over_state": 9.00020829752221,
+      "stream_exclusive": false,
+      "control_batch_split_state": 0.9893938470173126,
+      "control_batch_split_pred": 0.9776526824570128,
+      "control_batch_split_total": 0.9777897400907299,
+      "control_cross_stream_cross_half": -0.0037849393398088254,
+      "cos_total_minus_pred": -0.0036500573883883544,
+      "cos_total_minus_state": -0.0036500573869519995,
+      "cos_disattenuated": -0.0036520554455064633
+    },
+    {
+      "name": "state_h.10.c_attn[k]",
+      "kind": "attn_k",
+      "block": 10,
+      "cos_state_pred": -0.036859876339360616,
+      "norm_state": 0.031239395275787632,
+      "norm_pred": 0.3142578180762104,
+      "norm_total": 0.3146587877358215,
+      "ratio_pred_over_state": 10.059663937213877,
+      "stream_exclusive": false,
+      "control_batch_split_state": 0.9892038477277743,
+      "control_batch_split_pred": 0.9811120947899722,
+      "control_batch_split_total": 0.9810666603798568,
+      "control_cross_stream_cross_half": -0.035609497080281556,
+      "cos_total_minus_pred": -0.0368598763402495,
+      "cos_total_minus_state": -0.03685987633937429,
+      "cos_disattenuated": -0.03710137752314901
+    },
+    {
+      "name": "state_h.10.c_attn[v]",
+      "kind": "attn_v",
+      "block": 10,
+      "cos_state_pred": -0.03383884879964522,
+      "norm_state": 2.8152082129876796,
+      "norm_pred": 19.8206984554811,
+      "norm_total": 19.9250874551282,
+      "ratio_pred_over_state": 7.040579934386488,
+      "stream_exclusive": false,
+      "control_batch_split_state": 0.9985078133418448,
+      "control_batch_split_pred": 0.9990280793221878,
+      "control_batch_split_total": 0.9990154922122398,
+      "control_cross_stream_cross_half": -0.0346389196586906,
+      "cos_total_minus_pred": -0.03383884880009778,
+      "cos_total_minus_state": -0.03383884879965249,
+      "cos_disattenuated": -0.03384293073393127
+    },
+    {
+      "name": "state_h.10.c_proj",
+      "kind": "attn_out",
+      "block": 10,
+      "cos_state_pred": -0.030070225050121496,
+      "norm_state": 13.039792400296355,
+      "norm_pred": 90.76494840107794,
+      "norm_total": 91.30759236240006,
+      "ratio_pred_over_state": 6.960612992505551,
+      "stream_exclusive": false,
+      "control_batch_split_state": 0.9983534242587212,
+      "control_batch_split_pred": 0.998920460274458,
+      "control_batch_split_total": 0.9989041209839329,
+      "control_cross_stream_cross_half": -0.03043550319783646,
+      "cos_total_minus_pred": -0.030093824428830972,
+      "cos_total_minus_state": -0.03007043111741492,
+      "cos_disattenuated": -0.030079997110216566
+    },
+    {
+      "name": "state_h.11.c_attn[q]",
+      "kind": "attn_q",
+      "block": 11,
+      "cos_state_pred": 0.01701227318158478,
+      "norm_state": 0.019856518823553854,
+      "norm_pred": 0.2782554639366653,
+      "norm_total": 0.27929979673944705,
+      "ratio_pred_over_state": 14.013305474603028,
+      "stream_exclusive": false,
+      "control_batch_split_state": 0.9897550120015814,
+      "control_batch_split_pred": 0.9808809779262428,
+      "control_batch_split_total": 0.9809660951683743,
+      "control_cross_stream_cross_half": 0.016547205101325957,
+      "cos_total_minus_pred": 0.017012273177069957,
+      "cos_total_minus_state": 0.017012273181673296,
+      "cos_disattenuated": 0.01711797906682854
+    },
+    {
+      "name": "state_h.11.c_attn[k]",
+      "kind": "attn_k",
+      "block": 11,
+      "cos_state_pred": 0.02387485380666199,
+      "norm_state": 0.020450651586699602,
+      "norm_pred": 0.2650473963815207,
+      "norm_total": 0.2663215605429956,
+      "ratio_pred_over_state": 12.960339931364258,
+      "stream_exclusive": false,
+      "control_batch_split_state": 0.989585606174926,
+      "control_batch_split_pred": 0.9790402791680686,
+      "control_batch_split_total": 0.9791699184535558,
+      "control_cross_stream_cross_half": 0.02248593586553937,
+      "cos_total_minus_pred": 0.023874853806499435,
+      "cos_total_minus_state": 0.023874853806741977,
+      "cos_disattenuated": 0.02403629267241503
+    },
+    {
+      "name": "state_h.11.c_attn[v]",
+      "kind": "attn_v",
+      "block": 11,
+      "cos_state_pred": 0.0758385688289405,
+      "norm_state": 1.9378995695547188,
+      "norm_pred": 19.06032261357449,
+      "norm_total": 19.30424435045401,
+      "ratio_pred_over_state": 9.835557483484079,
+      "stream_exclusive": false,
+      "control_batch_split_state": 0.9985786718608773,
+      "control_batch_split_pred": 0.9990363587191545,
+      "control_batch_split_total": 0.9990391768330338,
+      "control_cross_stream_cross_half": 0.07521677882145378,
+      "cos_total_minus_pred": 0.07583856882889342,
+      "cos_total_minus_state": 0.07583856882894965,
+      "cos_disattenuated": 0.07586995454554275
+    },
+    {
+      "name": "state_h.11.c_proj",
+      "kind": "attn_out",
+      "block": 11,
+      "cos_state_pred": 0.032164697141071334,
+      "norm_state": 9.4262853880009,
+      "norm_pred": 93.33319060476951,
+      "norm_total": 94.10891007307848,
+      "ratio_pred_over_state": 9.901375437197892,
+      "stream_exclusive": false,
+      "control_batch_split_state": 0.9985444360965345,
+      "control_batch_split_pred": 0.9990264912824929,
+      "control_batch_split_total": 0.9990250938064414,
+      "control_cross_stream_cross_half": 0.0316336189813599,
+      "cos_total_minus_pred": 0.03213756746124706,
+      "cos_total_minus_state": 0.03216446542908758,
+      "cos_disattenuated": 0.032177433567485286
+    }
+  ],
+  "aggregate": {
+    "attn_q": {
+      "cos_state_pred": {
+        "n": 12,
+        "mean": 0.001631958902016331,
+        "absmean": 0.005735257664104883,
+        "min": -0.008905367644744883,
+        "max": 0.01701227318158478
+      },
+      "cos_disattenuated": {
+        "n": 12,
+        "mean": 0.0016409048889140356,
+        "absmean": 0.0057944505540415275,
+        "min": -0.009049845018037876,
+        "max": 0.01711797906682854
+      },
+      "control_batch_split_state": {
+        "n": 12,
+        "mean": 0.9857248273807127,
+        "absmean": 0.9857248273807127,
+        "min": 0.9716106214950606,
+        "max": 0.9900126968375075
+      },
+      "control_batch_split_pred": {
+        "n": 12,
+        "mean": 0.9751192794264365,
+        "absmean": 0.9751192794264365,
+        "min": 0.9683215761379307,
+        "max": 0.9808809779262428
+      },
+      "control_cross_stream_cross_half": {
+        "n": 12,
+        "mean": 0.0015217497119236981,
+        "absmean": 0.005703641046542189,
+        "min": -0.0090126583176847,
+        "max": 0.016547205101325957
+      },
+      "ratio_pred_over_state": {
+        "n": 12,
+        "mean": 6.095220995406568,
+        "absmean": 6.095220995406568,
+        "min": 1.5847451529262293,
+        "max": 14.013305474603028
+      }
+    },
+    "attn_k": {
+      "cos_state_pred": {
+        "n": 12,
+        "mean": -0.009427610060348314,
+        "absmean": 0.018201612689948875,
+        "min": -0.037545161815348796,
+        "max": 0.02387485380666199
+      },
+      "cos_disattenuated": {
+        "n": 12,
+        "mean": -0.009513290874553453,
+        "absmean": 0.018367602461746988,
+        "min": -0.03796160369795475,
+        "max": 0.02403629267241503
+      },
+      "control_batch_split_state": {
+        "n": 12,
+        "mean": 0.986093112022204,
+        "absmean": 0.986093112022204,
+        "min": 0.9715788284424218,
+        "max": 0.9919418649586073
+      },
+      "control_batch_split_pred": {
+        "n": 12,
+        "mean": 0.9755099508983444,
+        "absmean": 0.9755099508983444,
+        "min": 0.9696106971229069,
+        "max": 0.9811120947899722
+      },
+      "control_cross_stream_cross_half": {
+        "n": 12,
+        "mean": -0.009071825339419443,
+        "absmean": 0.017660421053418782,
+        "min": -0.038945369109731474,
+        "max": 0.02248593586553937
+      },
+      "ratio_pred_over_state": {
+        "n": 12,
+        "mean": 5.964625110238425,
+        "absmean": 5.964625110238425,
+        "min": 1.59443446888482,
+        "max": 12.960339931364258
+      }
+    },
+    "attn_v": {
+      "cos_state_pred": {
+        "n": 12,
+        "mean": -0.0008413977393397128,
+        "absmean": 0.03137064883909388,
+        "min": -0.07460337091130721,
+        "max": 0.0828460030191914
+      },
+      "cos_disattenuated": {
+        "n": 12,
+        "mean": -0.00083925535236987,
+        "absmean": 0.03139019201635611,
+        "min": -0.07467253522077014,
+        "max": 0.08289251036622988
+      },
+      "control_batch_split_state": {
+        "n": 12,
+        "mean": 0.9960252839456647,
+        "absmean": 0.9960252839456647,
+        "min": 0.9797685004939948,
+        "max": 0.9985786718608773
+      },
+      "control_batch_split_pred": {
+        "n": 12,
+        "mean": 0.9967786692935777,
+        "absmean": 0.9967786692935777,
+        "min": 0.9844427881610562,
+        "max": 0.9990363587191545
+      },
+      "control_cross_stream_cross_half": {
+        "n": 12,
+        "mean": -0.0009980188498581906,
+        "absmean": 0.03173317204477604,
+        "min": -0.07539287252747134,
+        "max": 0.0840578203329443
+      },
+      "ratio_pred_over_state": {
+        "n": 12,
+        "mean": 4.042212085570179,
+        "absmean": 4.042212085570179,
+        "min": 1.0584005053931944,
+        "max": 9.835557483484079
+      }
+    },
+    "attn_out": {
+      "cos_state_pred": {
+        "n": 12,
+        "mean": -0.0024932547033193805,
+        "absmean": 0.017126089257814527,
+        "min": -0.03280039072962937,
+        "max": 0.032164697141071334
+      },
+      "cos_disattenuated": {
+        "n": 12,
+        "mean": -0.002498221544435598,
+        "absmean": 0.01714319452850904,
+        "min": -0.03287571212411203,
+        "max": 0.032177433567485286
+      },
+      "control_batch_split_state": {
+        "n": 12,
+        "mean": 0.9961159687959324,
+        "absmean": 0.9961159687959324,
+        "min": 0.9808569581208741,
+        "max": 0.9985444360965345
+      },
+      "control_batch_split_pred": {
+        "n": 12,
+        "mean": 0.99668737283081,
+        "absmean": 0.99668737283081,
+        "min": 0.983547019034398,
+        "max": 0.9990264912824929
+      },
+      "control_cross_stream_cross_half": {
+        "n": 12,
+        "mean": -0.0028834708807304182,
+        "absmean": 0.01737072713178547,
+        "min": -0.03445749937011018,
+        "max": 0.0316336189813599
+      },
+      "ratio_pred_over_state": {
+        "n": 12,
+        "mean": 3.9843241684027113,
+        "absmean": 3.9843241684027113,
+        "min": 0.9906858901033161,
+        "max": 9.901375437197892
+      }
+    },
+    "ALL": {
+      "cos_state_pred": {
+        "n": 48,
+        "mean": -0.0027825759002477694,
+        "absmean": 0.01810840211274054,
+        "min": -0.07460337091130721,
+        "max": 0.0828460030191914
+      },
+      "cos_disattenuated": {
+        "n": 48,
+        "mean": -0.002802465720611222,
+        "absmean": 0.018173859890163416,
+        "min": -0.07467253522077014,
+        "max": 0.08289251036622988
+      },
+      "control_batch_split_state": {
+        "n": 48,
+        "mean": 0.9909897980361283,
+        "absmean": 0.9909897980361283,
+        "min": 0.9715788284424218,
+        "max": 0.9985786718608773
+      },
+      "control_batch_split_pred": {
+        "n": 48,
+        "mean": 0.9860238181122921,
+        "absmean": 0.9860238181122921,
+        "min": 0.9683215761379307,
+        "max": 0.9990363587191545
+      },
+      "control_cross_stream_cross_half": {
+        "n": 48,
+        "mean": -0.0028578913395210883,
+        "absmean": 0.01811699031913062,
+        "min": -0.07539287252747134,
+        "max": 0.0840578203329443
+      },
+      "ratio_pred_over_state": {
+        "n": 48,
+        "mean": 5.021595589904471,
+        "absmean": 5.021595589904471,
+        "min": 0.9906858901033161,
+        "max": 14.013305474603028
+      }
+    }
+  }
+}

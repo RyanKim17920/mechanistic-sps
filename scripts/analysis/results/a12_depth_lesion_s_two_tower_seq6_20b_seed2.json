@@ -1,0 +1,391 @@
+{
+  "analysis": "a12_depth_lesion",
+  "run": "s_two_tower_seq6_20b_seed2",
+  "model_id": "s_two_tower_seq6_20b_seed2",
+  "label": "s_two_tower_seq6_20b_seed2",
+  "family": "two_tower",
+  "checkpoint": "${DATA_ROOT}/out/s_two_tower_seq6_20b_seed2/ckpt_tokens_20000145408_final.pt",
+  "geometry": {
+    "state_n_layer": 6,
+    "pred_n_layer": 6,
+    "state_hidden": 768,
+    "pred_hidden": 768,
+    "state_intermediate": 2304,
+    "pred_intermediate": 2304,
+    "read_map": "final",
+    "read_source": "pred_proj",
+    "read_levels": [
+      6,
+      6,
+      6,
+      6,
+      6,
+      6
+    ],
+    "pred_window": 0
+  },
+  "scoring": {
+    "kind": "sub-sweep",
+    "n_seq": 512,
+    "n_tokens": 2094978,
+    "val_bin": "${DATA_ROOT}/data/fineweb-edu-100bt/val.bin",
+    "paired_floor": 0.0005,
+    "seed_floor": 0.00219,
+    "note": "paired deltas: one ckpt, one val slice, one order; only the lesion differs",
+    "full_sweep_tokens": 13085928,
+    "full_sweep_seqs": 3198,
+    "sub_sweep_offset": 0.004873
+  },
+  "native_sub_sweep_nll": 2.804625,
+  "lesions": {
+    "state_00_attn": {
+      "stream": "state",
+      "block": 0,
+      "kind": "attn",
+      "val_nll": 7.448517,
+      "delta": 4.643892,
+      "seconds": 3.7
+    },
+    "state_00_mlp": {
+      "stream": "state",
+      "block": 0,
+      "kind": "mlp",
+      "val_nll": 3.684846,
+      "delta": 0.880221,
+      "seconds": 3.6
+    },
+    "state_00_block": {
+      "stream": "state",
+      "block": 0,
+      "kind": "block",
+      "val_nll": 6.513151,
+      "delta": 3.708526,
+      "seconds": 3.6
+    },
+    "state_01_attn": {
+      "stream": "state",
+      "block": 1,
+      "kind": "attn",
+      "val_nll": 3.070557,
+      "delta": 0.265932,
+      "seconds": 3.9
+    },
+    "state_01_mlp": {
+      "stream": "state",
+      "block": 1,
+      "kind": "mlp",
+      "val_nll": 2.930377,
+      "delta": 0.125752,
+      "seconds": 3.6
+    },
+    "state_01_block": {
+      "stream": "state",
+      "block": 1,
+      "kind": "block",
+      "val_nll": 3.120824,
+      "delta": 0.316199,
+      "seconds": 3.6
+    },
+    "state_02_attn": {
+      "stream": "state",
+      "block": 2,
+      "kind": "attn",
+      "val_nll": 3.026729,
+      "delta": 0.222104,
+      "seconds": 3.7
+    },
+    "state_02_mlp": {
+      "stream": "state",
+      "block": 2,
+      "kind": "mlp",
+      "val_nll": 2.96059,
+      "delta": 0.155965,
+      "seconds": 3.6
+    },
+    "state_02_block": {
+      "stream": "state",
+      "block": 2,
+      "kind": "block",
+      "val_nll": 3.201952,
+      "delta": 0.397327,
+      "seconds": 3.6
+    },
+    "state_03_attn": {
+      "stream": "state",
+      "block": 3,
+      "kind": "attn",
+      "val_nll": 3.137191,
+      "delta": 0.332566,
+      "seconds": 3.7
+    },
+    "state_03_mlp": {
+      "stream": "state",
+      "block": 3,
+      "kind": "mlp",
+      "val_nll": 2.996952,
+      "delta": 0.192327,
+      "seconds": 3.6
+    },
+    "state_03_block": {
+      "stream": "state",
+      "block": 3,
+      "kind": "block",
+      "val_nll": 3.322187,
+      "delta": 0.517562,
+      "seconds": 3.6
+    },
+    "state_04_attn": {
+      "stream": "state",
+      "block": 4,
+      "kind": "attn",
+      "val_nll": 2.946788,
+      "delta": 0.142163,
+      "seconds": 3.7
+    },
+    "state_04_mlp": {
+      "stream": "state",
+      "block": 4,
+      "kind": "mlp",
+      "val_nll": 2.963392,
+      "delta": 0.158767,
+      "seconds": 3.6
+    },
+    "state_04_block": {
+      "stream": "state",
+      "block": 4,
+      "kind": "block",
+      "val_nll": 3.041042,
+      "delta": 0.236417,
+      "seconds": 3.6
+    },
+    "state_05_attn": {
+      "stream": "state",
+      "block": 5,
+      "kind": "attn",
+      "val_nll": 2.979226,
+      "delta": 0.174601,
+      "seconds": 3.7
+    },
+    "state_05_mlp": {
+      "stream": "state",
+      "block": 5,
+      "kind": "mlp",
+      "val_nll": 3.029936,
+      "delta": 0.225311,
+      "seconds": 3.6
+    },
+    "state_05_block": {
+      "stream": "state",
+      "block": 5,
+      "kind": "block",
+      "val_nll": 3.10801,
+      "delta": 0.303385,
+      "seconds": 3.6
+    },
+    "pred_00_attn": {
+      "stream": "pred",
+      "block": 0,
+      "kind": "attn",
+      "val_nll": 3.433125,
+      "delta": 0.6285,
+      "seconds": 3.7
+    },
+    "pred_00_mlp": {
+      "stream": "pred",
+      "block": 0,
+      "kind": "mlp",
+      "val_nll": 4.806103,
+      "delta": 2.001478,
+      "seconds": 3.6
+    },
+    "pred_00_block": {
+      "stream": "pred",
+      "block": 0,
+      "kind": "block",
+      "val_nll": 5.049492,
+      "delta": 2.244867,
+      "seconds": 3.6
+    },
+    "pred_01_attn": {
+      "stream": "pred",
+      "block": 1,
+      "kind": "attn",
+      "val_nll": 3.155761,
+      "delta": 0.351136,
+      "seconds": 3.7
+    },
+    "pred_01_mlp": {
+      "stream": "pred",
+      "block": 1,
+      "kind": "mlp",
+      "val_nll": 2.909916,
+      "delta": 0.105291,
+      "seconds": 3.6
+    },
+    "pred_01_block": {
+      "stream": "pred",
+      "block": 1,
+      "kind": "block",
+      "val_nll": 3.187183,
+      "delta": 0.382558,
+      "seconds": 3.6
+    },
+    "pred_02_attn": {
+      "stream": "pred",
+      "block": 2,
+      "kind": "attn",
+      "val_nll": 2.921894,
+      "delta": 0.117269,
+      "seconds": 3.7
+    },
+    "pred_02_mlp": {
+      "stream": "pred",
+      "block": 2,
+      "kind": "mlp",
+      "val_nll": 2.922229,
+      "delta": 0.117604,
+      "seconds": 3.6
+    },
+    "pred_02_block": {
+      "stream": "pred",
+      "block": 2,
+      "kind": "block",
+      "val_nll": 3.034943,
+      "delta": 0.230318,
+      "seconds": 3.6
+    },
+    "pred_03_attn": {
+      "stream": "pred",
+      "block": 3,
+      "kind": "attn",
+      "val_nll": 2.898883,
+      "delta": 0.094258,
+      "seconds": 3.7
+    },
+    "pred_03_mlp": {
+      "stream": "pred",
+      "block": 3,
+      "kind": "mlp",
+      "val_nll": 2.96325,
+      "delta": 0.158625,
+      "seconds": 3.6
+    },
+    "pred_03_block": {
+      "stream": "pred",
+      "block": 3,
+      "kind": "block",
+      "val_nll": 3.063067,
+      "delta": 0.258442,
+      "seconds": 3.6
+    },
+    "pred_04_attn": {
+      "stream": "pred",
+      "block": 4,
+      "kind": "attn",
+      "val_nll": 2.96866,
+      "delta": 0.164035,
+      "seconds": 3.7
+    },
+    "pred_04_mlp": {
+      "stream": "pred",
+      "block": 4,
+      "kind": "mlp",
+      "val_nll": 3.004532,
+      "delta": 0.199907,
+      "seconds": 3.6
+    },
+    "pred_04_block": {
+      "stream": "pred",
+      "block": 4,
+      "kind": "block",
+      "val_nll": 3.247576,
+      "delta": 0.442951,
+      "seconds": 3.6
+    },
+    "pred_05_attn": {
+      "stream": "pred",
+      "block": 5,
+      "kind": "attn",
+      "val_nll": 2.987631,
+      "delta": 0.183006,
+      "seconds": 3.7
+    },
+    "pred_05_mlp": {
+      "stream": "pred",
+      "block": 5,
+      "kind": "mlp",
+      "val_nll": 3.304981,
+      "delta": 0.500356,
+      "seconds": 3.6
+    },
+    "pred_05_block": {
+      "stream": "pred",
+      "block": 5,
+      "kind": "block",
+      "val_nll": 3.656998,
+      "delta": 0.852373,
+      "seconds": 3.6
+    }
+  },
+  "native_full_sweep_nll": 2.799752,
+  "control_noop_nll": 2.804625,
+  "control_delta_vs_native": 0.0,
+  "patched_calls": 172,
+  "control_gate_passed": true,
+  "summary": {
+    "state_attn": {
+      "total_delta": 5.781258,
+      "max_delta": 4.643892,
+      "argmax_block": 0,
+      "min_delta": 0.142163,
+      "argmin_block": 4,
+      "n_below_1e_2": 0,
+      "blocks_below_1e_2": []
+    },
+    "state_mlp": {
+      "total_delta": 1.738343,
+      "max_delta": 0.880221,
+      "argmax_block": 0,
+      "min_delta": 0.125752,
+      "argmin_block": 1,
+      "n_below_1e_2": 0,
+      "blocks_below_1e_2": []
+    },
+    "state_block": {
+      "total_delta": 5.479416,
+      "max_delta": 3.708526,
+      "argmax_block": 0,
+      "min_delta": 0.236417,
+      "argmin_block": 4,
+      "n_below_1e_2": 0,
+      "blocks_below_1e_2": []
+    },
+    "pred_attn": {
+      "total_delta": 1.538204,
+      "max_delta": 0.6285,
+      "argmax_block": 0,
+      "min_delta": 0.094258,
+      "argmin_block": 3,
+      "n_below_1e_2": 0,
+      "blocks_below_1e_2": []
+    },
+    "pred_mlp": {
+      "total_delta": 3.083261,
+      "max_delta": 2.001478,
+      "argmax_block": 0,
+      "min_delta": 0.105291,
+      "argmin_block": 1,
+      "n_below_1e_2": 0,
+      "blocks_below_1e_2": []
+    },
+    "pred_block": {
+      "total_delta": 4.411509,
+      "max_delta": 2.244867,
+      "argmax_block": 0,
+      "min_delta": 0.230318,
+      "argmin_block": 2,
+      "n_below_1e_2": 0,
+      "blocks_below_1e_2": []
+    }
+  }
+}

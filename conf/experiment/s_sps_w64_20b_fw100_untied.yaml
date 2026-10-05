@@ -1,0 +1,27 @@
+# @package _global_
+# SPS (window 64), untied LM head.
+defaults:
+  - override /model: sps
+experiment:
+  name: s_sps_w64_20b_fw100_untied
+  tags: [s, sps, w64, untied, 20b, fw100]
+model:
+  config:
+    tie_lm_head: false
+    n_layer: 12
+    n_head: 12
+    hidden_size: 768
+    intermediate_size: 2304
+    dropout: 0.0
+    window_size: 64
+    enable_triton_attention: true
+logging:
+  wandb_run_name: ${experiment.name}
+training:
+  max_tokens: 20000000000
+  eval_interval_tokens: 250000000
+  save_every: 2000000000
+  skip_first_eval: false
+scheduler:
+  lr_decay_tokens: 2000000000
+  warmup_tokens: 50000000

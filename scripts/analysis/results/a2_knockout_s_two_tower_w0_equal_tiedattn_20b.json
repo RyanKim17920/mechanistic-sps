@@ -1,0 +1,163 @@
+{
+  "analysis": "a2_knockout",
+  "run": "s_two_tower_w0_equal_tiedattn_20b",
+  "model_id": "s_two_tower_w0_equal_tiedattn_20b",
+  "label": "s_two_tower_w0_equal_tiedattn_20b",
+  "family": "two_tower",
+  "checkpoint": "${DATA_ROOT}/out/s_two_tower_w0_equal_tiedattn_20b/ckpt_tokens_20000145408_final.pt",
+  "arm": "trained",
+  "window_size": 0,
+  "caps": [
+    16,
+    64,
+    256,
+    1024
+  ],
+  "scoring": {
+    "kind": "sub-sweep",
+    "n_seq": 512,
+    "n_tokens": 2094978,
+    "paired_floor": 0.0005,
+    "seed_floor": 0.00219
+  },
+  "native_sub_sweep_nll": 2.773007,
+  "sweeps": {
+    "control_uncapped": {
+      "query_stream": "pred",
+      "cap": null,
+      "band": "near",
+      "ablation": "mask",
+      "val_nll": 2.77303,
+      "seconds": 53.9
+    },
+    "pred_near16_mask": {
+      "query_stream": "pred",
+      "cap": 16,
+      "band": "near",
+      "ablation": "mask",
+      "val_nll": 3.793346,
+      "seconds": 53.9,
+      "delta_nll": 1.020316
+    },
+    "pred_near16_mean": {
+      "query_stream": "pred",
+      "cap": 16,
+      "band": "near",
+      "ablation": "mean",
+      "val_nll": 3.630042,
+      "seconds": 75.8,
+      "delta_nll": 0.857012
+    },
+    "pred_far16_mask": {
+      "query_stream": "pred",
+      "cap": 16,
+      "band": "far",
+      "ablation": "mask",
+      "val_nll": 6.27061,
+      "seconds": 54.0,
+      "delta_nll": 3.49758
+    },
+    "pred_near64_mask": {
+      "query_stream": "pred",
+      "cap": 64,
+      "band": "near",
+      "ablation": "mask",
+      "val_nll": 3.132386,
+      "seconds": 53.9,
+      "delta_nll": 0.359356
+    },
+    "pred_near64_mean": {
+      "query_stream": "pred",
+      "cap": 64,
+      "band": "near",
+      "ablation": "mean",
+      "val_nll": 3.188808,
+      "seconds": 75.8,
+      "delta_nll": 0.415778
+    },
+    "pred_far64_mask": {
+      "query_stream": "pred",
+      "cap": 64,
+      "band": "far",
+      "ablation": "mask",
+      "val_nll": 6.67605,
+      "seconds": 54.0,
+      "delta_nll": 3.90302
+    },
+    "pred_near256_mask": {
+      "query_stream": "pred",
+      "cap": 256,
+      "band": "near",
+      "ablation": "mask",
+      "val_nll": 2.842175,
+      "seconds": 53.9,
+      "delta_nll": 0.069145
+    },
+    "pred_near256_mean": {
+      "query_stream": "pred",
+      "cap": 256,
+      "band": "near",
+      "ablation": "mean",
+      "val_nll": 2.887239,
+      "seconds": 75.8,
+      "delta_nll": 0.11421
+    },
+    "pred_far256_mask": {
+      "query_stream": "pred",
+      "cap": 256,
+      "band": "far",
+      "ablation": "mask",
+      "val_nll": 7.636785,
+      "seconds": 54.0,
+      "delta_nll": 4.863755
+    },
+    "pred_near1024_mask": {
+      "query_stream": "pred",
+      "cap": 1024,
+      "band": "near",
+      "ablation": "mask",
+      "val_nll": 2.779114,
+      "seconds": 54.0,
+      "delta_nll": 0.006084
+    },
+    "pred_near1024_mean": {
+      "query_stream": "pred",
+      "cap": 1024,
+      "band": "near",
+      "ablation": "mean",
+      "val_nll": 2.781742,
+      "seconds": 75.7,
+      "delta_nll": 0.008712
+    },
+    "pred_far1024_mask": {
+      "query_stream": "pred",
+      "cap": 1024,
+      "band": "far",
+      "ablation": "mask",
+      "val_nll": 9.218143,
+      "seconds": 53.9,
+      "delta_nll": 6.445114
+    }
+  },
+  "calibration": {
+    "n_seq": 32,
+    "mean_abs_value": {
+      "12": 0.00276,
+      "13": 0.024395,
+      "14": 0.021154,
+      "15": 0.033729,
+      "16": 0.041537,
+      "17": 0.047622,
+      "18": 0.044442,
+      "19": 0.048409,
+      "20": 0.081179,
+      "21": 0.135462,
+      "22": 0.154068,
+      "23": 0.140724
+    }
+  },
+  "patched_attention_calls": 1032,
+  "control_uncapped_nll": 2.77303,
+  "control_delta_vs_native": 2.3e-05,
+  "control_gate_passed": true
+}

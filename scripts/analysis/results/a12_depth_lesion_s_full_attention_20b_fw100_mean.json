@@ -1,0 +1,507 @@
+{
+  "analysis": "a12_depth_lesion",
+  "run": "s_full_attention_20b_fw100",
+  "model_id": "M0",
+  "label": "single stream",
+  "family": "standard",
+  "branch": "standard",
+  "checkpoint": "${DATA_ROOT}/out/s_full_attention_20b_fw100/ckpt_tokens_20000145408_final.pt",
+  "lesion_semantics": "single-stream lesion: zero the block's attention and/or MLP residual write at every position; keys/values untouched",
+  "geometry": {
+    "n_layer": 12,
+    "hidden": 768,
+    "intermediate": 2304,
+    "tie_lm_head": true,
+    "block_class": "TritonFullAttentionBlock"
+  },
+  "scoring": {
+    "kind": "sub-sweep",
+    "n_seq": 512,
+    "n_tokens": 2094978,
+    "val_bin": "${DATA_ROOT}/data/fineweb-edu-100bt/val.bin",
+    "paired_floor": 0.0005,
+    "seed_floor": 0.00219,
+    "note": "paired deltas: one ckpt, one val slice, one order; only the lesion differs",
+    "full_sweep_tokens": 13085928,
+    "full_sweep_seqs": 3198,
+    "sub_sweep_offset": 0.005245
+  },
+  "native_sub_sweep_nll": 2.854861,
+  "lesions": {
+    "single_00_attn": {
+      "stream": "single",
+      "block": 0,
+      "kind": "attn",
+      "val_nll": 3.228801,
+      "delta": 0.373939,
+      "seconds": 4.2
+    },
+    "single_00_mlp": {
+      "stream": "single",
+      "block": 0,
+      "kind": "mlp",
+      "val_nll": 9.386113,
+      "delta": 6.531252,
+      "seconds": 4.2
+    },
+    "single_00_block": {
+      "stream": "single",
+      "block": 0,
+      "kind": "block",
+      "val_nll": 9.649865,
+      "delta": 6.795003,
+      "seconds": 4.2
+    },
+    "single_01_attn": {
+      "stream": "single",
+      "block": 1,
+      "kind": "attn",
+      "val_nll": 2.897059,
+      "delta": 0.042197,
+      "seconds": 4.2
+    },
+    "single_01_mlp": {
+      "stream": "single",
+      "block": 1,
+      "kind": "mlp",
+      "val_nll": 3.017611,
+      "delta": 0.16275,
+      "seconds": 4.2
+    },
+    "single_01_block": {
+      "stream": "single",
+      "block": 1,
+      "kind": "block",
+      "val_nll": 3.095533,
+      "delta": 0.240671,
+      "seconds": 4.2
+    },
+    "single_02_attn": {
+      "stream": "single",
+      "block": 2,
+      "kind": "attn",
+      "val_nll": 2.934218,
+      "delta": 0.079357,
+      "seconds": 4.2
+    },
+    "single_02_mlp": {
+      "stream": "single",
+      "block": 2,
+      "kind": "mlp",
+      "val_nll": 2.992106,
+      "delta": 0.137245,
+      "seconds": 4.2
+    },
+    "single_02_block": {
+      "stream": "single",
+      "block": 2,
+      "kind": "block",
+      "val_nll": 3.104165,
+      "delta": 0.249304,
+      "seconds": 4.2
+    },
+    "single_03_attn": {
+      "stream": "single",
+      "block": 3,
+      "kind": "attn",
+      "val_nll": 2.978414,
+      "delta": 0.123552,
+      "seconds": 4.2
+    },
+    "single_03_mlp": {
+      "stream": "single",
+      "block": 3,
+      "kind": "mlp",
+      "val_nll": 2.969111,
+      "delta": 0.114249,
+      "seconds": 4.2
+    },
+    "single_03_block": {
+      "stream": "single",
+      "block": 3,
+      "kind": "block",
+      "val_nll": 3.154445,
+      "delta": 0.299583,
+      "seconds": 4.2
+    },
+    "single_04_attn": {
+      "stream": "single",
+      "block": 4,
+      "kind": "attn",
+      "val_nll": 3.008067,
+      "delta": 0.153205,
+      "seconds": 4.2
+    },
+    "single_04_mlp": {
+      "stream": "single",
+      "block": 4,
+      "kind": "mlp",
+      "val_nll": 3.018187,
+      "delta": 0.163325,
+      "seconds": 4.2
+    },
+    "single_04_block": {
+      "stream": "single",
+      "block": 4,
+      "kind": "block",
+      "val_nll": 3.161298,
+      "delta": 0.306437,
+      "seconds": 4.2
+    },
+    "single_05_attn": {
+      "stream": "single",
+      "block": 5,
+      "kind": "attn",
+      "val_nll": 3.013242,
+      "delta": 0.15838,
+      "seconds": 4.2
+    },
+    "single_05_mlp": {
+      "stream": "single",
+      "block": 5,
+      "kind": "mlp",
+      "val_nll": 2.966954,
+      "delta": 0.112092,
+      "seconds": 4.2
+    },
+    "single_05_block": {
+      "stream": "single",
+      "block": 5,
+      "kind": "block",
+      "val_nll": 3.101819,
+      "delta": 0.246957,
+      "seconds": 4.2
+    },
+    "single_06_attn": {
+      "stream": "single",
+      "block": 6,
+      "kind": "attn",
+      "val_nll": 3.022657,
+      "delta": 0.167795,
+      "seconds": 4.2
+    },
+    "single_06_mlp": {
+      "stream": "single",
+      "block": 6,
+      "kind": "mlp",
+      "val_nll": 2.985961,
+      "delta": 0.1311,
+      "seconds": 4.2
+    },
+    "single_06_block": {
+      "stream": "single",
+      "block": 6,
+      "kind": "block",
+      "val_nll": 3.15427,
+      "delta": 0.299408,
+      "seconds": 4.2
+    },
+    "single_07_attn": {
+      "stream": "single",
+      "block": 7,
+      "kind": "attn",
+      "val_nll": 2.984515,
+      "delta": 0.129653,
+      "seconds": 4.2
+    },
+    "single_07_mlp": {
+      "stream": "single",
+      "block": 7,
+      "kind": "mlp",
+      "val_nll": 2.974715,
+      "delta": 0.119853,
+      "seconds": 4.2
+    },
+    "single_07_block": {
+      "stream": "single",
+      "block": 7,
+      "kind": "block",
+      "val_nll": 3.076794,
+      "delta": 0.221933,
+      "seconds": 4.2
+    },
+    "single_08_attn": {
+      "stream": "single",
+      "block": 8,
+      "kind": "attn",
+      "val_nll": 3.102309,
+      "delta": 0.247447,
+      "seconds": 4.2
+    },
+    "single_08_mlp": {
+      "stream": "single",
+      "block": 8,
+      "kind": "mlp",
+      "val_nll": 2.984384,
+      "delta": 0.129522,
+      "seconds": 4.2
+    },
+    "single_08_block": {
+      "stream": "single",
+      "block": 8,
+      "kind": "block",
+      "val_nll": 3.232974,
+      "delta": 0.378113,
+      "seconds": 4.2
+    },
+    "single_09_attn": {
+      "stream": "single",
+      "block": 9,
+      "kind": "attn",
+      "val_nll": 3.026247,
+      "delta": 0.171385,
+      "seconds": 4.2
+    },
+    "single_09_mlp": {
+      "stream": "single",
+      "block": 9,
+      "kind": "mlp",
+      "val_nll": 3.042054,
+      "delta": 0.187193,
+      "seconds": 4.2
+    },
+    "single_09_block": {
+      "stream": "single",
+      "block": 9,
+      "kind": "block",
+      "val_nll": 3.300566,
+      "delta": 0.445704,
+      "seconds": 4.2
+    },
+    "single_10_attn": {
+      "stream": "single",
+      "block": 10,
+      "kind": "attn",
+      "val_nll": 3.095451,
+      "delta": 0.24059,
+      "seconds": 4.2
+    },
+    "single_10_mlp": {
+      "stream": "single",
+      "block": 10,
+      "kind": "mlp",
+      "val_nll": 3.105314,
+      "delta": 0.250453,
+      "seconds": 4.2
+    },
+    "single_10_block": {
+      "stream": "single",
+      "block": 10,
+      "kind": "block",
+      "val_nll": 3.391566,
+      "delta": 0.536705,
+      "seconds": 4.2
+    },
+    "single_11_attn": {
+      "stream": "single",
+      "block": 11,
+      "kind": "attn",
+      "val_nll": 3.001962,
+      "delta": 0.147101,
+      "seconds": 4.2
+    },
+    "single_11_mlp": {
+      "stream": "single",
+      "block": 11,
+      "kind": "mlp",
+      "val_nll": 3.735987,
+      "delta": 0.881125,
+      "seconds": 4.2
+    },
+    "single_11_block": {
+      "stream": "single",
+      "block": 11,
+      "kind": "block",
+      "val_nll": 4.636873,
+      "delta": 1.782012,
+      "seconds": 4.2
+    }
+  },
+  "ablation": "mean",
+  "lesion_semantics_ablation": "MEAN-ablation: the lesioned write is replaced, at every position of the lesioned stream/slot type, by its per-channel clean-run mean over held-out val sequences disjoint from the scored sub-sweep",
+  "mean_ablation": {
+    "source": "val.bin (same file as the scored sub-sweep)",
+    "selection": "BLOCK-strided grid[512:], evenly strided, first 256",
+    "n_seq": 256,
+    "first_start": 2097152,
+    "last_start": 12541952,
+    "disjoint_from_scored": true,
+    "seconds": 2.4,
+    "per_write": {
+      "single_00_attn": {
+        "mean_norm": 1.427814,
+        "write_rms_norm": 1.608266,
+        "rows": 1048576
+      },
+      "single_00_mlp": {
+        "mean_norm": 7.343726,
+        "write_rms_norm": 13.25559,
+        "rows": 1048576
+      },
+      "single_01_attn": {
+        "mean_norm": 3.528345,
+        "write_rms_norm": 4.608505,
+        "rows": 1048576
+      },
+      "single_01_mlp": {
+        "mean_norm": 3.31695,
+        "write_rms_norm": 6.325186,
+        "rows": 1048576
+      },
+      "single_02_attn": {
+        "mean_norm": 0.968107,
+        "write_rms_norm": 4.026004,
+        "rows": 1048576
+      },
+      "single_02_mlp": {
+        "mean_norm": 2.513744,
+        "write_rms_norm": 8.568093,
+        "rows": 1048576
+      },
+      "single_03_attn": {
+        "mean_norm": 0.757337,
+        "write_rms_norm": 4.928601,
+        "rows": 1048576
+      },
+      "single_03_mlp": {
+        "mean_norm": 2.468488,
+        "write_rms_norm": 9.133696,
+        "rows": 1048576
+      },
+      "single_04_attn": {
+        "mean_norm": 2.078922,
+        "write_rms_norm": 6.422318,
+        "rows": 1048576
+      },
+      "single_04_mlp": {
+        "mean_norm": 4.418522,
+        "write_rms_norm": 15.242686,
+        "rows": 1048576
+      },
+      "single_05_attn": {
+        "mean_norm": 2.156889,
+        "write_rms_norm": 8.470732,
+        "rows": 1048576
+      },
+      "single_05_mlp": {
+        "mean_norm": 3.144713,
+        "write_rms_norm": 15.54787,
+        "rows": 1048576
+      },
+      "single_06_attn": {
+        "mean_norm": 4.102898,
+        "write_rms_norm": 11.340038,
+        "rows": 1048576
+      },
+      "single_06_mlp": {
+        "mean_norm": 5.102231,
+        "write_rms_norm": 22.815839,
+        "rows": 1048576
+      },
+      "single_07_attn": {
+        "mean_norm": 5.136139,
+        "write_rms_norm": 13.015167,
+        "rows": 1048576
+      },
+      "single_07_mlp": {
+        "mean_norm": 5.051249,
+        "write_rms_norm": 17.929205,
+        "rows": 1048576
+      },
+      "single_08_attn": {
+        "mean_norm": 6.439796,
+        "write_rms_norm": 21.26063,
+        "rows": 1048576
+      },
+      "single_08_mlp": {
+        "mean_norm": 4.703969,
+        "write_rms_norm": 21.450726,
+        "rows": 1048576
+      },
+      "single_09_attn": {
+        "mean_norm": 5.492109,
+        "write_rms_norm": 22.00386,
+        "rows": 1048576
+      },
+      "single_09_mlp": {
+        "mean_norm": 9.495707,
+        "write_rms_norm": 35.03585,
+        "rows": 1048576
+      },
+      "single_10_attn": {
+        "mean_norm": 29.072459,
+        "write_rms_norm": 46.43649,
+        "rows": 1048576
+      },
+      "single_10_mlp": {
+        "mean_norm": 11.425211,
+        "write_rms_norm": 59.391228,
+        "rows": 1048576
+      },
+      "single_11_attn": {
+        "mean_norm": 50.353175,
+        "write_rms_norm": 71.142461,
+        "rows": 1048576
+      },
+      "single_11_mlp": {
+        "mean_norm": 74.036732,
+        "write_rms_norm": 136.910889,
+        "rows": 1048576
+      }
+    }
+  },
+  "native_full_sweep_nll": 2.849616,
+  "control_noop_nll": 2.854861,
+  "control_delta_vs_native": 0.0,
+  "patched_calls": 172,
+  "gates": {
+    "noop": {
+      "nll": 2.854861,
+      "delta": 0.0,
+      "calls": 86,
+      "passed": true
+    },
+    "identity_lesion": {
+      "nll": 2.854861,
+      "delta": 0.0,
+      "calls": 86,
+      "passed": true
+    }
+  },
+  "control_gate_passed": true,
+  "summary": {
+    "single_attn": {
+      "total_delta": 2.034601,
+      "max_delta": 0.373939,
+      "argmax_block": 0,
+      "min_delta": 0.042197,
+      "argmin_block": 1,
+      "n_below_1e_2": 0,
+      "blocks_below_1e_2": [],
+      "block0_share_of_total": 0.18379,
+      "first_third_share_of_total": 0.304259
+    },
+    "single_mlp": {
+      "total_delta": 8.920159,
+      "max_delta": 6.531252,
+      "argmax_block": 0,
+      "min_delta": 0.112092,
+      "argmin_block": 5,
+      "n_below_1e_2": 0,
+      "blocks_below_1e_2": [],
+      "block0_share_of_total": 0.73219,
+      "first_third_share_of_total": 0.778629
+    },
+    "single_block": {
+      "total_delta": 11.80183,
+      "max_delta": 6.795003,
+      "argmax_block": 0,
+      "min_delta": 0.221933,
+      "argmin_block": 7,
+      "n_below_1e_2": 0,
+      "blocks_below_1e_2": [],
+      "block0_share_of_total": 0.575758,
+      "first_third_share_of_total": 0.64266
+    }
+  }
+}

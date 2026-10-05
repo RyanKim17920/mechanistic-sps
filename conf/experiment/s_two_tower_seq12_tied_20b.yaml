@@ -1,0 +1,38 @@
+# @package _global_
+# Shared Sequential: 12+12, every block weight tied across the towers, every pred block
+# reads the state tower's output (read_map final) through state_kv.
+defaults:
+  - override /model: two_tower
+experiment:
+  name: s_two_tower_seq12_tied_20b
+  tags: [s, two_tower, sequential, shared, 20b, fw100]
+model:
+  config:
+    n_head: 12
+    hidden_size: 768
+    intermediate_size: 2304
+    dropout: 0.0
+    state_n_layer: 12
+    pred_n_layer: 12
+    state_intermediate: 2304
+    pred_intermediate: 2304
+    read_map: final
+    read_source: state_kv
+    predict_embedding: constant
+    tie_lm_head: true
+    tie_attn_across_towers: true
+    tie_ffn_across_towers: true
+    tie_norms_across_towers: true
+    share_ffn_across_towers: false
+    attn_backend: flex   # what ran: no flash-attn wheel was installed
+logging:
+  wandb_log: false
+  wandb_run_name: ${experiment.name}
+training:
+  max_tokens: 20000000000
+  eval_interval_tokens: 1000000000
+  save_every: 1000000000
+  skip_first_eval: false
+scheduler:
+  lr_decay_tokens: 2000000000
+  warmup_tokens: 50000000

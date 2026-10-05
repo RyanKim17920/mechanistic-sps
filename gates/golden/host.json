@@ -1,0 +1,9 @@
+{
+ "cpu": "AMD EPYC-Genoa Processor",
+ "g4_threads": "4",
+ "matplotlib": "3.10.7",
+ "pdftex": "pdfTeX 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian)",
+ "pdftotext": "pdftotext version 24.02.0",
+ "serif_font": "NimbusRoman-Regular.otf",
+ "torch": "2.9.0+cu128"
+}
