@@ -3,7 +3,7 @@
 Code, configs and results for the paper *Which State Should Prediction Read? A Mechanistic
 Analysis of State–Prediction Separation* (Ryan Kim, 2026).
 
-**Paper:** [arXiv:XXXX.XXXXX](https://arxiv.org/abs/XXXX.XXXXX) | **Checkpoints:** [Hugging Face, `ryankim17920/mechanistic-sps`](https://huggingface.co/ryankim17920/mechanistic-sps)
+**Paper:** arXiv link coming soon | **Checkpoints:** [Hugging Face, `ryankim17920/mechanistic-sps`](https://huggingface.co/ryankim17920/mechanistic-sps)
 
 <p align="center">
   <img src="assets/fig1_architecture.png" alt="Figure 1: Transformer, SPS, Two-tower and Sequential architectures" width="900">
@@ -362,9 +362,7 @@ own licenses.
   title         = {Which State Should Prediction Read? A Mechanistic Analysis of State--Prediction Separation},
   author        = {Ryan Kim},
   year          = {2026},
-  eprint        = {XXXX.XXXXX},
-  archivePrefix = {arXiv},
-  primaryClass  = {cs.CL}
+  note          = {arXiv preprint coming soon}
 }
 ```
 
