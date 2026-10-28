@@ -1,0 +1,938 @@
+{
+  "analysis": "a12_depth_lesion",
+  "run": "s_two_tower_w0_equal_20b",
+  "model_id": "M4",
+  "label": "two-tower (equal)",
+  "family": "two_tower",
+  "checkpoint": "${DATA_ROOT}/out/s_two_tower_w0_equal_20b/ckpt_tokens_20000145408_final.pt",
+  "geometry": {
+    "state_n_layer": 12,
+    "pred_n_layer": 12,
+    "state_hidden": 768,
+    "pred_hidden": 768,
+    "state_intermediate": 2304,
+    "pred_intermediate": 2304,
+    "read_map": "post",
+    "read_source": "pred_proj",
+    "read_levels": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "pred_window": 0
+  },
+  "scoring": {
+    "kind": "sub-sweep",
+    "n_seq": 512,
+    "n_tokens": 2094978,
+    "val_bin": "${DATA_ROOT}/data/fineweb-edu-100bt/val.bin",
+    "paired_floor": 0.0005,
+    "seed_floor": 0.00219,
+    "note": "paired deltas: one ckpt, one val slice, one order; only the lesion differs",
+    "full_sweep_tokens": 13085928,
+    "full_sweep_seqs": 3198,
+    "sub_sweep_offset": 0.005615
+  },
+  "native_sub_sweep_nll": 2.737708,
+  "lesions": {
+    "state_00_attn": {
+      "stream": "state",
+      "block": 0,
+      "kind": "attn",
+      "val_nll": 2.753889,
+      "delta": 0.01618,
+      "seconds": 6.5
+    },
+    "state_00_mlp": {
+      "stream": "state",
+      "block": 0,
+      "kind": "mlp",
+      "val_nll": 11.82215,
+      "delta": 9.084442,
+      "seconds": 6.5
+    },
+    "state_00_block": {
+      "stream": "state",
+      "block": 0,
+      "kind": "block",
+      "val_nll": 11.839342,
+      "delta": 9.101634,
+      "seconds": 6.4
+    },
+    "state_01_attn": {
+      "stream": "state",
+      "block": 1,
+      "kind": "attn",
+      "val_nll": 2.785834,
+      "delta": 0.048125,
+      "seconds": 6.5
+    },
+    "state_01_mlp": {
+      "stream": "state",
+      "block": 1,
+      "kind": "mlp",
+      "val_nll": 3.089423,
+      "delta": 0.351715,
+      "seconds": 6.5
+    },
+    "state_01_block": {
+      "stream": "state",
+      "block": 1,
+      "kind": "block",
+      "val_nll": 3.230539,
+      "delta": 0.492831,
+      "seconds": 6.5
+    },
+    "state_02_attn": {
+      "stream": "state",
+      "block": 2,
+      "kind": "attn",
+      "val_nll": 2.878664,
+      "delta": 0.140955,
+      "seconds": 6.5
+    },
+    "state_02_mlp": {
+      "stream": "state",
+      "block": 2,
+      "kind": "mlp",
+      "val_nll": 2.833681,
+      "delta": 0.095973,
+      "seconds": 6.5
+    },
+    "state_02_block": {
+      "stream": "state",
+      "block": 2,
+      "kind": "block",
+      "val_nll": 2.951741,
+      "delta": 0.214032,
+      "seconds": 6.5
+    },
+    "state_03_attn": {
+      "stream": "state",
+      "block": 3,
+      "kind": "attn",
+      "val_nll": 2.788021,
+      "delta": 0.050312,
+      "seconds": 6.6
+    },
+    "state_03_mlp": {
+      "stream": "state",
+      "block": 3,
+      "kind": "mlp",
+      "val_nll": 2.847708,
+      "delta": 0.109999,
+      "seconds": 6.5
+    },
+    "state_03_block": {
+      "stream": "state",
+      "block": 3,
+      "kind": "block",
+      "val_nll": 2.94873,
+      "delta": 0.211021,
+      "seconds": 6.5
+    },
+    "state_04_attn": {
+      "stream": "state",
+      "block": 4,
+      "kind": "attn",
+      "val_nll": 2.828805,
+      "delta": 0.091096,
+      "seconds": 6.5
+    },
+    "state_04_mlp": {
+      "stream": "state",
+      "block": 4,
+      "kind": "mlp",
+      "val_nll": 2.87067,
+      "delta": 0.132962,
+      "seconds": 6.5
+    },
+    "state_04_block": {
+      "stream": "state",
+      "block": 4,
+      "kind": "block",
+      "val_nll": 3.031361,
+      "delta": 0.293652,
+      "seconds": 6.5
+    },
+    "state_05_attn": {
+      "stream": "state",
+      "block": 5,
+      "kind": "attn",
+      "val_nll": 2.895075,
+      "delta": 0.157366,
+      "seconds": 6.6
+    },
+    "state_05_mlp": {
+      "stream": "state",
+      "block": 5,
+      "kind": "mlp",
+      "val_nll": 2.837756,
+      "delta": 0.100047,
+      "seconds": 6.5
+    },
+    "state_05_block": {
+      "stream": "state",
+      "block": 5,
+      "kind": "block",
+      "val_nll": 3.049005,
+      "delta": 0.311297,
+      "seconds": 6.5
+    },
+    "state_06_attn": {
+      "stream": "state",
+      "block": 6,
+      "kind": "attn",
+      "val_nll": 2.828634,
+      "delta": 0.090925,
+      "seconds": 6.5
+    },
+    "state_06_mlp": {
+      "stream": "state",
+      "block": 6,
+      "kind": "mlp",
+      "val_nll": 2.832676,
+      "delta": 0.094968,
+      "seconds": 6.5
+    },
+    "state_06_block": {
+      "stream": "state",
+      "block": 6,
+      "kind": "block",
+      "val_nll": 3.0364,
+      "delta": 0.298692,
+      "seconds": 6.5
+    },
+    "state_07_attn": {
+      "stream": "state",
+      "block": 7,
+      "kind": "attn",
+      "val_nll": 3.014131,
+      "delta": 0.276423,
+      "seconds": 6.8
+    },
+    "state_07_mlp": {
+      "stream": "state",
+      "block": 7,
+      "kind": "mlp",
+      "val_nll": 3.037378,
+      "delta": 0.29967,
+      "seconds": 6.5
+    },
+    "state_07_block": {
+      "stream": "state",
+      "block": 7,
+      "kind": "block",
+      "val_nll": 3.37279,
+      "delta": 0.635082,
+      "seconds": 6.5
+    },
+    "state_08_attn": {
+      "stream": "state",
+      "block": 8,
+      "kind": "attn",
+      "val_nll": 2.836942,
+      "delta": 0.099233,
+      "seconds": 6.5
+    },
+    "state_08_mlp": {
+      "stream": "state",
+      "block": 8,
+      "kind": "mlp",
+      "val_nll": 2.781994,
+      "delta": 0.044286,
+      "seconds": 6.5
+    },
+    "state_08_block": {
+      "stream": "state",
+      "block": 8,
+      "kind": "block",
+      "val_nll": 2.836368,
+      "delta": 0.09866,
+      "seconds": 6.5
+    },
+    "state_09_attn": {
+      "stream": "state",
+      "block": 9,
+      "kind": "attn",
+      "val_nll": 2.771773,
+      "delta": 0.034064,
+      "seconds": 6.5
+    },
+    "state_09_mlp": {
+      "stream": "state",
+      "block": 9,
+      "kind": "mlp",
+      "val_nll": 2.789051,
+      "delta": 0.051343,
+      "seconds": 6.5
+    },
+    "state_09_block": {
+      "stream": "state",
+      "block": 9,
+      "kind": "block",
+      "val_nll": 2.812399,
+      "delta": 0.074691,
+      "seconds": 6.5
+    },
+    "state_10_attn": {
+      "stream": "state",
+      "block": 10,
+      "kind": "attn",
+      "val_nll": 2.759366,
+      "delta": 0.021658,
+      "seconds": 6.5
+    },
+    "state_10_mlp": {
+      "stream": "state",
+      "block": 10,
+      "kind": "mlp",
+      "val_nll": 2.793556,
+      "delta": 0.055847,
+      "seconds": 6.5
+    },
+    "state_10_block": {
+      "stream": "state",
+      "block": 10,
+      "kind": "block",
+      "val_nll": 2.814032,
+      "delta": 0.076323,
+      "seconds": 6.5
+    },
+    "state_11_attn": {
+      "stream": "state",
+      "block": 11,
+      "kind": "attn",
+      "val_nll": 2.759563,
+      "delta": 0.021854,
+      "seconds": 6.5
+    },
+    "state_11_mlp": {
+      "stream": "state",
+      "block": 11,
+      "kind": "mlp",
+      "val_nll": 2.798553,
+      "delta": 0.060844,
+      "seconds": 6.5
+    },
+    "state_11_block": {
+      "stream": "state",
+      "block": 11,
+      "kind": "block",
+      "val_nll": 2.82017,
+      "delta": 0.082461,
+      "seconds": 6.5
+    },
+    "pred_00_attn": {
+      "stream": "pred",
+      "block": 0,
+      "kind": "attn",
+      "val_nll": 2.753928,
+      "delta": 0.01622,
+      "seconds": 6.5
+    },
+    "pred_00_mlp": {
+      "stream": "pred",
+      "block": 0,
+      "kind": "mlp",
+      "val_nll": 3.157431,
+      "delta": 0.419723,
+      "seconds": 6.5
+    },
+    "pred_00_block": {
+      "stream": "pred",
+      "block": 0,
+      "kind": "block",
+      "val_nll": 3.1595,
+      "delta": 0.421791,
+      "seconds": 6.5
+    },
+    "pred_01_attn": {
+      "stream": "pred",
+      "block": 1,
+      "kind": "attn",
+      "val_nll": 2.750928,
+      "delta": 0.013219,
+      "seconds": 6.5
+    },
+    "pred_01_mlp": {
+      "stream": "pred",
+      "block": 1,
+      "kind": "mlp",
+      "val_nll": 2.753263,
+      "delta": 0.015554,
+      "seconds": 6.5
+    },
+    "pred_01_block": {
+      "stream": "pred",
+      "block": 1,
+      "kind": "block",
+      "val_nll": 2.766332,
+      "delta": 0.028623,
+      "seconds": 6.5
+    },
+    "pred_02_attn": {
+      "stream": "pred",
+      "block": 2,
+      "kind": "attn",
+      "val_nll": 2.762484,
+      "delta": 0.024776,
+      "seconds": 6.5
+    },
+    "pred_02_mlp": {
+      "stream": "pred",
+      "block": 2,
+      "kind": "mlp",
+      "val_nll": 2.75529,
+      "delta": 0.017582,
+      "seconds": 6.5
+    },
+    "pred_02_block": {
+      "stream": "pred",
+      "block": 2,
+      "kind": "block",
+      "val_nll": 2.774681,
+      "delta": 0.036973,
+      "seconds": 6.5
+    },
+    "pred_03_attn": {
+      "stream": "pred",
+      "block": 3,
+      "kind": "attn",
+      "val_nll": 2.753939,
+      "delta": 0.016231,
+      "seconds": 6.5
+    },
+    "pred_03_mlp": {
+      "stream": "pred",
+      "block": 3,
+      "kind": "mlp",
+      "val_nll": 2.758145,
+      "delta": 0.020437,
+      "seconds": 6.5
+    },
+    "pred_03_block": {
+      "stream": "pred",
+      "block": 3,
+      "kind": "block",
+      "val_nll": 2.771095,
+      "delta": 0.033387,
+      "seconds": 6.5
+    },
+    "pred_04_attn": {
+      "stream": "pred",
+      "block": 4,
+      "kind": "attn",
+      "val_nll": 2.767916,
+      "delta": 0.030208,
+      "seconds": 6.5
+    },
+    "pred_04_mlp": {
+      "stream": "pred",
+      "block": 4,
+      "kind": "mlp",
+      "val_nll": 2.771368,
+      "delta": 0.03366,
+      "seconds": 6.5
+    },
+    "pred_04_block": {
+      "stream": "pred",
+      "block": 4,
+      "kind": "block",
+      "val_nll": 2.7925,
+      "delta": 0.054792,
+      "seconds": 6.5
+    },
+    "pred_05_attn": {
+      "stream": "pred",
+      "block": 5,
+      "kind": "attn",
+      "val_nll": 2.782517,
+      "delta": 0.044809,
+      "seconds": 6.5
+    },
+    "pred_05_mlp": {
+      "stream": "pred",
+      "block": 5,
+      "kind": "mlp",
+      "val_nll": 2.772672,
+      "delta": 0.034964,
+      "seconds": 6.5
+    },
+    "pred_05_block": {
+      "stream": "pred",
+      "block": 5,
+      "kind": "block",
+      "val_nll": 2.81556,
+      "delta": 0.077852,
+      "seconds": 6.5
+    },
+    "pred_06_attn": {
+      "stream": "pred",
+      "block": 6,
+      "kind": "attn",
+      "val_nll": 2.829069,
+      "delta": 0.09136,
+      "seconds": 6.5
+    },
+    "pred_06_mlp": {
+      "stream": "pred",
+      "block": 6,
+      "kind": "mlp",
+      "val_nll": 2.779116,
+      "delta": 0.041407,
+      "seconds": 6.5
+    },
+    "pred_06_block": {
+      "stream": "pred",
+      "block": 6,
+      "kind": "block",
+      "val_nll": 2.893633,
+      "delta": 0.155925,
+      "seconds": 6.5
+    },
+    "pred_07_attn": {
+      "stream": "pred",
+      "block": 7,
+      "kind": "attn",
+      "val_nll": 2.813834,
+      "delta": 0.076126,
+      "seconds": 6.5
+    },
+    "pred_07_mlp": {
+      "stream": "pred",
+      "block": 7,
+      "kind": "mlp",
+      "val_nll": 2.783216,
+      "delta": 0.045508,
+      "seconds": 6.5
+    },
+    "pred_07_block": {
+      "stream": "pred",
+      "block": 7,
+      "kind": "block",
+      "val_nll": 2.874643,
+      "delta": 0.136935,
+      "seconds": 6.5
+    },
+    "pred_08_attn": {
+      "stream": "pred",
+      "block": 8,
+      "kind": "attn",
+      "val_nll": 2.796912,
+      "delta": 0.059204,
+      "seconds": 6.5
+    },
+    "pred_08_mlp": {
+      "stream": "pred",
+      "block": 8,
+      "kind": "mlp",
+      "val_nll": 2.796144,
+      "delta": 0.058436,
+      "seconds": 6.5
+    },
+    "pred_08_block": {
+      "stream": "pred",
+      "block": 8,
+      "kind": "block",
+      "val_nll": 2.8573,
+      "delta": 0.119591,
+      "seconds": 6.5
+    },
+    "pred_09_attn": {
+      "stream": "pred",
+      "block": 9,
+      "kind": "attn",
+      "val_nll": 2.808455,
+      "delta": 0.070747,
+      "seconds": 6.5
+    },
+    "pred_09_mlp": {
+      "stream": "pred",
+      "block": 9,
+      "kind": "mlp",
+      "val_nll": 2.817196,
+      "delta": 0.079488,
+      "seconds": 6.5
+    },
+    "pred_09_block": {
+      "stream": "pred",
+      "block": 9,
+      "kind": "block",
+      "val_nll": 2.893231,
+      "delta": 0.155522,
+      "seconds": 6.5
+    },
+    "pred_10_attn": {
+      "stream": "pred",
+      "block": 10,
+      "kind": "attn",
+      "val_nll": 2.822418,
+      "delta": 0.08471,
+      "seconds": 6.8
+    },
+    "pred_10_mlp": {
+      "stream": "pred",
+      "block": 10,
+      "kind": "mlp",
+      "val_nll": 2.863855,
+      "delta": 0.126147,
+      "seconds": 6.5
+    },
+    "pred_10_block": {
+      "stream": "pred",
+      "block": 10,
+      "kind": "block",
+      "val_nll": 2.955157,
+      "delta": 0.217449,
+      "seconds": 6.5
+    },
+    "pred_11_attn": {
+      "stream": "pred",
+      "block": 11,
+      "kind": "attn",
+      "val_nll": 2.973339,
+      "delta": 0.235631,
+      "seconds": 6.5
+    },
+    "pred_11_mlp": {
+      "stream": "pred",
+      "block": 11,
+      "kind": "mlp",
+      "val_nll": 3.28934,
+      "delta": 0.551632,
+      "seconds": 6.5
+    },
+    "pred_11_block": {
+      "stream": "pred",
+      "block": 11,
+      "kind": "block",
+      "val_nll": 3.360918,
+      "delta": 0.62321,
+      "seconds": 6.5
+    }
+  },
+  "ablation": "mean",
+  "lesion_semantics_ablation": "MEAN-ablation: the lesioned write is replaced, at every position of the lesioned stream/slot type, by its per-channel clean-run mean over held-out val sequences disjoint from the scored sub-sweep",
+  "mean_ablation": {
+    "source": "val.bin (same file as the scored sub-sweep)",
+    "selection": "BLOCK-strided grid[512:], evenly strided, first 256",
+    "n_seq": 256,
+    "first_start": 2097152,
+    "last_start": 12541952,
+    "disjoint_from_scored": true,
+    "seconds": 16.6,
+    "per_write": {
+      "state_00_attn": {
+        "mean_norm": 0.21815,
+        "write_rms_norm": 0.357477,
+        "rows": 1048576
+      },
+      "state_00_mlp": {
+        "mean_norm": 5.277706,
+        "write_rms_norm": 14.435265,
+        "rows": 1048576
+      },
+      "state_01_attn": {
+        "mean_norm": 8.323802,
+        "write_rms_norm": 9.549217,
+        "rows": 1048576
+      },
+      "state_01_mlp": {
+        "mean_norm": 8.175092,
+        "write_rms_norm": 15.267738,
+        "rows": 1048576
+      },
+      "state_02_attn": {
+        "mean_norm": 2.706104,
+        "write_rms_norm": 8.001515,
+        "rows": 1048576
+      },
+      "state_02_mlp": {
+        "mean_norm": 4.590553,
+        "write_rms_norm": 11.609011,
+        "rows": 1048576
+      },
+      "state_03_attn": {
+        "mean_norm": 3.667422,
+        "write_rms_norm": 9.045449,
+        "rows": 1048576
+      },
+      "state_03_mlp": {
+        "mean_norm": 8.211821,
+        "write_rms_norm": 17.239778,
+        "rows": 1048576
+      },
+      "state_04_attn": {
+        "mean_norm": 4.826107,
+        "write_rms_norm": 13.047406,
+        "rows": 1048576
+      },
+      "state_04_mlp": {
+        "mean_norm": 12.98075,
+        "write_rms_norm": 23.76497,
+        "rows": 1048576
+      },
+      "state_05_attn": {
+        "mean_norm": 2.932055,
+        "write_rms_norm": 17.824264,
+        "rows": 1048576
+      },
+      "state_05_mlp": {
+        "mean_norm": 9.85182,
+        "write_rms_norm": 27.296719,
+        "rows": 1048576
+      },
+      "state_06_attn": {
+        "mean_norm": 4.018044,
+        "write_rms_norm": 22.449829,
+        "rows": 1048576
+      },
+      "state_06_mlp": {
+        "mean_norm": 18.275985,
+        "write_rms_norm": 36.629293,
+        "rows": 1048576
+      },
+      "state_07_attn": {
+        "mean_norm": 6.086462,
+        "write_rms_norm": 39.255324,
+        "rows": 1048576
+      },
+      "state_07_mlp": {
+        "mean_norm": 83.566207,
+        "write_rms_norm": 1169.558764,
+        "rows": 1048576
+      },
+      "state_08_attn": {
+        "mean_norm": 2.461003,
+        "write_rms_norm": 32.806739,
+        "rows": 1048576
+      },
+      "state_08_mlp": {
+        "mean_norm": 4.84055,
+        "write_rms_norm": 45.286708,
+        "rows": 1048576
+      },
+      "state_09_attn": {
+        "mean_norm": 4.44354,
+        "write_rms_norm": 32.822682,
+        "rows": 1048576
+      },
+      "state_09_mlp": {
+        "mean_norm": 10.637624,
+        "write_rms_norm": 62.79257,
+        "rows": 1048576
+      },
+      "state_10_attn": {
+        "mean_norm": 8.182274,
+        "write_rms_norm": 41.929519,
+        "rows": 1048576
+      },
+      "state_10_mlp": {
+        "mean_norm": 25.911295,
+        "write_rms_norm": 95.513443,
+        "rows": 1048576
+      },
+      "state_11_attn": {
+        "mean_norm": 25.510989,
+        "write_rms_norm": 55.415953,
+        "rows": 1048576
+      },
+      "state_11_mlp": {
+        "mean_norm": 47.991786,
+        "write_rms_norm": 148.913173,
+        "rows": 1048576
+      },
+      "pred_00_attn": {
+        "mean_norm": 1.54374,
+        "write_rms_norm": 1.691843,
+        "rows": 1048576
+      },
+      "pred_00_mlp": {
+        "mean_norm": 4.190844,
+        "write_rms_norm": 8.507137,
+        "rows": 1048576
+      },
+      "pred_01_attn": {
+        "mean_norm": 5.121528,
+        "write_rms_norm": 5.925774,
+        "rows": 1048576
+      },
+      "pred_01_mlp": {
+        "mean_norm": 3.303454,
+        "write_rms_norm": 4.986072,
+        "rows": 1048576
+      },
+      "pred_02_attn": {
+        "mean_norm": 4.456626,
+        "write_rms_norm": 6.064326,
+        "rows": 1048576
+      },
+      "pred_02_mlp": {
+        "mean_norm": 1.957344,
+        "write_rms_norm": 4.894595,
+        "rows": 1048576
+      },
+      "pred_03_attn": {
+        "mean_norm": 3.182236,
+        "write_rms_norm": 5.37293,
+        "rows": 1048576
+      },
+      "pred_03_mlp": {
+        "mean_norm": 2.2196,
+        "write_rms_norm": 7.078323,
+        "rows": 1048576
+      },
+      "pred_04_attn": {
+        "mean_norm": 7.526291,
+        "write_rms_norm": 10.080361,
+        "rows": 1048576
+      },
+      "pred_04_mlp": {
+        "mean_norm": 2.852516,
+        "write_rms_norm": 8.918729,
+        "rows": 1048576
+      },
+      "pred_05_attn": {
+        "mean_norm": 4.485438,
+        "write_rms_norm": 10.820952,
+        "rows": 1048576
+      },
+      "pred_05_mlp": {
+        "mean_norm": 6.192837,
+        "write_rms_norm": 13.192297,
+        "rows": 1048576
+      },
+      "pred_06_attn": {
+        "mean_norm": 4.846022,
+        "write_rms_norm": 14.339484,
+        "rows": 1048576
+      },
+      "pred_06_mlp": {
+        "mean_norm": 7.643272,
+        "write_rms_norm": 16.823624,
+        "rows": 1048576
+      },
+      "pred_07_attn": {
+        "mean_norm": 4.663105,
+        "write_rms_norm": 14.775546,
+        "rows": 1048576
+      },
+      "pred_07_mlp": {
+        "mean_norm": 9.437177,
+        "write_rms_norm": 20.397929,
+        "rows": 1048576
+      },
+      "pred_08_attn": {
+        "mean_norm": 6.53987,
+        "write_rms_norm": 19.034249,
+        "rows": 1048576
+      },
+      "pred_08_mlp": {
+        "mean_norm": 10.46525,
+        "write_rms_norm": 26.150966,
+        "rows": 1048576
+      },
+      "pred_09_attn": {
+        "mean_norm": 11.966194,
+        "write_rms_norm": 26.400435,
+        "rows": 1048576
+      },
+      "pred_09_mlp": {
+        "mean_norm": 10.793683,
+        "write_rms_norm": 34.613139,
+        "rows": 1048576
+      },
+      "pred_10_attn": {
+        "mean_norm": 2.56314,
+        "write_rms_norm": 25.351715,
+        "rows": 1048576
+      },
+      "pred_10_mlp": {
+        "mean_norm": 8.567104,
+        "write_rms_norm": 43.090102,
+        "rows": 1048576
+      },
+      "pred_11_attn": {
+        "mean_norm": 7.694987,
+        "write_rms_norm": 37.589564,
+        "rows": 1048576
+      },
+      "pred_11_mlp": {
+        "mean_norm": 41.725284,
+        "write_rms_norm": 79.920421,
+        "rows": 1048576
+      }
+    }
+  },
+  "native_full_sweep_nll": 2.732093,
+  "control_noop_nll": 2.737708,
+  "control_delta_vs_native": 0.0,
+  "patched_calls": 172,
+  "control_gate_passed": true,
+  "summary": {
+    "state_attn": {
+      "total_delta": 1.048191,
+      "max_delta": 0.276423,
+      "argmax_block": 7,
+      "min_delta": 0.01618,
+      "argmin_block": 0,
+      "n_below_1e_2": 0,
+      "blocks_below_1e_2": []
+    },
+    "state_mlp": {
+      "total_delta": 10.482096,
+      "max_delta": 9.084442,
+      "argmax_block": 0,
+      "min_delta": 0.044286,
+      "argmin_block": 8,
+      "n_below_1e_2": 0,
+      "blocks_below_1e_2": []
+    },
+    "state_block": {
+      "total_delta": 11.890376,
+      "max_delta": 9.101634,
+      "argmax_block": 0,
+      "min_delta": 0.074691,
+      "argmin_block": 9,
+      "n_below_1e_2": 0,
+      "blocks_below_1e_2": []
+    },
+    "pred_attn": {
+      "total_delta": 0.763241,
+      "max_delta": 0.235631,
+      "argmax_block": 11,
+      "min_delta": 0.013219,
+      "argmin_block": 1,
+      "n_below_1e_2": 0,
+      "blocks_below_1e_2": []
+    },
+    "pred_mlp": {
+      "total_delta": 1.444538,
+      "max_delta": 0.551632,
+      "argmax_block": 11,
+      "min_delta": 0.015554,
+      "argmin_block": 1,
+      "n_below_1e_2": 0,
+      "blocks_below_1e_2": []
+    },
+    "pred_block": {
+      "total_delta": 2.06205,
+      "max_delta": 0.62321,
+      "argmax_block": 11,
+      "min_delta": 0.028623,
+      "argmin_block": 1,
+      "n_below_1e_2": 0,
+      "blocks_below_1e_2": []
+    }
+  }
+}

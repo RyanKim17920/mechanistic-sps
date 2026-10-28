@@ -1,0 +1,19 @@
+# Main configuration file
+defaults:
+  - training: default
+  - optimizer: adamw
+  - scheduler: linear_decay
+  - model: standard
+  - data: fineweb-edu-100bt
+  - logging: default
+  - system: default
+  - override hydra/hydra_logging: disabled
+  - override hydra/job_logging: disabled
+  - _self_
+
+# No Hydra run directory (outputs/<date>/<time>/.hydra in the submit directory): train.py
+# writes everything it keeps under the run's own out_dir.
+hydra:
+  output_subdir: null
+  run:
+    dir: .

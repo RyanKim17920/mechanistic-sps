@@ -1,0 +1,105 @@
+data:
+  dataset: fineweb-edu-100bt
+eval:
+  seed: 100
+  total_tokens: 10000000
+experiment:
+  name: s_two_tower_frz_seq6src_post_20b_seed2
+  tags:
+  - s
+  - two_tower
+  - w0
+  - freeze_retrain
+  - fw100
+  - exploratory
+logging:
+  wandb_dir: /DATA_ROOT/wandb
+  wandb_entity: null
+  wandb_log: false
+  wandb_project: sps
+  wandb_run_name: s_two_tower_frz_seq6src_post_20b_seed2
+model:
+  _target_: modeling.models.two_tower.core.TwoTowerModel
+  config:
+    _target_: modeling.models.two_tower.core.TwoTowerConfig
+    attn_backend: auto
+    bias: false
+    block_size: 4096
+    dropout: 0.0
+    eos_token_id: 50256
+    hidden_size: 768
+    intermediate_size: 2304
+    n_head: 12
+    n_layer: 12
+    norm_eps: 1.0e-06
+    pad_token_id: 50303
+    pred_hidden: null
+    pred_intermediate: 2304
+    pred_n_layer: 6
+    pred_self_module: fused
+    pred_window: 0
+    predict_embedding: separate
+    predict_token_id: 50257
+    read_map: post
+    read_source: pred_proj
+    share_ffn_across_towers: false
+    state_hidden: null
+    state_intermediate: 2304
+    state_intermediate_per_block: null
+    state_n_layer: 6
+    state_pred_window: 0
+    tie_attn_across_towers: false
+    tie_ffn_across_towers: false
+    tie_lm_head: false
+    tie_norms_across_towers: false
+    vocab_size: 50304
+optimizer:
+  beta1: 0.9
+  beta2: 0.95
+  grad_clip: 1.0
+  learning_rate: 0.0006
+  weight_decay: 0.1
+scheduler:
+  decay_lr: true
+  lr_decay_tokens: 2000000000
+  min_lr: 6.0e-05
+  warmup_tokens: 50000000
+system:
+  backend: nccl
+  compile: true
+  data_root: /DATA_ROOT
+  deterministic: false
+  device: cuda
+  dtype: bfloat16
+  out_root: /DATA_ROOT
+training:
+  always_save_checkpoint: true
+  chunk_shuffle_seed: 1338
+  chunk_size_units: 262144
+  chunked_ce: false
+  chunked_ce_rows: 4096
+  compile: false
+  compile_dynamic: false
+  compile_mode: max-autotune-no-cudagraphs
+  compile_scope: model
+  emb_snapshot_every: 0
+  eval_interval_tokens: 1000000000
+  eval_only: false
+  eval_total_tokens: 10000000
+  freeze_state_from: ${DATA_ROOT}/out/s_two_tower_seq6_20b/ckpt_tokens_20000145408_final.pt
+  fused_adamw: false
+  global_batch_size: 96
+  init_from: resume
+  log_interval: 1
+  max_tokens: 20000000000
+  micro_batch_size: 6
+  resume_checkpoint: null
+  rolling_save_every: 100000000
+  sampler_fix: false
+  sampler_type: fixed_random_chunk
+  save_every: 1000000000
+  seed: 1338
+  skip_first_eval: false
+  tf32: false
+  two_tower_emb_probe_init: false
+  val_max_tokens: null

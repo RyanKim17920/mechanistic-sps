@@ -1,0 +1,13 @@
+# System configuration
+
+backend: nccl      # DDP backend (nccl for NVIDIA GPUs, gloo for CPU)
+dtype: bfloat16    # Training precision: float32, bfloat16, or float16
+device: cuda       # Device: cuda or cpu
+compile: true      # Use torch.compile for faster training
+deterministic: false  # Enable deterministic mode for reproducibility testing
+data_root: ???     # Required: base directory for datasets and checkpoints. Set on the CLI, e.g. system.data_root=/path/to/data
+out_root: ${system.data_root}   # Base dir for run OUTPUTS: checkpoints go to <out_root>/out/<run_name>.
+                                # Defaults to data_root, so the on-disk layout is unchanged unless it is set.
+                                # Set it to put checkpoints on a DIFFERENT filesystem from the (large, read-only)
+                                # tokenized corpus, which always stays under <data_root>/data/<dataset>.
+                                # e.g. system.out_root=/path/to/outputs

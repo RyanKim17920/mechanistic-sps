@@ -1,0 +1,331 @@
+{
+  "analysis": "a13_read_depth_cap",
+  "run": "s_two_tower_w0_equal_20b_seed2",
+  "model_id": "s_two_tower_w0_equal_20b_seed2",
+  "label": "s_two_tower_w0_equal_20b_seed2",
+  "family": "two_tower",
+  "checkpoint": "${DATA_ROOT}/out/s_two_tower_w0_equal_20b_seed2/ckpt_tokens_20000145408_final.pt",
+  "geometry": {
+    "state_n_layer": 12,
+    "pred_n_layer": 12,
+    "state_hidden": 768,
+    "pred_hidden": 768,
+    "state_intermediate": 2304,
+    "pred_intermediate": 2304,
+    "read_map": "post",
+    "read_source": "pred_proj",
+    "native_read_levels": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "pred_window": 0,
+    "max_available_level": 12
+  },
+  "scoring": {
+    "kind": "sub-sweep",
+    "n_seq": 512,
+    "n_tokens": 2094978,
+    "val_bin": "${DATA_ROOT}/data/fineweb-edu-100bt/val.bin",
+    "paired_floor": 0.0005,
+    "seed_floor": 0.00219,
+    "full_sweep_tokens": 13085928,
+    "sub_sweep_offset": 0.004065
+  },
+  "native_sub_sweep_nll": 2.737316,
+  "baseline_flops_per_token": 750773760.0,
+  "caps": {
+    "12": {
+      "K": 12,
+      "read_levels": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "val_nll": 2.737316,
+      "delta": 0.0,
+      "seconds": 6.5
+    },
+    "2": {
+      "K": 2,
+      "read_levels": [
+        1,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "val_nll": 4.860722,
+      "delta": 2.123406,
+      "seconds": 6.5
+    },
+    "4": {
+      "K": 4,
+      "read_levels": [
+        1,
+        2,
+        3,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "val_nll": 4.289424,
+      "delta": 1.552108,
+      "seconds": 6.5
+    },
+    "6": {
+      "K": 6,
+      "read_levels": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6
+      ],
+      "val_nll": 3.678257,
+      "delta": 0.94094,
+      "seconds": 6.5
+    },
+    "8": {
+      "K": 8,
+      "read_levels": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "val_nll": 3.110051,
+      "delta": 0.372734,
+      "seconds": 6.5
+    },
+    "10": {
+      "K": 10,
+      "read_levels": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        10,
+        10
+      ],
+      "val_nll": 2.891618,
+      "delta": 0.154302,
+      "seconds": 6.5
+    }
+  },
+  "floors": {
+    "2": {
+      "K": 2,
+      "read_levels": [
+        2,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "val_nll": 2.793225,
+      "delta": 0.055909,
+      "seconds": 6.5
+    },
+    "4": {
+      "K": 4,
+      "read_levels": [
+        4,
+        4,
+        4,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "val_nll": 2.833726,
+      "delta": 0.09641,
+      "seconds": 6.5
+    },
+    "6": {
+      "K": 6,
+      "read_levels": [
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "val_nll": 2.86903,
+      "delta": 0.131714,
+      "seconds": 6.5
+    },
+    "8": {
+      "K": 8,
+      "read_levels": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "val_nll": 2.951061,
+      "delta": 0.213745,
+      "seconds": 6.5
+    },
+    "10": {
+      "K": 10,
+      "read_levels": [
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        11,
+        12
+      ],
+      "val_nll": 3.064606,
+      "delta": 0.32729,
+      "seconds": 6.5
+    },
+    "12": {
+      "K": 12,
+      "read_levels": [
+        12,
+        12,
+        12,
+        12,
+        12,
+        12,
+        12,
+        12,
+        12,
+        12,
+        12,
+        12
+      ],
+      "val_nll": 3.443283,
+      "delta": 0.705967,
+      "seconds": 6.5
+    }
+  },
+  "native_full_sweep_nll": 2.733251,
+  "identity_gate_delta": 0.0,
+  "identity_gate_passed": true,
+  "proposal": {
+    "flat_tol": 0.01,
+    "flat_caps": [],
+    "proposal_not_measured": true,
+    "note": "An eval-time cap on a model trained uncapped is a LESION. A flat cap curve motivates training an L_s=K / L_p=12 two-tower; it is not that model's measured NLL. Such a model also needs a read_map that CAPS (f(i)=min(i+1,K)) rather than COMPRESSES (the existing 'scaled', f(i)=floor((i+1)L_s/L_p)) -- a one-line addition to src/modeling/models/two_tower/core.py:read_level, not made here.",
+    "flops_by_state_depth": {
+      "2": {
+        "flops_per_token": 470115840.0,
+        "saving_pct": 37.382,
+        "cap_delta": 2.123406
+      },
+      "4": {
+        "flops_per_token": 526247424.0,
+        "saving_pct": 29.906,
+        "cap_delta": 1.552108
+      },
+      "6": {
+        "flops_per_token": 582379008.0,
+        "saving_pct": 22.429,
+        "cap_delta": 0.94094
+      },
+      "8": {
+        "flops_per_token": 638510592.0,
+        "saving_pct": 14.953,
+        "cap_delta": 0.372734
+      },
+      "10": {
+        "flops_per_token": 694642176.0,
+        "saving_pct": 7.476,
+        "cap_delta": 0.154302
+      },
+      "12": {
+        "flops_per_token": 750773760.0,
+        "saving_pct": 0.0,
+        "cap_delta": 0.0
+      }
+    }
+  }
+}

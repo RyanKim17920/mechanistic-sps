@@ -1,0 +1,687 @@
+{
+  "analysis": "a12_depth_lesion",
+  "run": "s_two_tower_seq12_tied_20b",
+  "model_id": "s_two_tower_seq12_tied_20b",
+  "label": "s_two_tower_seq12_tied_20b",
+  "family": "two_tower",
+  "checkpoint": "${DATA_ROOT}/out/s_two_tower_seq12_tied_20b/ckpt_tokens_20000145408_final.pt",
+  "geometry": {
+    "state_n_layer": 12,
+    "pred_n_layer": 12,
+    "state_hidden": 768,
+    "pred_hidden": 768,
+    "state_intermediate": 2304,
+    "pred_intermediate": 2304,
+    "read_map": "final",
+    "read_source": "state_kv",
+    "read_levels": [
+      12,
+      12,
+      12,
+      12,
+      12,
+      12,
+      12,
+      12,
+      12,
+      12,
+      12,
+      12
+    ],
+    "pred_window": 0
+  },
+  "scoring": {
+    "kind": "sub-sweep",
+    "n_seq": 512,
+    "n_tokens": 2094978,
+    "val_bin": "${DATA_ROOT}/data/fineweb-edu-100bt/val.bin",
+    "paired_floor": 0.0005,
+    "seed_floor": 0.00219,
+    "note": "paired deltas: one ckpt, one val slice, one order; only the lesion differs",
+    "full_sweep_tokens": 13085928,
+    "full_sweep_seqs": 3198,
+    "sub_sweep_offset": 0.006578
+  },
+  "native_sub_sweep_nll": 2.833531,
+  "lesions": {
+    "state_00_attn": {
+      "stream": "state",
+      "block": 0,
+      "kind": "attn",
+      "val_nll": 3.248897,
+      "delta": 0.415365,
+      "seconds": 5.9
+    },
+    "state_00_mlp": {
+      "stream": "state",
+      "block": 0,
+      "kind": "mlp",
+      "val_nll": 9.65938,
+      "delta": 6.825848,
+      "seconds": 5.8
+    },
+    "state_00_block": {
+      "stream": "state",
+      "block": 0,
+      "kind": "block",
+      "val_nll": 8.709118,
+      "delta": 5.875587,
+      "seconds": 5.8
+    },
+    "state_01_attn": {
+      "stream": "state",
+      "block": 1,
+      "kind": "attn",
+      "val_nll": 2.849934,
+      "delta": 0.016403,
+      "seconds": 5.8
+    },
+    "state_01_mlp": {
+      "stream": "state",
+      "block": 1,
+      "kind": "mlp",
+      "val_nll": 2.882704,
+      "delta": 0.049173,
+      "seconds": 5.8
+    },
+    "state_01_block": {
+      "stream": "state",
+      "block": 1,
+      "kind": "block",
+      "val_nll": 2.907896,
+      "delta": 0.074365,
+      "seconds": 5.8
+    },
+    "state_02_attn": {
+      "stream": "state",
+      "block": 2,
+      "kind": "attn",
+      "val_nll": 2.843033,
+      "delta": 0.009502,
+      "seconds": 5.8
+    },
+    "state_02_mlp": {
+      "stream": "state",
+      "block": 2,
+      "kind": "mlp",
+      "val_nll": 2.85849,
+      "delta": 0.024959,
+      "seconds": 5.8
+    },
+    "state_02_block": {
+      "stream": "state",
+      "block": 2,
+      "kind": "block",
+      "val_nll": 2.86646,
+      "delta": 0.032929,
+      "seconds": 5.8
+    },
+    "state_03_attn": {
+      "stream": "state",
+      "block": 3,
+      "kind": "attn",
+      "val_nll": 2.846395,
+      "delta": 0.012863,
+      "seconds": 5.8
+    },
+    "state_03_mlp": {
+      "stream": "state",
+      "block": 3,
+      "kind": "mlp",
+      "val_nll": 2.852823,
+      "delta": 0.019292,
+      "seconds": 5.8
+    },
+    "state_03_block": {
+      "stream": "state",
+      "block": 3,
+      "kind": "block",
+      "val_nll": 2.863992,
+      "delta": 0.030461,
+      "seconds": 5.8
+    },
+    "state_04_attn": {
+      "stream": "state",
+      "block": 4,
+      "kind": "attn",
+      "val_nll": 2.851052,
+      "delta": 0.017521,
+      "seconds": 5.9
+    },
+    "state_04_mlp": {
+      "stream": "state",
+      "block": 4,
+      "kind": "mlp",
+      "val_nll": 2.853969,
+      "delta": 0.020438,
+      "seconds": 5.8
+    },
+    "state_04_block": {
+      "stream": "state",
+      "block": 4,
+      "kind": "block",
+      "val_nll": 2.86845,
+      "delta": 0.034919,
+      "seconds": 5.8
+    },
+    "state_05_attn": {
+      "stream": "state",
+      "block": 5,
+      "kind": "attn",
+      "val_nll": 2.862292,
+      "delta": 0.028761,
+      "seconds": 5.8
+    },
+    "state_05_mlp": {
+      "stream": "state",
+      "block": 5,
+      "kind": "mlp",
+      "val_nll": 2.857347,
+      "delta": 0.023816,
+      "seconds": 5.8
+    },
+    "state_05_block": {
+      "stream": "state",
+      "block": 5,
+      "kind": "block",
+      "val_nll": 2.88096,
+      "delta": 0.047429,
+      "seconds": 5.8
+    },
+    "state_06_attn": {
+      "stream": "state",
+      "block": 6,
+      "kind": "attn",
+      "val_nll": 2.86119,
+      "delta": 0.027659,
+      "seconds": 5.9
+    },
+    "state_06_mlp": {
+      "stream": "state",
+      "block": 6,
+      "kind": "mlp",
+      "val_nll": 2.8644,
+      "delta": 0.030869,
+      "seconds": 5.8
+    },
+    "state_06_block": {
+      "stream": "state",
+      "block": 6,
+      "kind": "block",
+      "val_nll": 2.887723,
+      "delta": 0.054192,
+      "seconds": 5.8
+    },
+    "state_07_attn": {
+      "stream": "state",
+      "block": 7,
+      "kind": "attn",
+      "val_nll": 2.885519,
+      "delta": 0.051988,
+      "seconds": 5.8
+    },
+    "state_07_mlp": {
+      "stream": "state",
+      "block": 7,
+      "kind": "mlp",
+      "val_nll": 2.895429,
+      "delta": 0.061898,
+      "seconds": 5.8
+    },
+    "state_07_block": {
+      "stream": "state",
+      "block": 7,
+      "kind": "block",
+      "val_nll": 2.964514,
+      "delta": 0.130983,
+      "seconds": 5.8
+    },
+    "state_08_attn": {
+      "stream": "state",
+      "block": 8,
+      "kind": "attn",
+      "val_nll": 2.880825,
+      "delta": 0.047294,
+      "seconds": 5.8
+    },
+    "state_08_mlp": {
+      "stream": "state",
+      "block": 8,
+      "kind": "mlp",
+      "val_nll": 2.870485,
+      "delta": 0.036954,
+      "seconds": 5.8
+    },
+    "state_08_block": {
+      "stream": "state",
+      "block": 8,
+      "kind": "block",
+      "val_nll": 2.90841,
+      "delta": 0.074879,
+      "seconds": 5.8
+    },
+    "state_09_attn": {
+      "stream": "state",
+      "block": 9,
+      "kind": "attn",
+      "val_nll": 2.951618,
+      "delta": 0.118087,
+      "seconds": 5.8
+    },
+    "state_09_mlp": {
+      "stream": "state",
+      "block": 9,
+      "kind": "mlp",
+      "val_nll": 2.892395,
+      "delta": 0.058863,
+      "seconds": 5.8
+    },
+    "state_09_block": {
+      "stream": "state",
+      "block": 9,
+      "kind": "block",
+      "val_nll": 2.990903,
+      "delta": 0.157372,
+      "seconds": 5.8
+    },
+    "state_10_attn": {
+      "stream": "state",
+      "block": 10,
+      "kind": "attn",
+      "val_nll": 3.106266,
+      "delta": 0.272734,
+      "seconds": 5.8
+    },
+    "state_10_mlp": {
+      "stream": "state",
+      "block": 10,
+      "kind": "mlp",
+      "val_nll": 2.903965,
+      "delta": 0.070434,
+      "seconds": 5.8
+    },
+    "state_10_block": {
+      "stream": "state",
+      "block": 10,
+      "kind": "block",
+      "val_nll": 3.069062,
+      "delta": 0.235531,
+      "seconds": 5.8
+    },
+    "state_11_attn": {
+      "stream": "state",
+      "block": 11,
+      "kind": "attn",
+      "val_nll": 3.028384,
+      "delta": 0.194853,
+      "seconds": 5.8
+    },
+    "state_11_mlp": {
+      "stream": "state",
+      "block": 11,
+      "kind": "mlp",
+      "val_nll": 3.585136,
+      "delta": 0.751605,
+      "seconds": 5.8
+    },
+    "state_11_block": {
+      "stream": "state",
+      "block": 11,
+      "kind": "block",
+      "val_nll": 5.45321,
+      "delta": 2.619679,
+      "seconds": 5.8
+    },
+    "pred_00_attn": {
+      "stream": "pred",
+      "block": 0,
+      "kind": "attn",
+      "val_nll": 3.846906,
+      "delta": 1.013375,
+      "seconds": 5.8
+    },
+    "pred_00_mlp": {
+      "stream": "pred",
+      "block": 0,
+      "kind": "mlp",
+      "val_nll": 2.869809,
+      "delta": 0.036278,
+      "seconds": 5.8
+    },
+    "pred_00_block": {
+      "stream": "pred",
+      "block": 0,
+      "kind": "block",
+      "val_nll": 3.57982,
+      "delta": 0.746289,
+      "seconds": 6.0
+    },
+    "pred_01_attn": {
+      "stream": "pred",
+      "block": 1,
+      "kind": "attn",
+      "val_nll": 2.940625,
+      "delta": 0.107094,
+      "seconds": 5.8
+    },
+    "pred_01_mlp": {
+      "stream": "pred",
+      "block": 1,
+      "kind": "mlp",
+      "val_nll": 2.885574,
+      "delta": 0.052043,
+      "seconds": 5.8
+    },
+    "pred_01_block": {
+      "stream": "pred",
+      "block": 1,
+      "kind": "block",
+      "val_nll": 2.958909,
+      "delta": 0.125378,
+      "seconds": 5.8
+    },
+    "pred_02_attn": {
+      "stream": "pred",
+      "block": 2,
+      "kind": "attn",
+      "val_nll": 2.913213,
+      "delta": 0.079682,
+      "seconds": 5.8
+    },
+    "pred_02_mlp": {
+      "stream": "pred",
+      "block": 2,
+      "kind": "mlp",
+      "val_nll": 2.898923,
+      "delta": 0.065392,
+      "seconds": 5.8
+    },
+    "pred_02_block": {
+      "stream": "pred",
+      "block": 2,
+      "kind": "block",
+      "val_nll": 2.969433,
+      "delta": 0.135902,
+      "seconds": 5.8
+    },
+    "pred_03_attn": {
+      "stream": "pred",
+      "block": 3,
+      "kind": "attn",
+      "val_nll": 2.892092,
+      "delta": 0.058561,
+      "seconds": 5.8
+    },
+    "pred_03_mlp": {
+      "stream": "pred",
+      "block": 3,
+      "kind": "mlp",
+      "val_nll": 2.908082,
+      "delta": 0.074551,
+      "seconds": 5.8
+    },
+    "pred_03_block": {
+      "stream": "pred",
+      "block": 3,
+      "kind": "block",
+      "val_nll": 2.963656,
+      "delta": 0.130124,
+      "seconds": 5.8
+    },
+    "pred_04_attn": {
+      "stream": "pred",
+      "block": 4,
+      "kind": "attn",
+      "val_nll": 2.886853,
+      "delta": 0.053322,
+      "seconds": 5.8
+    },
+    "pred_04_mlp": {
+      "stream": "pred",
+      "block": 4,
+      "kind": "mlp",
+      "val_nll": 2.912544,
+      "delta": 0.079013,
+      "seconds": 5.8
+    },
+    "pred_04_block": {
+      "stream": "pred",
+      "block": 4,
+      "kind": "block",
+      "val_nll": 2.964836,
+      "delta": 0.131305,
+      "seconds": 5.8
+    },
+    "pred_05_attn": {
+      "stream": "pred",
+      "block": 5,
+      "kind": "attn",
+      "val_nll": 2.910029,
+      "delta": 0.076498,
+      "seconds": 5.8
+    },
+    "pred_05_mlp": {
+      "stream": "pred",
+      "block": 5,
+      "kind": "mlp",
+      "val_nll": 2.927747,
+      "delta": 0.094215,
+      "seconds": 5.8
+    },
+    "pred_05_block": {
+      "stream": "pred",
+      "block": 5,
+      "kind": "block",
+      "val_nll": 3.009726,
+      "delta": 0.176195,
+      "seconds": 5.8
+    },
+    "pred_06_attn": {
+      "stream": "pred",
+      "block": 6,
+      "kind": "attn",
+      "val_nll": 2.899475,
+      "delta": 0.065944,
+      "seconds": 5.8
+    },
+    "pred_06_mlp": {
+      "stream": "pred",
+      "block": 6,
+      "kind": "mlp",
+      "val_nll": 2.920617,
+      "delta": 0.087086,
+      "seconds": 5.8
+    },
+    "pred_06_block": {
+      "stream": "pred",
+      "block": 6,
+      "kind": "block",
+      "val_nll": 3.009827,
+      "delta": 0.176296,
+      "seconds": 5.8
+    },
+    "pred_07_attn": {
+      "stream": "pred",
+      "block": 7,
+      "kind": "attn",
+      "val_nll": 2.904614,
+      "delta": 0.071082,
+      "seconds": 5.8
+    },
+    "pred_07_mlp": {
+      "stream": "pred",
+      "block": 7,
+      "kind": "mlp",
+      "val_nll": 2.917732,
+      "delta": 0.084201,
+      "seconds": 5.8
+    },
+    "pred_07_block": {
+      "stream": "pred",
+      "block": 7,
+      "kind": "block",
+      "val_nll": 2.997289,
+      "delta": 0.163757,
+      "seconds": 5.8
+    },
+    "pred_08_attn": {
+      "stream": "pred",
+      "block": 8,
+      "kind": "attn",
+      "val_nll": 2.878326,
+      "delta": 0.044795,
+      "seconds": 5.8
+    },
+    "pred_08_mlp": {
+      "stream": "pred",
+      "block": 8,
+      "kind": "mlp",
+      "val_nll": 2.916393,
+      "delta": 0.082861,
+      "seconds": 5.8
+    },
+    "pred_08_block": {
+      "stream": "pred",
+      "block": 8,
+      "kind": "block",
+      "val_nll": 2.964274,
+      "delta": 0.130742,
+      "seconds": 5.8
+    },
+    "pred_09_attn": {
+      "stream": "pred",
+      "block": 9,
+      "kind": "attn",
+      "val_nll": 2.855934,
+      "delta": 0.022403,
+      "seconds": 5.8
+    },
+    "pred_09_mlp": {
+      "stream": "pred",
+      "block": 9,
+      "kind": "mlp",
+      "val_nll": 2.922553,
+      "delta": 0.089021,
+      "seconds": 5.8
+    },
+    "pred_09_block": {
+      "stream": "pred",
+      "block": 9,
+      "kind": "block",
+      "val_nll": 2.950458,
+      "delta": 0.116927,
+      "seconds": 5.8
+    },
+    "pred_10_attn": {
+      "stream": "pred",
+      "block": 10,
+      "kind": "attn",
+      "val_nll": 2.862038,
+      "delta": 0.028507,
+      "seconds": 5.8
+    },
+    "pred_10_mlp": {
+      "stream": "pred",
+      "block": 10,
+      "kind": "mlp",
+      "val_nll": 2.939231,
+      "delta": 0.1057,
+      "seconds": 5.8
+    },
+    "pred_10_block": {
+      "stream": "pred",
+      "block": 10,
+      "kind": "block",
+      "val_nll": 2.971416,
+      "delta": 0.137885,
+      "seconds": 5.8
+    },
+    "pred_11_attn": {
+      "stream": "pred",
+      "block": 11,
+      "kind": "attn",
+      "val_nll": 2.857689,
+      "delta": 0.024158,
+      "seconds": 5.8
+    },
+    "pred_11_mlp": {
+      "stream": "pred",
+      "block": 11,
+      "kind": "mlp",
+      "val_nll": 3.180937,
+      "delta": 0.347406,
+      "seconds": 5.8
+    },
+    "pred_11_block": {
+      "stream": "pred",
+      "block": 11,
+      "kind": "block",
+      "val_nll": 3.154884,
+      "delta": 0.321353,
+      "seconds": 5.8
+    }
+  },
+  "native_full_sweep_nll": 2.826953,
+  "control_noop_nll": 2.833531,
+  "control_delta_vs_native": 0.0,
+  "patched_calls": 172,
+  "control_gate_passed": true,
+  "summary": {
+    "state_attn": {
+      "total_delta": 1.21303,
+      "max_delta": 0.415365,
+      "argmax_block": 0,
+      "min_delta": 0.009502,
+      "argmin_block": 2,
+      "n_below_1e_2": 1,
+      "blocks_below_1e_2": [
+        2
+      ]
+    },
+    "state_mlp": {
+      "total_delta": 7.974149,
+      "max_delta": 6.825848,
+      "argmax_block": 0,
+      "min_delta": 0.019292,
+      "argmin_block": 3,
+      "n_below_1e_2": 0,
+      "blocks_below_1e_2": []
+    },
+    "state_block": {
+      "total_delta": 9.368326,
+      "max_delta": 5.875587,
+      "argmax_block": 0,
+      "min_delta": 0.030461,
+      "argmin_block": 3,
+      "n_below_1e_2": 0,
+      "blocks_below_1e_2": []
+    },
+    "pred_attn": {
+      "total_delta": 1.645421,
+      "max_delta": 1.013375,
+      "argmax_block": 0,
+      "min_delta": 0.022403,
+      "argmin_block": 9,
+      "n_below_1e_2": 0,
+      "blocks_below_1e_2": []
+    },
+    "pred_mlp": {
+      "total_delta": 1.197767,
+      "max_delta": 0.347406,
+      "argmax_block": 11,
+      "min_delta": 0.036278,
+      "argmin_block": 0,
+      "n_below_1e_2": 0,
+      "blocks_below_1e_2": []
+    },
+    "pred_block": {
+      "total_delta": 2.492153,
+      "max_delta": 0.746289,
+      "argmax_block": 0,
+      "min_delta": 0.116927,
+      "argmin_block": 9,
+      "n_below_1e_2": 0,
+      "blocks_below_1e_2": []
+    }
+  }
+}

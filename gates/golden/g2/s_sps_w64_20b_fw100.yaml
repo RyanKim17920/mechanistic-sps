@@ -1,0 +1,89 @@
+data:
+  dataset: fineweb-edu-100bt
+eval:
+  seed: 100
+  total_tokens: 10000000
+experiment:
+  name: s_sps_w64_20b_fw100
+  tags:
+  - s
+  - sps
+  - w64
+  - 20b
+  - fw100
+  - ladder20b
+logging:
+  wandb_dir: /DATA_ROOT/wandb
+  wandb_entity: null
+  wandb_log: true
+  wandb_project: sps
+  wandb_run_name: s_sps_w64_20b_fw100
+model:
+  _target_: modeling.models.sps.SPSModel
+  config:
+    _target_: modeling.models.sps.SPSConfig
+    bias: false
+    block_size: 4096
+    dropout: 0.0
+    enable_triton_attention: true
+    eos_token_id: 50256
+    hidden_size: 768
+    intermediate_size: 2304
+    n_head: 12
+    n_layer: 12
+    norm_eps: 1.0e-06
+    pad_token_id: 50303
+    predict_token_id: 50257
+    vocab_size: 50304
+    warp_specialize: false
+    window_size: 64
+optimizer:
+  beta1: 0.9
+  beta2: 0.95
+  grad_clip: 1.0
+  learning_rate: 0.0006
+  weight_decay: 0.1
+scheduler:
+  decay_lr: true
+  lr_decay_tokens: 2000000000
+  min_lr: 6.0e-05
+  warmup_tokens: 50000000
+system:
+  backend: nccl
+  compile: true
+  data_root: /DATA_ROOT
+  deterministic: false
+  device: cuda
+  dtype: bfloat16
+  out_root: /DATA_ROOT
+training:
+  always_save_checkpoint: true
+  chunk_shuffle_seed: 1337
+  chunk_size_units: 262144
+  chunked_ce: false
+  chunked_ce_rows: 4096
+  compile: false
+  compile_dynamic: false
+  compile_mode: max-autotune-no-cudagraphs
+  compile_scope: model
+  emb_snapshot_every: 0
+  eval_interval_tokens: 250000000
+  eval_only: false
+  eval_total_tokens: 10000000
+  freeze_state_from: null
+  fused_adamw: false
+  global_batch_size: 96
+  init_from: resume
+  log_interval: 1
+  max_tokens: 20000000000
+  micro_batch_size: 6
+  resume_checkpoint: null
+  rolling_save_every: 100000000
+  sampler_fix: false
+  sampler_type: fixed_random_chunk
+  save_every: 2000000000
+  seed: 1337
+  skip_first_eval: false
+  tf32: false
+  two_tower_emb_probe_init: false
+  val_max_tokens: null

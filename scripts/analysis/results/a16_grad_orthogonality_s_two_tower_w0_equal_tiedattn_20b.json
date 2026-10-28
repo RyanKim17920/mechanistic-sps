@@ -1,0 +1,1847 @@
+{
+  "analysis": "a16_grad_orthogonality",
+  "run": "s_two_tower_w0_equal_tiedattn_20b",
+  "checkpoint": "${DATA_ROOT}/out/s_two_tower_w0_equal_tiedattn_20b/ckpt_tokens_20000145408_final.pt",
+  "untrained": false,
+  "untied_reference": false,
+  "n_seq": 3198,
+  "micro_batch": 4,
+  "n_micro_batches": 800,
+  "tokens": 13099008,
+  "config": {
+    "tie_attn_across_towers": true,
+    "share_ffn_across_towers": false,
+    "tie_lm_head": false,
+    "read_map": "post"
+  },
+  "loss_by_mode": {
+    "total": 2.7671281285583973,
+    "state": 2.7671281285583973,
+    "pred": 2.7671281285583973,
+    "total2": 2.7671281285583973
+  },
+  "loss_max_spread": 0.0,
+  "loss_mean": 2.7671281285583973,
+  "gate": {
+    "applicable": true,
+    "max_rel_err": 0.0013512489964503278,
+    "max_repro_rel_err": 0.0,
+    "max_estimator_spread": 6.066689564446226e-05,
+    "tol": 0.001,
+    "cos_tol": 0.02,
+    "criterion": "repro floor == 0 AND the three cosine estimators (split / total-minus-pred / total-minus-state) agree within cos_tol",
+    "passed": true,
+    "per_tensor": [
+      {
+        "name": "state_h.0.c_attn[q]",
+        "kind": "attn_q",
+        "rel_err": 1.8485103632313689e-09,
+        "repro_rel_err": 0.0,
+        "norm_total": 0.11255215688513528
+      },
+      {
+        "name": "state_h.0.c_attn[k]",
+        "kind": "attn_k",
+        "rel_err": 2.6525636139158424e-09,
+        "repro_rel_err": 0.0,
+        "norm_total": 0.10143547040811526
+      },
+      {
+        "name": "state_h.0.c_attn[v]",
+        "kind": "attn_v",
+        "rel_err": 3.481444609077581e-10,
+        "repro_rel_err": 0.0,
+        "norm_total": 1.235234902674405
+      },
+      {
+        "name": "state_h.0.c_proj",
+        "kind": "attn_out",
+        "rel_err": 0.0012630930846495572,
+        "repro_rel_err": 0.0,
+        "norm_total": 0.8093962050083744
+      },
+      {
+        "name": "state_h.1.c_attn[q]",
+        "kind": "attn_q",
+        "rel_err": 1.7931037695540235e-10,
+        "repro_rel_err": 0.0,
+        "norm_total": 0.46233668201032246
+      },
+      {
+        "name": "state_h.1.c_attn[k]",
+        "kind": "attn_k",
+        "rel_err": 9.88038416600342e-11,
+        "repro_rel_err": 0.0,
+        "norm_total": 0.540408521533624
+      },
+      {
+        "name": "state_h.1.c_attn[v]",
+        "kind": "attn_v",
+        "rel_err": 6.235719747100921e-11,
+        "repro_rel_err": 0.0,
+        "norm_total": 7.827031258454803
+      },
+      {
+        "name": "state_h.1.c_proj",
+        "kind": "attn_out",
+        "rel_err": 0.0008826856423678802,
+        "repro_rel_err": 0.0,
+        "norm_total": 2.5941270850395384
+      },
+      {
+        "name": "state_h.2.c_attn[q]",
+        "kind": "attn_q",
+        "rel_err": 3.668083688618234e-10,
+        "repro_rel_err": 0.0,
+        "norm_total": 0.9122861933202335
+      },
+      {
+        "name": "state_h.2.c_attn[k]",
+        "kind": "attn_k",
+        "rel_err": 1.6503672177843503e-10,
+        "repro_rel_err": 0.0,
+        "norm_total": 0.7052311459486529
+      },
+      {
+        "name": "state_h.2.c_attn[v]",
+        "kind": "attn_v",
+        "rel_err": 1.0539337645187835e-10,
+        "repro_rel_err": 0.0,
+        "norm_total": 7.566571438433849
+      },
+      {
+        "name": "state_h.2.c_proj",
+        "kind": "attn_out",
+        "rel_err": 0.001122518143113124,
+        "repro_rel_err": 0.0,
+        "norm_total": 2.0861368223162104
+      },
+      {
+        "name": "state_h.3.c_attn[q]",
+        "kind": "attn_q",
+        "rel_err": 3.29951672081533e-10,
+        "repro_rel_err": 0.0,
+        "norm_total": 1.6154528814648155
+      },
+      {
+        "name": "state_h.3.c_attn[k]",
+        "kind": "attn_k",
+        "rel_err": 1.1254961451888082e-10,
+        "repro_rel_err": 0.0,
+        "norm_total": 1.5095519152629684
+      },
+      {
+        "name": "state_h.3.c_attn[v]",
+        "kind": "attn_v",
+        "rel_err": 7.639985004455564e-11,
+        "repro_rel_err": 0.0,
+        "norm_total": 9.134502318493285
+      },
+      {
+        "name": "state_h.3.c_proj",
+        "kind": "attn_out",
+        "rel_err": 0.0012374448697095271,
+        "repro_rel_err": 0.0,
+        "norm_total": 1.8103175054338418
+      },
+      {
+        "name": "state_h.4.c_attn[q]",
+        "kind": "attn_q",
+        "rel_err": 1.8926903011853336e-10,
+        "repro_rel_err": 0.0,
+        "norm_total": 1.2631879310104155
+      },
+      {
+        "name": "state_h.4.c_attn[k]",
+        "kind": "attn_k",
+        "rel_err": 8.511702080436946e-11,
+        "repro_rel_err": 0.0,
+        "norm_total": 0.9711638726440471
+      },
+      {
+        "name": "state_h.4.c_attn[v]",
+        "kind": "attn_v",
+        "rel_err": 4.203528921425533e-11,
+        "repro_rel_err": 0.0,
+        "norm_total": 8.282331465577702
+      },
+      {
+        "name": "state_h.4.c_proj",
+        "kind": "attn_out",
+        "rel_err": 0.0010121468248054984,
+        "repro_rel_err": 0.0,
+        "norm_total": 2.167477328917239
+      },
+      {
+        "name": "state_h.5.c_attn[q]",
+        "kind": "attn_q",
+        "rel_err": 3.421853130728375e-10,
+        "repro_rel_err": 0.0,
+        "norm_total": 1.409579948396721
+      },
+      {
+        "name": "state_h.5.c_attn[k]",
+        "kind": "attn_k",
+        "rel_err": 1.2291628121364772e-10,
+        "repro_rel_err": 0.0,
+        "norm_total": 1.1518476651332652
+      },
+      {
+        "name": "state_h.5.c_attn[v]",
+        "kind": "attn_v",
+        "rel_err": 6.859234332214241e-11,
+        "repro_rel_err": 0.0,
+        "norm_total": 7.661045842187923
+      },
+      {
+        "name": "state_h.5.c_proj",
+        "kind": "attn_out",
+        "rel_err": 0.0011516738216492438,
+        "repro_rel_err": 0.0,
+        "norm_total": 1.9531734583829572
+      },
+      {
+        "name": "state_h.6.c_attn[q]",
+        "kind": "attn_q",
+        "rel_err": 8.396356821004918e-10,
+        "repro_rel_err": 0.0,
+        "norm_total": 2.2094930443664964
+      },
+      {
+        "name": "state_h.6.c_attn[k]",
+        "kind": "attn_k",
+        "rel_err": 2.6753850862898714e-10,
+        "repro_rel_err": 0.0,
+        "norm_total": 2.026136999685088
+      },
+      {
+        "name": "state_h.6.c_attn[v]",
+        "kind": "attn_v",
+        "rel_err": 6.321764464732585e-11,
+        "repro_rel_err": 0.0,
+        "norm_total": 11.538743341917872
+      },
+      {
+        "name": "state_h.6.c_proj",
+        "kind": "attn_out",
+        "rel_err": 0.0009414219983179386,
+        "repro_rel_err": 0.0,
+        "norm_total": 2.6754991939182893
+      },
+      {
+        "name": "state_h.7.c_attn[q]",
+        "kind": "attn_q",
+        "rel_err": 2.3046085326491834e-10,
+        "repro_rel_err": 0.0,
+        "norm_total": 1.6824801347788199
+      },
+      {
+        "name": "state_h.7.c_attn[k]",
+        "kind": "attn_k",
+        "rel_err": 8.838527376581721e-11,
+        "repro_rel_err": 0.0,
+        "norm_total": 1.2426175917936308
+      },
+      {
+        "name": "state_h.7.c_attn[v]",
+        "kind": "attn_v",
+        "rel_err": 4.2639448459668356e-11,
+        "repro_rel_err": 0.0,
+        "norm_total": 8.918512450012667
+      },
+      {
+        "name": "state_h.7.c_proj",
+        "kind": "attn_out",
+        "rel_err": 0.0010655340093711876,
+        "repro_rel_err": 0.0,
+        "norm_total": 2.2221244402661706
+      },
+      {
+        "name": "state_h.8.c_attn[q]",
+        "kind": "attn_q",
+        "rel_err": 1.397562029962535e-10,
+        "repro_rel_err": 0.0,
+        "norm_total": 3.5224402057354394
+      },
+      {
+        "name": "state_h.8.c_attn[k]",
+        "kind": "attn_k",
+        "rel_err": 7.531860790452702e-11,
+        "repro_rel_err": 0.0,
+        "norm_total": 1.83197964921845
+      },
+      {
+        "name": "state_h.8.c_attn[v]",
+        "kind": "attn_v",
+        "rel_err": 4.319614236564688e-11,
+        "repro_rel_err": 0.0,
+        "norm_total": 10.613937605285269
+      },
+      {
+        "name": "state_h.8.c_proj",
+        "kind": "attn_out",
+        "rel_err": 0.0009790669322294351,
+        "repro_rel_err": 0.0,
+        "norm_total": 2.9966652176085398
+      },
+      {
+        "name": "state_h.9.c_attn[q]",
+        "kind": "attn_q",
+        "rel_err": 1.0383383818313996e-10,
+        "repro_rel_err": 0.0,
+        "norm_total": 5.09606766752372
+      },
+      {
+        "name": "state_h.9.c_attn[k]",
+        "kind": "attn_k",
+        "rel_err": 1.0616359976622596e-10,
+        "repro_rel_err": 0.0,
+        "norm_total": 2.8064759698166
+      },
+      {
+        "name": "state_h.9.c_attn[v]",
+        "kind": "attn_v",
+        "rel_err": 3.8400357658636763e-11,
+        "repro_rel_err": 0.0,
+        "norm_total": 11.5570672238674
+      },
+      {
+        "name": "state_h.9.c_proj",
+        "kind": "attn_out",
+        "rel_err": 0.0011732957776218367,
+        "repro_rel_err": 0.0,
+        "norm_total": 2.072404386447347
+      },
+      {
+        "name": "state_h.10.c_attn[q]",
+        "kind": "attn_q",
+        "rel_err": 1.2090669404697896e-10,
+        "repro_rel_err": 0.0,
+        "norm_total": 4.339057601200184
+      },
+      {
+        "name": "state_h.10.c_attn[k]",
+        "kind": "attn_k",
+        "rel_err": 1.3156104701234554e-10,
+        "repro_rel_err": 0.0,
+        "norm_total": 2.140480042690505
+      },
+      {
+        "name": "state_h.10.c_attn[v]",
+        "kind": "attn_v",
+        "rel_err": 5.352813199394402e-11,
+        "repro_rel_err": 0.0,
+        "norm_total": 7.907140087807051
+      },
+      {
+        "name": "state_h.10.c_proj",
+        "kind": "attn_out",
+        "rel_err": 0.0013512489964503278,
+        "repro_rel_err": 0.0,
+        "norm_total": 1.7139037000711947
+      },
+      {
+        "name": "state_h.11.c_attn[q]",
+        "kind": "attn_q",
+        "rel_err": 2.0569622195018724e-10,
+        "repro_rel_err": 0.0,
+        "norm_total": 4.427955536799772
+      },
+      {
+        "name": "state_h.11.c_attn[k]",
+        "kind": "attn_k",
+        "rel_err": 1.3124077148619535e-10,
+        "repro_rel_err": 0.0,
+        "norm_total": 2.403628071993438
+      },
+      {
+        "name": "state_h.11.c_attn[v]",
+        "kind": "attn_v",
+        "rel_err": 7.648051816237016e-11,
+        "repro_rel_err": 0.0,
+        "norm_total": 7.357475622395497
+      },
+      {
+        "name": "state_h.11.c_proj",
+        "kind": "attn_out",
+        "rel_err": 0.0011834796120303143,
+        "repro_rel_err": 0.0,
+        "norm_total": 1.9242651421611756
+      }
+    ],
+    "estimators": [
+      {
+        "name": "state_h.0.c_attn[q]",
+        "kind": "attn_q",
+        "cos_split": -0.0013953455226844598,
+        "cos_total_minus_pred": -0.0013953455313695923,
+        "cos_total_minus_state": -0.001395345556656549,
+        "spread": 3.397208924761641e-11
+      },
+      {
+        "name": "state_h.0.c_attn[k]",
+        "kind": "attn_k",
+        "cos_split": 0.00469138283056018,
+        "cos_total_minus_pred": 0.00469138272614407,
+        "cos_total_minus_state": 0.004691382843562053,
+        "spread": 1.174179824550703e-10
+      },
+      {
+        "name": "state_h.0.c_attn[v]",
+        "kind": "attn_v",
+        "cos_split": -0.0007875522071699901,
+        "cos_total_minus_pred": -0.0007875521406208233,
+        "cos_total_minus_state": -0.0007875522131236215,
+        "spread": 7.25027981445317e-11
+      },
+      {
+        "name": "state_h.0.c_proj",
+        "kind": "attn_out",
+        "cos_split": 0.0027483362225995916,
+        "cos_total_minus_pred": 0.002750890590342047,
+        "cos_total_minus_state": 0.0027049774406981172,
+        "spread": 4.591314964392992e-05
+      },
+      {
+        "name": "state_h.1.c_attn[q]",
+        "kind": "attn_q",
+        "cos_split": 0.13566205678993043,
+        "cos_total_minus_pred": 0.1356620567874267,
+        "cos_total_minus_state": 0.13566205678630813,
+        "spread": 3.6222969068688826e-12
+      },
+      {
+        "name": "state_h.1.c_attn[k]",
+        "kind": "attn_k",
+        "cos_split": 0.2852990992558683,
+        "cos_total_minus_pred": 0.28529909925557584,
+        "cos_total_minus_state": 0.2852990992597716,
+        "spread": 4.195754854663392e-12
+      },
+      {
+        "name": "state_h.1.c_attn[v]",
+        "kind": "attn_v",
+        "cos_split": -0.0516038775878301,
+        "cos_total_minus_pred": -0.05160387758819424,
+        "cos_total_minus_state": -0.05160387759009497,
+        "spread": 2.264868848023127e-12
+      },
+      {
+        "name": "state_h.1.c_proj",
+        "kind": "attn_out",
+        "cos_split": -0.011898278898667312,
+        "cos_total_minus_pred": -0.011892139510341964,
+        "cos_total_minus_state": -0.011901689814748033,
+        "spread": 9.550304406068591e-06
+      },
+      {
+        "name": "state_h.2.c_attn[q]",
+        "kind": "attn_q",
+        "cos_split": 0.1923890096924372,
+        "cos_total_minus_pred": 0.19238900969496917,
+        "cos_total_minus_state": 0.1923890096768084,
+        "spread": 1.816077843663777e-11
+      },
+      {
+        "name": "state_h.2.c_attn[k]",
+        "kind": "attn_k",
+        "cos_split": 0.15069272178973606,
+        "cos_total_minus_pred": 0.15069272179270057,
+        "cos_total_minus_state": 0.15069272178232465,
+        "spread": 1.0375922343541788e-11
+      },
+      {
+        "name": "state_h.2.c_attn[v]",
+        "kind": "attn_v",
+        "cos_split": -0.08810464287919298,
+        "cos_total_minus_pred": -0.08810464287843305,
+        "cos_total_minus_state": -0.08810464288690589,
+        "spread": 8.472847423668384e-12
+      },
+      {
+        "name": "state_h.2.c_proj",
+        "kind": "attn_out",
+        "cos_split": -0.016445348657733647,
+        "cos_total_minus_pred": -0.0164503951679605,
+        "cos_total_minus_state": -0.01644413219529124,
+        "spread": 6.2629726692575716e-06
+      },
+      {
+        "name": "state_h.3.c_attn[q]",
+        "kind": "attn_q",
+        "cos_split": 0.051582695504417235,
+        "cos_total_minus_pred": 0.05158269550258481,
+        "cos_total_minus_state": 0.05158269557715372,
+        "spread": 7.456890660506588e-11
+      },
+      {
+        "name": "state_h.3.c_attn[k]",
+        "kind": "attn_k",
+        "cos_split": -0.004097678041734096,
+        "cos_total_minus_pred": -0.004097678041004357,
+        "cos_total_minus_state": -0.004097678054156812,
+        "spread": 1.3152455687059916e-11
+      },
+      {
+        "name": "state_h.3.c_attn[v]",
+        "kind": "attn_v",
+        "cos_split": -0.0023187430502761746,
+        "cos_total_minus_pred": -0.0023187430478077706,
+        "cos_total_minus_state": -0.0023187430502676553,
+        "spread": 2.468403953459486e-12
+      },
+      {
+        "name": "state_h.3.c_proj",
+        "kind": "attn_out",
+        "cos_split": -0.008574672845557435,
+        "cos_total_minus_pred": -0.008577236157923624,
+        "cos_total_minus_state": -0.008587912388413964,
+        "spread": 1.3239542856528785e-05
+      },
+      {
+        "name": "state_h.4.c_attn[q]",
+        "kind": "attn_q",
+        "cos_split": 0.24645030850480118,
+        "cos_total_minus_pred": 0.2464503085065692,
+        "cos_total_minus_state": 0.24645030849744423,
+        "spread": 9.124978550545393e-12
+      },
+      {
+        "name": "state_h.4.c_attn[k]",
+        "kind": "attn_k",
+        "cos_split": 0.1931829748880107,
+        "cos_total_minus_pred": 0.1931829748877066,
+        "cos_total_minus_state": 0.19318297488708916,
+        "spread": 9.215406215901112e-13
+      },
+      {
+        "name": "state_h.4.c_attn[v]",
+        "kind": "attn_v",
+        "cos_split": 0.08154062641773295,
+        "cos_total_minus_pred": 0.08154062641621285,
+        "cos_total_minus_state": 0.08154062641743243,
+        "spread": 1.5201034875289565e-12
+      },
+      {
+        "name": "state_h.4.c_proj",
+        "kind": "attn_out",
+        "cos_split": -0.006829334279933465,
+        "cos_total_minus_pred": -0.006844940566728946,
+        "cos_total_minus_state": -0.0068102645083541365,
+        "spread": 3.4676058374809304e-05
+      },
+      {
+        "name": "state_h.5.c_attn[q]",
+        "kind": "attn_q",
+        "cos_split": 0.1578271540053413,
+        "cos_total_minus_pred": 0.15782715400621988,
+        "cos_total_minus_state": 0.1578271539953439,
+        "spread": 1.0875994549408574e-11
+      },
+      {
+        "name": "state_h.5.c_attn[k]",
+        "kind": "attn_k",
+        "cos_split": 0.06761177973626298,
+        "cos_total_minus_pred": 0.06761177973670449,
+        "cos_total_minus_state": 0.06761177972984053,
+        "spread": 6.86395384974503e-12
+      },
+      {
+        "name": "state_h.5.c_attn[v]",
+        "kind": "attn_v",
+        "cos_split": 0.018274762999536953,
+        "cos_total_minus_pred": 0.01827476299772986,
+        "cos_total_minus_state": 0.018274762996376957,
+        "spread": 3.1599965699680155e-12
+      },
+      {
+        "name": "state_h.5.c_proj",
+        "kind": "attn_out",
+        "cos_split": 0.009161985927314651,
+        "cos_total_minus_pred": 0.00916249131152212,
+        "cos_total_minus_state": 0.009150481027743866,
+        "spread": 1.2010283778254166e-05
+      },
+      {
+        "name": "state_h.6.c_attn[q]",
+        "kind": "attn_q",
+        "cos_split": 0.04590235840059399,
+        "cos_total_minus_pred": 0.045902358399304885,
+        "cos_total_minus_state": 0.04590235844474963,
+        "spread": 4.5444745189193725e-11
+      },
+      {
+        "name": "state_h.6.c_attn[k]",
+        "kind": "attn_k",
+        "cos_split": 0.07258847479628744,
+        "cos_total_minus_pred": 0.07258847479596754,
+        "cos_total_minus_state": 0.07258847479785463,
+        "spread": 1.887087708318802e-12
+      },
+      {
+        "name": "state_h.6.c_attn[v]",
+        "kind": "attn_v",
+        "cos_split": 0.03685784647072456,
+        "cos_total_minus_pred": 0.03685784647071691,
+        "cos_total_minus_state": 0.03685784647427367,
+        "spread": 3.556759053946479e-12
+      },
+      {
+        "name": "state_h.6.c_proj",
+        "kind": "attn_out",
+        "cos_split": 0.026836570348157538,
+        "cos_total_minus_pred": 0.026843439177194384,
+        "cos_total_minus_state": 0.026782772281549922,
+        "spread": 6.066689564446226e-05
+      },
+      {
+        "name": "state_h.7.c_attn[q]",
+        "kind": "attn_q",
+        "cos_split": 0.19207028718677993,
+        "cos_total_minus_pred": 0.19207028718880806,
+        "cos_total_minus_state": 0.19207028717697874,
+        "spread": 1.182931530507858e-11
+      },
+      {
+        "name": "state_h.7.c_attn[k]",
+        "kind": "attn_k",
+        "cos_split": 0.15693221334172988,
+        "cos_total_minus_pred": 0.15693221334113722,
+        "cos_total_minus_state": 0.15693221334223742,
+        "spread": 1.1002032618279145e-12
+      },
+      {
+        "name": "state_h.7.c_attn[v]",
+        "kind": "attn_v",
+        "cos_split": 0.18625332984519957,
+        "cos_total_minus_pred": 0.1862533298449439,
+        "cos_total_minus_state": 0.18625332984392293,
+        "spread": 1.2766454560164675e-12
+      },
+      {
+        "name": "state_h.7.c_proj",
+        "kind": "attn_out",
+        "cos_split": 0.06682884773938218,
+        "cos_total_minus_pred": 0.06682158029445129,
+        "cos_total_minus_state": 0.06682507063792965,
+        "spread": 7.267444930889044e-06
+      },
+      {
+        "name": "state_h.8.c_attn[q]",
+        "kind": "attn_q",
+        "cos_split": 0.17367525583681526,
+        "cos_total_minus_pred": 0.1736752558342943,
+        "cos_total_minus_state": 0.17367525583402088,
+        "spread": 2.7943758418302878e-12
+      },
+      {
+        "name": "state_h.8.c_attn[k]",
+        "kind": "attn_k",
+        "cos_split": 0.19542137779365573,
+        "cos_total_minus_pred": 0.1954213777948031,
+        "cos_total_minus_state": 0.1954213777923075,
+        "spread": 2.4955870703280425e-12
+      },
+      {
+        "name": "state_h.8.c_attn[v]",
+        "kind": "attn_v",
+        "cos_split": 0.2833200470385535,
+        "cos_total_minus_pred": 0.2833200470386035,
+        "cos_total_minus_state": 0.2833200470380967,
+        "spread": 5.067612995901527e-13
+      },
+      {
+        "name": "state_h.8.c_proj",
+        "kind": "attn_out",
+        "cos_split": 0.09969893555642913,
+        "cos_total_minus_pred": 0.09968654307344531,
+        "cos_total_minus_state": 0.09969480433201162,
+        "spread": 1.2392482983819564e-05
+      },
+      {
+        "name": "state_h.9.c_attn[q]",
+        "kind": "attn_q",
+        "cos_split": 0.31074052300827615,
+        "cos_total_minus_pred": 0.31074052299472404,
+        "cos_total_minus_state": 0.31074052300707716,
+        "spread": 1.3552103883540667e-11
+      },
+      {
+        "name": "state_h.9.c_attn[k]",
+        "kind": "attn_k",
+        "cos_split": 0.25442418176997406,
+        "cos_total_minus_pred": 0.2544241817670378,
+        "cos_total_minus_state": 0.2544241817692736,
+        "spread": 2.9362623443773828e-12
+      },
+      {
+        "name": "state_h.9.c_attn[v]",
+        "kind": "attn_v",
+        "cos_split": 0.28982298810932977,
+        "cos_total_minus_pred": 0.28982298810952356,
+        "cos_total_minus_state": 0.2898229881089455,
+        "spread": 5.780376177710878e-13
+      },
+      {
+        "name": "state_h.9.c_proj",
+        "kind": "attn_out",
+        "cos_split": 0.07863091076237742,
+        "cos_total_minus_pred": 0.07861984457768023,
+        "cos_total_minus_state": 0.07861946242087987,
+        "spread": 1.1448341497549697e-05
+      },
+      {
+        "name": "state_h.10.c_attn[q]",
+        "kind": "attn_q",
+        "cos_split": 0.07975373415674371,
+        "cos_total_minus_pred": 0.07975373415667,
+        "cos_total_minus_state": 0.07975373415750724,
+        "spread": 8.372330606576384e-13
+      },
+      {
+        "name": "state_h.10.c_attn[k]",
+        "kind": "attn_k",
+        "cos_split": 0.08088642992876852,
+        "cos_total_minus_pred": 0.08088642992719618,
+        "cos_total_minus_state": 0.0808864299293692,
+        "spread": 2.173025648311011e-12
+      },
+      {
+        "name": "state_h.10.c_attn[v]",
+        "kind": "attn_v",
+        "cos_split": 0.3232481023939444,
+        "cos_total_minus_pred": 0.3232481023960296,
+        "cos_total_minus_state": 0.3232481023927393,
+        "spread": 3.290256955779114e-12
+      },
+      {
+        "name": "state_h.10.c_proj",
+        "kind": "attn_out",
+        "cos_split": 0.06110295454814004,
+        "cos_total_minus_pred": 0.061092413299424754,
+        "cos_total_minus_state": 0.061103146490944886,
+        "spread": 1.0733191520131968e-05
+      },
+      {
+        "name": "state_h.11.c_attn[q]",
+        "kind": "attn_q",
+        "cos_split": -0.21833782425299497,
+        "cos_total_minus_pred": -0.21833782423151363,
+        "cos_total_minus_state": -0.21833782424884096,
+        "spread": 2.148134448098915e-11
+      },
+      {
+        "name": "state_h.11.c_attn[k]",
+        "kind": "attn_k",
+        "cos_split": -0.35032069000011845,
+        "cos_total_minus_pred": -0.3503206900068028,
+        "cos_total_minus_state": -0.3503206899970159,
+        "spread": 9.786949028978142e-12
+      },
+      {
+        "name": "state_h.11.c_attn[v]",
+        "kind": "attn_v",
+        "cos_split": -0.03471945025880197,
+        "cos_total_minus_pred": -0.03471945025853785,
+        "cos_total_minus_state": -0.03471945025967916,
+        "spread": 1.141309269314661e-12
+      },
+      {
+        "name": "state_h.11.c_proj",
+        "kind": "attn_out",
+        "cos_split": -0.0005295871658461851,
+        "cos_total_minus_pred": -0.0005367923530741246,
+        "cos_total_minus_state": -0.000530222978114061,
+        "spread": 7.205187227939569e-06
+      }
+    ]
+  },
+  "tensors": [
+    {
+      "name": "state_h.0.c_attn[q]",
+      "kind": "attn_q",
+      "block": 0,
+      "cos_state_pred": -0.0013953455226844598,
+      "norm_state": 0.08479838411034757,
+      "norm_pred": 0.0741266744165679,
+      "norm_total": 0.11255215688513528,
+      "ratio_pred_over_state": 0.8741519687463307,
+      "stream_exclusive": false,
+      "control_batch_split_state": 0.1643460967318294,
+      "control_batch_split_pred": 0.07008563235324662,
+      "control_batch_split_total": 0.1142382777587052,
+      "control_cross_stream_cross_half": 0.00019271690458043186,
+      "cos_total_minus_pred": -0.0013953455313695923,
+      "cos_total_minus_state": -0.001395345556656549,
+      "cos_disattenuated": -0.006710747720891318
+    },
+    {
+      "name": "state_h.0.c_attn[k]",
+      "kind": "attn_k",
+      "block": 0,
+      "cos_state_pred": 0.00469138283056018,
+      "norm_state": 0.06398837035666627,
+      "norm_pred": 0.07840643369080973,
+      "norm_total": 0.10143547040811526,
+      "ratio_pred_over_state": 1.2253231837875895,
+      "stream_exclusive": false,
+      "control_batch_split_state": 0.21651853870689633,
+      "control_batch_split_pred": 0.20515886299118033,
+      "control_batch_split_total": 0.21249236660797247,
+      "control_cross_stream_cross_half": 0.005817401309986675,
+      "cos_total_minus_pred": 0.00469138272614407,
+      "cos_total_minus_state": 0.004691382843562053,
+      "cos_disattenuated": 0.02012343560522238
+    },
+    {
+      "name": "state_h.0.c_attn[v]",
+      "kind": "attn_v",
+      "block": 0,
+      "cos_state_pred": -0.0007875522071699901,
+      "norm_state": 0.667493095405334,
+      "norm_pred": 1.0398805377840186,
+      "norm_total": 1.235234902674405,
+      "ratio_pred_over_state": 1.5578895795956555,
+      "stream_exclusive": false,
+      "control_batch_split_state": 0.16431859491731302,
+      "control_batch_split_pred": 0.6157361831071925,
+      "control_batch_split_total": 0.4319231532030634,
+      "control_cross_stream_cross_half": 0.0018000892272082428,
+      "cos_total_minus_pred": -0.0007875521406208233,
+      "cos_total_minus_state": -0.0007875522131236215,
+      "cos_disattenuated": -0.0405713946499072
+    },
+    {
+      "name": "state_h.0.c_proj",
+      "kind": "attn_out",
+      "block": 0,
+      "cos_state_pred": 0.0027483362225995916,
+      "norm_state": 0.6632596005480852,
+      "norm_pred": 0.46211274800873786,
+      "norm_total": 0.8093962050083744,
+      "ratio_pred_over_state": 0.6967298289039021,
+      "stream_exclusive": false,
+      "control_batch_split_state": 0.3289938794480639,
+      "control_batch_split_pred": 0.22666048566688046,
+      "control_batch_split_total": 0.29499318221766585,
+      "control_cross_stream_cross_half": -0.0038752902391594114,
+      "cos_total_minus_pred": 0.002750890590342047,
+      "cos_total_minus_state": 0.0027049774406981172,
+      "cos_disattenuated": 0.007483334908913327
+    },
+    {
+      "name": "state_h.1.c_attn[q]",
+      "kind": "attn_q",
+      "block": 1,
+      "cos_state_pred": 0.13566205678993043,
+      "norm_state": 0.3891020074303574,
+      "norm_pred": 0.2024414355210953,
+      "norm_total": 0.46233668201032246,
+      "ratio_pred_over_state": 0.5202785687435161,
+      "stream_exclusive": false,
+      "control_batch_split_state": 0.38891046401084234,
+      "control_batch_split_pred": 0.3518669025883299,
+      "control_batch_split_total": 0.3931130825219773,
+      "control_cross_stream_cross_half": 0.06542735328687507,
+      "cos_total_minus_pred": 0.1356620567874267,
+      "cos_total_minus_state": 0.13566205678630813,
+      "cos_disattenuated": 0.16986058675913987
+    },
+    {
+      "name": "state_h.1.c_attn[k]",
+      "kind": "attn_k",
+      "block": 1,
+      "cos_state_pred": 0.2852990992558683,
+      "norm_state": 0.466263868838978,
+      "norm_pred": 0.17084197903017184,
+      "norm_total": 0.540408521533624,
+      "ratio_pred_over_state": 0.36640621426570646,
+      "stream_exclusive": false,
+      "control_batch_split_state": 0.36999126891487855,
+      "control_batch_split_pred": 0.2896049543874666,
+      "control_batch_split_total": 0.4017786836611846,
+      "control_cross_stream_cross_half": 0.0500321056820359,
+      "cos_total_minus_pred": 0.28529909925557584,
+      "cos_total_minus_state": 0.2852990992597716,
+      "cos_disattenuated": 0.4685296663093014
+    },
+    {
+      "name": "state_h.1.c_attn[v]",
+      "kind": "attn_v",
+      "block": 1,
+      "cos_state_pred": -0.0516038775878301,
+      "norm_state": 7.363087091454428,
+      "norm_pred": 3.061705690837388,
+      "norm_total": 7.827031258454803,
+      "ratio_pred_over_state": 0.41581820951035503,
+      "stream_exclusive": false,
+      "control_batch_split_state": 0.750710333992155,
+      "control_batch_split_pred": 0.7077058379649247,
+      "control_batch_split_total": 0.7334501540287567,
+      "control_cross_stream_cross_half": -0.015324130695258141,
+      "cos_total_minus_pred": -0.05160387758819424,
+      "cos_total_minus_state": -0.05160387759009497,
+      "cos_disattenuated": -0.064424316234692
+    },
+    {
+      "name": "state_h.1.c_proj",
+      "kind": "attn_out",
+      "block": 1,
+      "cos_state_pred": -0.011898278898667312,
+      "norm_state": 2.4316340243072787,
+      "norm_pred": 0.9330736941585838,
+      "norm_total": 2.5941270850395384,
+      "ratio_pred_over_state": 0.38372291423434773,
+      "stream_exclusive": false,
+      "control_batch_split_state": 0.6104569769805595,
+      "control_batch_split_pred": 0.4618046931225633,
+      "control_batch_split_total": 0.5930225248765923,
+      "control_cross_stream_cross_half": -0.014423751916721935,
+      "cos_total_minus_pred": -0.011892139510341964,
+      "cos_total_minus_state": -0.011901689814748033,
+      "cos_disattenuated": -0.007566888453236818
+    },
+    {
+      "name": "state_h.2.c_attn[q]",
+      "kind": "attn_q",
+      "block": 2,
+      "cos_state_pred": 0.1923890096924372,
+      "norm_state": 0.6462686974593522,
+      "norm_pred": 0.5314561764248159,
+      "norm_total": 0.9122861933202335,
+      "ratio_pred_over_state": 0.8223455329247823,
+      "stream_exclusive": false,
+      "control_batch_split_state": 0.3489272021088208,
+      "control_batch_split_pred": 0.6383249873679284,
+      "control_batch_split_total": 0.5102503818274212,
+      "control_cross_stream_cross_half": 0.15500941422230813,
+      "cos_total_minus_pred": 0.19238900969496917,
+      "cos_total_minus_state": 0.1923890096768084,
+      "cos_disattenuated": 0.2962544346120756
+    },
+    {
+      "name": "state_h.2.c_attn[k]",
+      "kind": "attn_k",
+      "block": 2,
+      "cos_state_pred": 0.15069272178973606,
+      "norm_state": 0.5933424636841903,
+      "norm_pred": 0.3021106169935282,
+      "norm_total": 0.7052311459486529,
+      "ratio_pred_over_state": 0.5091673619947218,
+      "stream_exclusive": false,
+      "control_batch_split_state": 0.36564014341487117,
+      "control_batch_split_pred": 0.44631996137186863,
+      "control_batch_split_total": 0.4232801380006688,
+      "control_cross_stream_cross_half": 0.10895448489373219,
+      "cos_total_minus_pred": 0.15069272179270057,
+      "cos_total_minus_state": 0.15069272178232465,
+      "cos_disattenuated": 0.24794745617377675
+    },
+    {
+      "name": "state_h.2.c_attn[v]",
+      "kind": "attn_v",
+      "block": 2,
+      "cos_state_pred": -0.08810464287919298,
+      "norm_state": 7.324393970377308,
+      "norm_pred": 2.650976425886777,
+      "norm_total": 7.566571438433849,
+      "ratio_pred_over_state": 0.3619379892190882,
+      "stream_exclusive": false,
+      "control_batch_split_state": 0.7162966644936895,
+      "control_batch_split_pred": 0.6470040877894204,
+      "control_batch_split_total": 0.7247583208091727,
+      "control_cross_stream_cross_half": -0.07396742306012069,
+      "cos_total_minus_pred": -0.08810464287843305,
+      "cos_total_minus_state": -0.08810464288690589,
+      "cos_disattenuated": -0.06917433430459477
+    },
+    {
+      "name": "state_h.2.c_proj",
+      "kind": "attn_out",
+      "block": 2,
+      "cos_state_pred": -0.016445348657733647,
+      "norm_state": 1.9738919255856124,
+      "norm_pred": 0.7083134913739522,
+      "norm_total": 2.0861368223162104,
+      "ratio_pred_over_state": 0.35884107037106927,
+      "stream_exclusive": false,
+      "control_batch_split_state": 0.4378357507903771,
+      "control_batch_split_pred": 0.20228891644189745,
+      "control_batch_split_total": 0.4082515181723381,
+      "control_cross_stream_cross_half": -0.006111005623790128,
+      "cos_total_minus_pred": -0.0164503951679605,
+      "cos_total_minus_state": -0.01644413219529124,
+      "cos_disattenuated": -0.014766881587272589
+    },
+    {
+      "name": "state_h.3.c_attn[q]",
+      "kind": "attn_q",
+      "block": 3,
+      "cos_state_pred": 0.051582695504417235,
+      "norm_state": 1.36831888214014,
+      "norm_pred": 0.7910292452690972,
+      "norm_total": 1.6154528814648155,
+      "ratio_pred_over_state": 0.5781029960149903,
+      "stream_exclusive": false,
+      "control_batch_split_state": 0.7418509437424311,
+      "control_batch_split_pred": 0.6778518354488287,
+      "control_batch_split_total": 0.730858330735101,
+      "control_cross_stream_cross_half": 0.015708813256638542,
+      "cos_total_minus_pred": 0.05158269550258481,
+      "cos_total_minus_state": 0.05158269557715372,
+      "cos_disattenuated": 0.05821323396190873
+    },
+    {
+      "name": "state_h.3.c_attn[k]",
+      "kind": "attn_k",
+      "block": 3,
+      "cos_state_pred": -0.004097678041734096,
+      "norm_state": 1.4580964429687944,
+      "norm_pred": 0.39679119408209823,
+      "norm_total": 1.5095519152629684,
+      "ratio_pred_over_state": 0.27212959471610904,
+      "stream_exclusive": false,
+      "control_batch_split_state": 0.7705828569636299,
+      "control_batch_split_pred": 0.40172593687181235,
+      "control_batch_split_total": 0.7355707338958237,
+      "control_cross_stream_cross_half": -0.03964895806612404,
+      "cos_total_minus_pred": -0.004097678041004357,
+      "cos_total_minus_state": -0.004097678054156812,
+      "cos_disattenuated": -0.010056078455174085
+    },
+    {
+      "name": "state_h.3.c_attn[v]",
+      "kind": "attn_v",
+      "block": 3,
+      "cos_state_pred": -0.0023187430502761746,
+      "norm_state": 8.608728405922477,
+      "norm_pred": 3.074356016989902,
+      "norm_total": 9.134502318493285,
+      "ratio_pred_over_state": 0.35712080484207886,
+      "stream_exclusive": false,
+      "control_batch_split_state": 0.7750381142634292,
+      "control_batch_split_pred": 0.6370773000418337,
+      "control_batch_split_total": 0.7715844129995423,
+      "control_cross_stream_cross_half": 0.008401737334870317,
+      "cos_total_minus_pred": -0.0023187430478077706,
+      "cos_total_minus_state": -0.0023187430502676553,
+      "cos_disattenuated": 0.014074548669859323
+    },
+    {
+      "name": "state_h.3.c_proj",
+      "kind": "attn_out",
+      "block": 3,
+      "cos_state_pred": -0.008574672845557435,
+      "norm_state": 1.6315594832637086,
+      "norm_pred": 0.7985248897343401,
+      "norm_total": 1.8103175054338418,
+      "ratio_pred_over_state": 0.48942431944742937,
+      "stream_exclusive": false,
+      "control_batch_split_state": 0.3797057586410486,
+      "control_batch_split_pred": 0.19832175683479653,
+      "control_batch_split_total": 0.3424384788201053,
+      "control_cross_stream_cross_half": 0.0007780583880552737,
+      "cos_total_minus_pred": -0.008577236157923624,
+      "cos_total_minus_state": -0.008587912388413964,
+      "cos_disattenuated": -0.003932198927983701
+    },
+    {
+      "name": "state_h.4.c_attn[q]",
+      "kind": "attn_q",
+      "block": 4,
+      "cos_state_pred": 0.24645030850480118,
+      "norm_state": 0.8219406802230491,
+      "norm_pred": 0.777784888730065,
+      "norm_total": 1.2631879310104155,
+      "ratio_pred_over_state": 0.9462786152876609,
+      "stream_exclusive": false,
+      "control_batch_split_state": 0.5128493835366859,
+      "control_batch_split_pred": 0.5939320276512519,
+      "control_batch_split_total": 0.6236703831517335,
+      "control_cross_stream_cross_half": 0.227314583327381,
+      "cos_total_minus_pred": 0.2464503085065692,
+      "cos_total_minus_state": 0.24645030849744423,
+      "cos_disattenuated": 0.3486887490897346
+    },
+    {
+      "name": "state_h.4.c_attn[k]",
+      "kind": "attn_k",
+      "block": 4,
+      "cos_state_pred": 0.1931829748880107,
+      "norm_state": 0.7303308451653155,
+      "norm_pred": 0.5144136989982173,
+      "norm_total": 0.9711638726440471,
+      "ratio_pred_over_state": 0.7043570765271131,
+      "stream_exclusive": false,
+      "control_batch_split_state": 0.4799764830043494,
+      "control_batch_split_pred": 0.5173181585829728,
+      "control_batch_split_total": 0.5481228172270021,
+      "control_cross_stream_cross_half": 0.199843425721808,
+      "cos_total_minus_pred": 0.1931829748877066,
+      "cos_total_minus_state": 0.19318297488708916,
+      "cos_disattenuated": 0.283037641282076
+    },
+    {
+      "name": "state_h.4.c_attn[v]",
+      "kind": "attn_v",
+      "block": 4,
+      "cos_state_pred": 0.08154062641773295,
+      "norm_state": 7.0690011817638725,
+      "norm_pred": 3.777723594507212,
+      "norm_total": 8.282331465577702,
+      "ratio_pred_over_state": 0.5344069830194293,
+      "stream_exclusive": false,
+      "control_batch_split_state": 0.7741366732794135,
+      "control_batch_split_pred": 0.762606974083019,
+      "control_batch_split_total": 0.793346681802974,
+      "control_cross_stream_cross_half": 0.06630974160738422,
+      "cos_total_minus_pred": 0.08154062641621285,
+      "cos_total_minus_state": 0.08154062641743243,
+      "cos_disattenuated": 0.10233317536137275
+    },
+    {
+      "name": "state_h.4.c_proj",
+      "kind": "attn_out",
+      "block": 4,
+      "cos_state_pred": -0.006829334279933465,
+      "norm_state": 1.9472564188006742,
+      "norm_pred": 0.9653010623113004,
+      "norm_total": 2.167477328917239,
+      "ratio_pred_over_state": 0.4957236514879918,
+      "stream_exclusive": false,
+      "control_batch_split_state": 0.5482735265518426,
+      "control_batch_split_pred": 0.32043646583655483,
+      "control_batch_split_total": 0.5017567584971233,
+      "control_cross_stream_cross_half": -0.002999790033645285,
+      "cos_total_minus_pred": -0.006844940566728946,
+      "cos_total_minus_state": -0.0068102645083541365,
+      "cos_disattenuated": 0.0008041632224905427
+    },
+    {
+      "name": "state_h.5.c_attn[q]",
+      "kind": "attn_q",
+      "block": 5,
+      "cos_state_pred": 0.1578271540053413,
+      "norm_state": 1.074829207535402,
+      "norm_pred": 0.7579589040969441,
+      "norm_total": 1.409579948396721,
+      "ratio_pred_over_state": 0.7051900886048251,
+      "stream_exclusive": false,
+      "control_batch_split_state": 0.45963229304678704,
+      "control_batch_split_pred": 0.41820191325115447,
+      "control_batch_split_total": 0.5004155087915519,
+      "control_cross_stream_cross_half": 0.10837126150342531,
+      "cos_total_minus_pred": 0.15782715400621988,
+      "cos_total_minus_state": 0.1578271539953439,
+      "cos_disattenuated": 0.2606607441006733
+    },
+    {
+      "name": "state_h.5.c_attn[k]",
+      "kind": "attn_k",
+      "block": 5,
+      "cos_state_pred": 0.06761177973626298,
+      "norm_state": 1.0512883805423558,
+      "norm_pred": 0.40494371099788384,
+      "norm_total": 1.1518476651332652,
+      "ratio_pred_over_state": 0.38518804021116915,
+      "stream_exclusive": false,
+      "control_batch_split_state": 0.420374894908468,
+      "control_batch_split_pred": 0.23917578017976793,
+      "control_batch_split_total": 0.4199904737956695,
+      "control_cross_stream_cross_half": 0.035148867852497795,
+      "cos_total_minus_pred": 0.06761177973670449,
+      "cos_total_minus_state": 0.06761177972984053,
+      "cos_disattenuated": 0.16542161104293598
+    },
+    {
+      "name": "state_h.5.c_attn[v]",
+      "kind": "attn_v",
+      "block": 5,
+      "cos_state_pred": 0.018274762999536953,
+      "norm_state": 6.778729792836348,
+      "norm_pred": 3.447645479424123,
+      "norm_total": 7.661045842187923,
+      "ratio_pred_over_state": 0.5085975669169671,
+      "stream_exclusive": false,
+      "control_batch_split_state": 0.7911955056127676,
+      "control_batch_split_pred": 0.7218172286790341,
+      "control_batch_split_total": 0.7946625961866008,
+      "control_cross_stream_cross_half": 0.045602143518505014,
+      "cos_total_minus_pred": 0.01827476299772986,
+      "cos_total_minus_state": 0.018274762996376957,
+      "cos_disattenuated": 0.035846046978076654
+    },
+    {
+      "name": "state_h.5.c_proj",
+      "kind": "attn_out",
+      "block": 5,
+      "cos_state_pred": 0.009161985927314651,
+      "norm_state": 1.7258331080184857,
+      "norm_pred": 0.8988822960071637,
+      "norm_total": 1.9531734583829572,
+      "ratio_pred_over_state": 0.5208396407687502,
+      "stream_exclusive": false,
+      "control_batch_split_state": 0.44684049307158596,
+      "control_batch_split_pred": 0.23419534918942664,
+      "control_batch_split_total": 0.40395326911713136,
+      "control_cross_stream_cross_half": 0.011462731159166946,
+      "cos_total_minus_pred": 0.00916249131152212,
+      "cos_total_minus_state": 0.009150481027743866,
+      "cos_disattenuated": 0.03257077551518673
+    },
+    {
+      "name": "state_h.6.c_attn[q]",
+      "kind": "attn_q",
+      "block": 6,
+      "cos_state_pred": 0.04590235840059399,
+      "norm_state": 2.033738693148188,
+      "norm_pred": 0.7752554271197762,
+      "norm_total": 2.2094930443664964,
+      "ratio_pred_over_state": 0.3811971664460472,
+      "stream_exclusive": false,
+      "control_batch_split_state": 0.35917977042852267,
+      "control_batch_split_pred": 0.5805761822471543,
+      "control_batch_split_total": 0.40415761274981243,
+      "control_cross_stream_cross_half": 0.07338900302313082,
+      "cos_total_minus_pred": 0.045902358399304885,
+      "cos_total_minus_state": 0.04590235844474963,
+      "cos_disattenuated": 0.08998659060672692
+    },
+    {
+      "name": "state_h.6.c_attn[k]",
+      "kind": "attn_k",
+      "block": 6,
+      "cos_state_pred": 0.07258847479628744,
+      "norm_state": 1.9425575682799296,
+      "norm_pred": 0.4519381461585387,
+      "norm_total": 2.026136999685088,
+      "ratio_pred_over_state": 0.23265109541063175,
+      "stream_exclusive": false,
+      "control_batch_split_state": 0.410441592427708,
+      "control_batch_split_pred": 0.4400533223499298,
+      "control_batch_split_total": 0.42386586691325223,
+      "control_cross_stream_cross_half": 0.042391009504925574,
+      "cos_total_minus_pred": 0.07258847479596754,
+      "cos_total_minus_state": 0.07258847479785463,
+      "cos_disattenuated": 0.11657539042052467
+    },
+    {
+      "name": "state_h.6.c_attn[v]",
+      "kind": "attn_v",
+      "block": 6,
+      "cos_state_pred": 0.03685784647072456,
+      "norm_state": 10.490783117267688,
+      "norm_pred": 4.433662127100173,
+      "norm_total": 11.538743341917872,
+      "ratio_pred_over_state": 0.42262451501856185,
+      "stream_exclusive": false,
+      "control_batch_split_state": 0.8225216942943743,
+      "control_batch_split_pred": 0.7728105501942035,
+      "control_batch_split_total": 0.8316562390187722,
+      "control_cross_stream_cross_half": 0.023390414934123915,
+      "cos_total_minus_pred": 0.03685784647071691,
+      "cos_total_minus_state": 0.03685784647427367,
+      "cos_disattenuated": 0.053827784002051265
+    },
+    {
+      "name": "state_h.6.c_proj",
+      "kind": "attn_out",
+      "block": 6,
+      "cos_state_pred": 0.026836570348157538,
+      "norm_state": 2.4672092899314,
+      "norm_pred": 0.9709851962423227,
+      "norm_total": 2.6754991939182893,
+      "ratio_pred_over_state": 0.39355607171425677,
+      "stream_exclusive": false,
+      "control_batch_split_state": 0.5509511734625099,
+      "control_batch_split_pred": 0.4305566045023906,
+      "control_batch_split_total": 0.5432292573902524,
+      "control_cross_stream_cross_half": 0.021915142599040423,
+      "cos_total_minus_pred": 0.026843439177194384,
+      "cos_total_minus_state": 0.026782772281549922,
+      "cos_disattenuated": 0.04714946750855803
+    },
+    {
+      "name": "state_h.7.c_attn[q]",
+      "kind": "attn_q",
+      "block": 7,
+      "cos_state_pred": 0.19207028718677993,
+      "norm_state": 1.23796628992953,
+      "norm_pred": 0.9261463742744218,
+      "norm_total": 1.6824801347788199,
+      "ratio_pred_over_state": 0.7481192192455756,
+      "stream_exclusive": false,
+      "control_batch_split_state": 0.5523445057163974,
+      "control_batch_split_pred": 0.6189596040646799,
+      "control_batch_split_total": 0.6331218706282792,
+      "control_cross_stream_cross_half": 0.16072347857088307,
+      "cos_total_minus_pred": 0.19207028718880806,
+      "cos_total_minus_state": 0.19207028717697874,
+      "cos_disattenuated": 0.265822632619937
+    },
+    {
+      "name": "state_h.7.c_attn[k]",
+      "kind": "attn_k",
+      "block": 7,
+      "cos_state_pred": 0.15693221334172988,
+      "norm_state": 1.0598218606768708,
+      "norm_pred": 0.5034099857588669,
+      "norm_total": 1.2426175917936308,
+      "ratio_pred_over_state": 0.47499490663209826,
+      "stream_exclusive": false,
+      "control_batch_split_state": 0.45503475089028206,
+      "control_batch_split_pred": 0.4448267801025398,
+      "control_batch_split_total": 0.4969102719268772,
+      "control_cross_stream_cross_half": 0.11416813921236672,
+      "cos_total_minus_pred": 0.15693221334113722,
+      "cos_total_minus_state": 0.15693221334223742,
+      "cos_disattenuated": 0.25286235048398226
+    },
+    {
+      "name": "state_h.7.c_attn[v]",
+      "kind": "attn_v",
+      "block": 7,
+      "cos_state_pred": 0.18625332984519957,
+      "norm_state": 7.004283251366919,
+      "norm_pred": 4.3683281936951435,
+      "norm_total": 8.918512450012667,
+      "ratio_pred_over_state": 0.6236652683688432,
+      "stream_exclusive": false,
+      "control_batch_split_state": 0.8240504431672537,
+      "control_batch_split_pred": 0.7979986149978663,
+      "control_batch_split_total": 0.8359965107736084,
+      "control_cross_stream_cross_half": 0.19650545880395076,
+      "cos_total_minus_pred": 0.1862533298449439,
+      "cos_total_minus_state": 0.18625332984392293,
+      "cos_disattenuated": 0.20375938872475877
+    },
+    {
+      "name": "state_h.7.c_proj",
+      "kind": "attn_out",
+      "block": 7,
+      "cos_state_pred": 0.06682884773938218,
+      "norm_state": 1.8661852504274616,
+      "norm_pred": 1.088044653996093,
+      "norm_total": 2.2221244402661706,
+      "ratio_pred_over_state": 0.5830314293540094,
+      "stream_exclusive": false,
+      "control_batch_split_state": 0.4801360693070932,
+      "control_batch_split_pred": 0.3876124499151936,
+      "control_batch_split_total": 0.4718687949243278,
+      "control_cross_stream_cross_half": 0.0422860643172923,
+      "cos_total_minus_pred": 0.06682158029445129,
+      "cos_total_minus_state": 0.06682507063792965,
+      "cos_disattenuated": 0.1002934478785171
+    },
+    {
+      "name": "state_h.8.c_attn[q]",
+      "kind": "attn_q",
+      "block": 8,
+      "cos_state_pred": 0.17367525583681526,
+      "norm_state": 1.4000099950014007,
+      "norm_pred": 2.9982534560584955,
+      "norm_total": 3.5224402057354394,
+      "ratio_pred_over_state": 2.141594322014462,
+      "stream_exclusive": false,
+      "control_batch_split_state": 0.5384203319326539,
+      "control_batch_split_pred": 0.754468888199292,
+      "control_batch_split_total": 0.7273564727837769,
+      "control_cross_stream_cross_half": 0.13641447473201992,
+      "cos_total_minus_pred": 0.1736752558342943,
+      "cos_total_minus_state": 0.17367525583402088,
+      "cos_disattenuated": 0.20723463676688184
+    },
+    {
+      "name": "state_h.8.c_attn[k]",
+      "kind": "attn_k",
+      "block": 8,
+      "cos_state_pred": 0.19542137779365573,
+      "norm_state": 1.0853860209039683,
+      "norm_pred": 1.278890781561677,
+      "norm_total": 1.83197964921845,
+      "ratio_pred_over_state": 1.178281972432764,
+      "stream_exclusive": false,
+      "control_batch_split_state": 0.3886918452700114,
+      "control_batch_split_pred": 0.5296616955218458,
+      "control_batch_split_total": 0.5022954667225691,
+      "control_cross_stream_cross_half": 0.12104929142214332,
+      "cos_total_minus_pred": 0.1954213777948031,
+      "cos_total_minus_state": 0.1954213777923075,
+      "cos_disattenuated": 0.2623337577909811
+    },
+    {
+      "name": "state_h.8.c_attn[v]",
+      "kind": "attn_v",
+      "block": 8,
+      "cos_state_pred": 0.2833200470385535,
+      "norm_state": 6.69607434252522,
+      "norm_pred": 6.553747743148819,
+      "norm_total": 10.613937605285269,
+      "ratio_pred_over_state": 0.9787447701300869,
+      "stream_exclusive": false,
+      "control_batch_split_state": 0.8404884132372513,
+      "control_batch_split_pred": 0.8307228415144449,
+      "control_batch_split_total": 0.8637756731982258,
+      "control_cross_stream_cross_half": 0.27064610533837535,
+      "cos_total_minus_pred": 0.2833200470386035,
+      "cos_total_minus_state": 0.2833200470380967,
+      "cos_disattenuated": 0.3066170992215075
+    },
+    {
+      "name": "state_h.8.c_proj",
+      "kind": "attn_out",
+      "block": 8,
+      "cos_state_pred": 0.09969893555642913,
+      "norm_state": 2.248321266070241,
+      "norm_pred": 1.7696945438638538,
+      "norm_total": 2.9966652176085398,
+      "ratio_pred_over_state": 0.7871181803822185,
+      "stream_exclusive": false,
+      "control_batch_split_state": 0.5437198396640089,
+      "control_batch_split_pred": 0.453539571887302,
+      "control_batch_split_total": 0.5345841189648938,
+      "control_cross_stream_cross_half": 0.06395466867927635,
+      "cos_total_minus_pred": 0.09968654307344531,
+      "cos_total_minus_state": 0.09969480433201162,
+      "cos_disattenuated": 0.14051941067707222
+    },
+    {
+      "name": "state_h.9.c_attn[q]",
+      "kind": "attn_q",
+      "block": 9,
+      "cos_state_pred": 0.31074052300827615,
+      "norm_state": 1.2584354947699465,
+      "norm_pred": 4.562655091528313,
+      "norm_total": 5.09606766752372,
+      "ratio_pred_over_state": 3.6256567066732397,
+      "stream_exclusive": false,
+      "control_batch_split_state": 0.5860844143456292,
+      "control_batch_split_pred": 0.7274103739989899,
+      "control_batch_split_total": 0.7571120336227475,
+      "control_cross_stream_cross_half": 0.2682915925327994,
+      "cos_total_minus_pred": 0.31074052299472404,
+      "cos_total_minus_state": 0.31074052300707716,
+      "cos_disattenuated": 0.40644966425271833
+    },
+    {
+      "name": "state_h.9.c_attn[k]",
+      "kind": "attn_k",
+      "block": 9,
+      "cos_state_pred": 0.25442418176997406,
+      "norm_state": 0.9839187917926595,
+      "norm_pred": 2.3899092360277443,
+      "norm_total": 2.8064759698166,
+      "ratio_pred_over_state": 2.428970008463227,
+      "stream_exclusive": false,
+      "control_batch_split_state": 0.4774268830435299,
+      "control_batch_split_pred": 0.5049763059248827,
+      "control_batch_split_total": 0.575538104326367,
+      "control_cross_stream_cross_half": 0.1922712694360811,
+      "cos_total_minus_pred": 0.2544241817670378,
+      "cos_total_minus_state": 0.2544241817692736,
+      "cos_disattenuated": 0.41834320320531215
+    },
+    {
+      "name": "state_h.9.c_attn[v]",
+      "kind": "attn_v",
+      "block": 9,
+      "cos_state_pred": 0.28982298810932977,
+      "norm_state": 5.715807276738142,
+      "norm_pred": 8.52378039626769,
+      "norm_total": 11.5570672238674,
+      "ratio_pred_over_state": 1.4912644852385546,
+      "stream_exclusive": false,
+      "control_batch_split_state": 0.8407322202377252,
+      "control_batch_split_pred": 0.8309540007408511,
+      "control_batch_split_total": 0.8566333275061515,
+      "control_cross_stream_cross_half": 0.2587103070533297,
+      "cos_total_minus_pred": 0.28982298810952356,
+      "cos_total_minus_state": 0.2898229881089455,
+      "cos_disattenuated": 0.30979626684910583
+    },
+    {
+      "name": "state_h.9.c_proj",
+      "kind": "attn_out",
+      "block": 9,
+      "cos_state_pred": 0.07863091076237742,
+      "norm_state": 1.2138316366969732,
+      "norm_pred": 1.5870147791640568,
+      "norm_total": 2.072404386447347,
+      "ratio_pred_over_state": 1.3074422606767555,
+      "stream_exclusive": false,
+      "control_batch_split_state": 0.4388314215967607,
+      "control_batch_split_pred": 0.31136633214431464,
+      "control_batch_split_total": 0.3778907880244425,
+      "control_cross_stream_cross_half": 0.04171431219143174,
+      "cos_total_minus_pred": 0.07861984457768023,
+      "cos_total_minus_state": 0.07861946242087987,
+      "cos_disattenuated": 0.1259108240689929
+    },
+    {
+      "name": "state_h.10.c_attn[q]",
+      "kind": "attn_q",
+      "block": 10,
+      "cos_state_pred": 0.07975373415674371,
+      "norm_state": 0.6408459109874226,
+      "norm_pred": 4.240667120460438,
+      "norm_total": 4.339057601200184,
+      "ratio_pred_over_state": 6.617296057840754,
+      "stream_exclusive": false,
+      "control_batch_split_state": 0.27894306497322263,
+      "control_batch_split_pred": 0.636755971737167,
+      "control_batch_split_total": 0.6324831803124056,
+      "control_cross_stream_cross_half": 0.03644895966113724,
+      "cos_total_minus_pred": 0.07975373415667,
+      "cos_total_minus_state": 0.07975373415750724,
+      "cos_disattenuated": 0.1257927548499554
+    },
+    {
+      "name": "state_h.10.c_attn[k]",
+      "kind": "attn_k",
+      "block": 10,
+      "cos_state_pred": 0.08088642992876852,
+      "norm_state": 0.5728944542551758,
+      "norm_pred": 2.0165697471361588,
+      "norm_total": 2.140480042690505,
+      "ratio_pred_over_state": 3.51996730315345,
+      "stream_exclusive": false,
+      "control_batch_split_state": 0.2580353131861214,
+      "control_batch_split_pred": 0.40127606417637407,
+      "control_batch_split_total": 0.41141046358596195,
+      "control_cross_stream_cross_half": 0.046269389821719555,
+      "cos_total_minus_pred": 0.08088642992719618,
+      "cos_total_minus_state": 0.0808864299293692,
+      "cos_disattenuated": 0.18189846746141664
+    },
+    {
+      "name": "state_h.10.c_attn[v]",
+      "kind": "attn_v",
+      "block": 10,
+      "cos_state_pred": 0.3232481023939444,
+      "norm_state": 2.744335474225486,
+      "norm_pred": 6.581394984618698,
+      "norm_total": 7.907140087807051,
+      "ratio_pred_over_state": 2.3981743654995817,
+      "stream_exclusive": false,
+      "control_batch_split_state": 0.783498955597498,
+      "control_batch_split_pred": 0.7879502971110071,
+      "control_batch_split_total": 0.8020482786492161,
+      "control_cross_stream_cross_half": 0.2377321436249567,
+      "cos_total_minus_pred": 0.3232481023960296,
+      "cos_total_minus_state": 0.3232481023927393,
+      "cos_disattenuated": 0.34165339575284
+    },
+    {
+      "name": "state_h.10.c_proj",
+      "kind": "attn_out",
+      "block": 10,
+      "cos_state_pred": 0.06110295454814004,
+      "norm_state": 0.654600523856553,
+      "norm_pred": 1.5444826691048128,
+      "norm_total": 1.7139037000711947,
+      "ratio_pred_over_state": 2.35942779270257,
+      "stream_exclusive": false,
+      "control_batch_split_state": 0.31988099472252624,
+      "control_batch_split_pred": 0.20618646428117804,
+      "control_batch_split_total": 0.23149005811284315,
+      "control_cross_stream_cross_half": 0.023384536526351567,
+      "cos_total_minus_pred": 0.061092413299424754,
+      "cos_total_minus_state": 0.061103146490944886,
+      "cos_disattenuated": 0.0985595117320258
+    },
+    {
+      "name": "state_h.11.c_attn[q]",
+      "kind": "attn_q",
+      "block": 11,
+      "cos_state_pred": -0.21833782425299497,
+      "norm_state": 0.8666710186948648,
+      "norm_pred": 4.5356599080619135,
+      "norm_total": 4.427955536799772,
+      "ratio_pred_over_state": 5.2334274600438855,
+      "stream_exclusive": false,
+      "control_batch_split_state": 0.7296656476107092,
+      "control_batch_split_pred": 0.7176239527785182,
+      "control_batch_split_total": 0.7026961463245767,
+      "control_cross_stream_cross_half": -0.13999759260604727,
+      "cos_total_minus_pred": -0.21833782423151363,
+      "cos_total_minus_state": -0.21833782424884096,
+      "cos_disattenuated": -0.25167860409730647
+    },
+    {
+      "name": "state_h.11.c_attn[k]",
+      "kind": "attn_k",
+      "block": 11,
+      "cos_state_pred": -0.35032069000011845,
+      "norm_state": 0.9046427620036419,
+      "norm_pred": 2.566244876202263,
+      "norm_total": 2.403628071993438,
+      "ratio_pred_over_state": 2.836749470606975,
+      "stream_exclusive": false,
+      "control_batch_split_state": 0.74322149479187,
+      "control_batch_split_pred": 0.5989280761369892,
+      "control_batch_split_total": 0.5409955410654476,
+      "control_cross_stream_cross_half": -0.24089880736238206,
+      "cos_total_minus_pred": -0.3503206900068028,
+      "cos_total_minus_state": -0.3503206899970159,
+      "cos_disattenuated": -0.42338550498386535
+    },
+    {
+      "name": "state_h.11.c_attn[v]",
+      "kind": "attn_v",
+      "block": 11,
+      "cos_state_pred": -0.03471945025880197,
+      "norm_state": 1.9507318919383478,
+      "norm_pred": 7.162210684193809,
+      "norm_total": 7.357475622395497,
+      "ratio_pred_over_state": 3.6715505158820503,
+      "stream_exclusive": false,
+      "control_batch_split_state": 0.8216365822626969,
+      "control_batch_split_pred": 0.8095026752638026,
+      "control_batch_split_total": 0.8069619193914409,
+      "control_cross_stream_cross_half": -0.033387305157226176,
+      "cos_total_minus_pred": -0.03471945025853785,
+      "cos_total_minus_state": -0.03471945025967916,
+      "cos_disattenuated": -0.039485106767576876
+    },
+    {
+      "name": "state_h.11.c_proj",
+      "kind": "attn_out",
+      "block": 11,
+      "cos_state_pred": -0.0005295871658461851,
+      "norm_state": 0.4667690146543085,
+      "norm_pred": 1.8670443379776118,
+      "norm_total": 1.9242651421611756,
+      "ratio_pred_over_state": 3.999932042105139,
+      "stream_exclusive": false,
+      "control_batch_split_state": 0.41316938646320195,
+      "control_batch_split_pred": 0.3294628108354948,
+      "control_batch_split_total": 0.33473190731729663,
+      "control_cross_stream_cross_half": -0.004315314278192375,
+      "cos_total_minus_pred": -0.0005367923530741246,
+      "cos_total_minus_state": -0.000530222978114061,
+      "cos_disattenuated": 0.0022634009940172943
+    }
+  ],
+  "aggregate": {
+    "attn_q": {
+      "cos_state_pred": {
+        "n": 12,
+        "mean": 0.11386001777587144,
+        "absmean": 0.1504822127384847,
+        "min": -0.21833782425299497,
+        "max": 0.31074052300827615
+      },
+      "cos_disattenuated": {
+        "n": 12,
+        "mean": 0.16421455631679616,
+        "absmean": 0.2072794482864958,
+        "min": -0.25167860409730647,
+        "max": 0.40644966425271833
+      },
+      "control_batch_split_state": {
+        "n": 12,
+        "mean": 0.47176284318204426,
+        "absmean": 0.47176284318204426,
+        "min": 0.1643460967318294,
+        "max": 0.7418509437424311
+      },
+      "control_batch_split_pred": {
+        "n": 12,
+        "mean": 0.5655048559738785,
+        "absmean": 0.5655048559738785,
+        "min": 0.07008563235324662,
+        "max": 0.754468888199292
+      },
+      "control_cross_stream_cross_half": {
+        "n": 12,
+        "mean": 0.09227450486792764,
+        "absmean": 0.11560743696893551,
+        "min": -0.13999759260604727,
+        "max": 0.2682915925327994
+      },
+      "ratio_pred_over_state": {
+        "n": 12,
+        "mean": 1.9328032252155058,
+        "absmean": 1.9328032252155058,
+        "min": 0.3811971664460472,
+        "max": 6.617296057840754
+      }
+    },
+    "attn_k": {
+      "cos_state_pred": {
+        "n": 12,
+        "mean": 0.09227602234075012,
+        "absmean": 0.15134575034772554,
+        "min": -0.35032069000011845,
+        "max": 0.2852990992558683
+      },
+      "cos_disattenuated": {
+        "n": 12,
+        "mean": 0.16530261636137417,
+        "absmean": 0.23754288026788073,
+        "min": -0.42338550498386535,
+        "max": 0.4685296663093014
+      },
+      "control_batch_split_state": {
+        "n": 12,
+        "mean": 0.44632800546021795,
+        "absmean": 0.44632800546021795,
+        "min": 0.21651853870689633,
+        "max": 0.7705828569636299
+      },
+      "control_batch_split_pred": {
+        "n": 12,
+        "mean": 0.4182521582164691,
+        "absmean": 0.4182521582164691,
+        "min": 0.20515886299118033,
+        "max": 0.5989280761369892
+      },
+      "control_cross_stream_cross_half": {
+        "n": 12,
+        "mean": 0.052949801619065893,
+        "absmean": 0.09970776252381691,
+        "min": -0.24089880736238206,
+        "max": 0.199843425721808
+      },
+      "ratio_pred_over_state": {
+        "n": 12,
+        "mean": 1.1778488523501296,
+        "absmean": 1.1778488523501296,
+        "min": 0.23265109541063175,
+        "max": 3.51996730315345
+      }
+    },
+    "attn_v": {
+      "cos_state_pred": {
+        "n": 12,
+        "mean": 0.0868152864409792,
+        "absmean": 0.11640433077152441,
+        "min": -0.08810464287919298,
+        "max": 0.3232481023939444
+      },
+      "cos_disattenuated": {
+        "n": 12,
+        "mean": 0.09618771280023346,
+        "absmean": 0.13179690479302855,
+        "min": -0.06917433430459477,
+        "max": 0.34165339575284
+      },
+      "control_batch_split_state": {
+        "n": 12,
+        "mean": 0.7420520162796306,
+        "absmean": 0.7420520162796306,
+        "min": 0.16431859491731302,
+        "max": 0.8407322202377252
+      },
+      "control_batch_split_pred": {
+        "n": 12,
+        "mean": 0.7434905492906333,
+        "absmean": 0.7434905492906333,
+        "min": 0.6157361831071925,
+        "max": 0.8309540007408511
+      },
+      "control_cross_stream_cross_half": {
+        "n": 12,
+        "mean": 0.08220160687750826,
+        "absmean": 0.10264808336294244,
+        "min": -0.07396742306012069,
+        "max": 0.27064610533837535
+      },
+      "ratio_pred_over_state": {
+        "n": 12,
+        "mean": 1.1101495877701042,
+        "absmean": 1.1101495877701042,
+        "min": 0.35712080484207886,
+        "max": 3.6715505158820503
+      }
+    },
+    "attn_out": {
+      "cos_state_pred": {
+        "n": 12,
+        "mean": 0.025060943271388542,
+        "absmean": 0.032440480246011545,
+        "min": -0.016445348657733647,
+        "max": 0.09969893555642913
+      },
+      "cos_disattenuated": {
+        "n": 12,
+        "mean": 0.04410736396144008,
+        "absmean": 0.04848502545618893,
+        "min": -0.014766881587272589,
+        "max": 0.14051941067707222
+      },
+      "control_batch_split_state": {
+        "n": 12,
+        "mean": 0.45823293922496483,
+        "absmean": 0.45823293922496483,
+        "min": 0.31988099472252624,
+        "max": 0.6104569769805595
+      },
+      "control_batch_split_pred": {
+        "n": 12,
+        "mean": 0.31353599172149943,
+        "absmean": 0.31353599172149943,
+        "min": 0.19832175683479653,
+        "max": 0.4618046931225633
+      },
+      "control_cross_stream_cross_half": {
+        "n": 12,
+        "mean": 0.014480863480758789,
+        "absmean": 0.019768388829343644,
+        "min": -0.014423751916721935,
+        "max": 0.06395466867927635
+      },
+      "ratio_pred_over_state": {
+        "n": 12,
+        "mean": 1.0313157668457034,
+        "absmean": 1.0313157668457034,
+        "min": 0.35884107037106927,
+        "max": 3.999932042105139
+      }
+    },
+    "ALL": {
+      "cos_state_pred": {
+        "n": 48,
+        "mean": 0.07950306745724732,
+        "absmean": 0.11266819352593654,
+        "min": -0.35032069000011845,
+        "max": 0.3232481023939444
+      },
+      "cos_disattenuated": {
+        "n": 48,
+        "mean": 0.11745306235996093,
+        "absmean": 0.1562760647008985,
+        "min": -0.42338550498386535,
+        "max": 0.4685296663093014
+      },
+      "control_batch_split_state": {
+        "n": 48,
+        "mean": 0.5295939510367145,
+        "absmean": 0.5295939510367145,
+        "min": 0.16431859491731302,
+        "max": 0.8407322202377252
+      },
+      "control_batch_split_pred": {
+        "n": 48,
+        "mean": 0.5101958888006201,
+        "absmean": 0.5101958888006201,
+        "min": 0.07008563235324662,
+        "max": 0.8309540007408511
+      },
+      "control_cross_stream_cross_half": {
+        "n": 48,
+        "mean": 0.06047669421131515,
+        "absmean": 0.08443291792125962,
+        "min": -0.24089880736238206,
+        "max": 0.27064610533837535
+      },
+      "ratio_pred_over_state": {
+        "n": 48,
+        "mean": 1.3130293580453607,
+        "absmean": 1.3130293580453607,
+        "min": 0.23265109541063175,
+        "max": 6.617296057840754
+      }
+    }
+  }
+}

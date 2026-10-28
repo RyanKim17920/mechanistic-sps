@@ -1,0 +1,10 @@
+# @package _global_
+# Seed replicate of s_two_tower_w0_equal_20b: new init and data order.
+defaults:
+  - s_two_tower_w0_equal_20b
+  - _self_
+experiment:
+  name: s_two_tower_w0_equal_20b_seed3
+training:
+  chunk_shuffle_seed: 1339
+  seed: 1339

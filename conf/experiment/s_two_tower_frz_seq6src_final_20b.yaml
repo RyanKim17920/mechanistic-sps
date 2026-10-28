@@ -1,0 +1,36 @@
+# @package _global_
+# Freeze-and-retrain: the state tower (wte + state blocks) of the seed-1 Sequential 6+6
+# run (s_two_tower_seq6_20b, read from <out_root>/out/) is loaded and frozen;
+# a fresh prediction tower is trained with read_map final.
+defaults:
+  - override /model: two_tower
+experiment:
+  name: s_two_tower_frz_seq6src_final_20b
+  tags: [s, two_tower, freeze_retrain, 20b, fw100]
+model:
+  config:
+    n_head: 12
+    hidden_size: 768
+    intermediate_size: 2304
+    dropout: 0.0
+    state_n_layer: 6
+    pred_n_layer: 6
+    state_intermediate: 2304
+    pred_intermediate: 2304
+    read_map: final
+    read_source: pred_proj
+    predict_embedding: separate
+    tie_lm_head: false
+    attn_backend: flex   # what ran: no flash-attn wheel was installed
+logging:
+  wandb_log: false
+  wandb_run_name: ${experiment.name}
+training:
+  max_tokens: 20000000000
+  eval_interval_tokens: 1000000000
+  save_every: 1000000000
+  skip_first_eval: false
+  freeze_state_from: s_two_tower_seq6_20b   # source run (training.freeze_state_from)
+scheduler:
+  lr_decay_tokens: 2000000000
+  warmup_tokens: 50000000

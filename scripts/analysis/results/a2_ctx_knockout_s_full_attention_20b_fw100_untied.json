@@ -1,0 +1,811 @@
+{
+  "analysis": "a2_ctx_knockout",
+  "run": "s_full_attention_20b_fw100_untied",
+  "model_id": "s_full_attention_20b_fw100_untied",
+  "label": "s_full_attention_20b_fw100_untied",
+  "family": "standard",
+  "checkpoint": "${DATA_ROOT}/out/s_full_attention_20b_fw100_untied/ckpt_tokens_20000145408_final.pt",
+  "arm": "trained",
+  "n_layer": 12,
+  "caps": [
+    16,
+    64,
+    256,
+    1024
+  ],
+  "last_n": [
+    1,
+    3,
+    6,
+    9
+  ],
+  "semantics": "single-stream context-window knockout: queries of the targeted blocks keep keys at token distance <= cap (near) / > cap (far); knocked-out band masked+renormalised (mask) or replaced by the calibration mean value vector at that band's total weight (mean); untargeted blocks run native attention",
+  "scoring": {
+    "kind": "sub-sweep",
+    "n_seq": 512,
+    "n_tokens": 2094978,
+    "paired_floor": 0.0005,
+    "seed_floor": 0.00219
+  },
+  "native_sub_sweep_nll": 2.867428,
+  "sweeps": {
+    "control_uncapped": {
+      "layers": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "cap": null,
+      "band": "near",
+      "ablation": "mask",
+      "val_nll": 2.867465,
+      "seconds": 51.3
+    },
+    "all_near16_mask": {
+      "layers": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "cap": 16,
+      "band": "near",
+      "ablation": "mask",
+      "val_nll": 3.91895,
+      "seconds": 51.3,
+      "delta_nll": 1.051485
+    },
+    "all_near16_mean": {
+      "layers": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "cap": 16,
+      "band": "near",
+      "ablation": "mean",
+      "val_nll": 4.172305,
+      "seconds": 73.2,
+      "delta_nll": 1.30484
+    },
+    "all_far16_mask": {
+      "layers": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "cap": 16,
+      "band": "far",
+      "ablation": "mask",
+      "val_nll": 5.835733,
+      "seconds": 51.4,
+      "delta_nll": 2.968268
+    },
+    "last1_near16_mask": {
+      "layers": [
+        11
+      ],
+      "cap": 16,
+      "band": "near",
+      "ablation": "mask",
+      "val_nll": 2.941609,
+      "seconds": 8.1,
+      "delta_nll": 0.074144
+    },
+    "last1_near16_mean": {
+      "layers": [
+        11
+      ],
+      "cap": 16,
+      "band": "near",
+      "ablation": "mean",
+      "val_nll": 2.930054,
+      "seconds": 9.9,
+      "delta_nll": 0.062589
+    },
+    "last3_near16_mask": {
+      "layers": [
+        9,
+        10,
+        11
+      ],
+      "cap": 16,
+      "band": "near",
+      "ablation": "mask",
+      "val_nll": 3.913767,
+      "seconds": 16.0,
+      "delta_nll": 1.046302
+    },
+    "last3_near16_mean": {
+      "layers": [
+        9,
+        10,
+        11
+      ],
+      "cap": 16,
+      "band": "near",
+      "ablation": "mean",
+      "val_nll": 3.480432,
+      "seconds": 21.4,
+      "delta_nll": 0.612968
+    },
+    "last6_near16_mask": {
+      "layers": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "cap": 16,
+      "band": "near",
+      "ablation": "mask",
+      "val_nll": 4.009805,
+      "seconds": 27.7,
+      "delta_nll": 1.14234
+    },
+    "last6_near16_mean": {
+      "layers": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "cap": 16,
+      "band": "near",
+      "ablation": "mean",
+      "val_nll": 3.667435,
+      "seconds": 38.6,
+      "delta_nll": 0.799971
+    },
+    "last9_near16_mask": {
+      "layers": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "cap": 16,
+      "band": "near",
+      "ablation": "mask",
+      "val_nll": 4.725304,
+      "seconds": 39.5,
+      "delta_nll": 1.85784
+    },
+    "last9_near16_mean": {
+      "layers": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "cap": 16,
+      "band": "near",
+      "ablation": "mean",
+      "val_nll": 3.892598,
+      "seconds": 55.9,
+      "delta_nll": 1.025133
+    },
+    "all_near64_mask": {
+      "layers": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "cap": 64,
+      "band": "near",
+      "ablation": "mask",
+      "val_nll": 3.201398,
+      "seconds": 51.4,
+      "delta_nll": 0.333933
+    },
+    "all_near64_mean": {
+      "layers": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "cap": 64,
+      "band": "near",
+      "ablation": "mean",
+      "val_nll": 3.484046,
+      "seconds": 73.2,
+      "delta_nll": 0.616581
+    },
+    "all_far64_mask": {
+      "layers": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "cap": 64,
+      "band": "far",
+      "ablation": "mask",
+      "val_nll": 6.147913,
+      "seconds": 51.5,
+      "delta_nll": 3.280448
+    },
+    "last1_near64_mask": {
+      "layers": [
+        11
+      ],
+      "cap": 64,
+      "band": "near",
+      "ablation": "mask",
+      "val_nll": 2.90078,
+      "seconds": 8.1,
+      "delta_nll": 0.033315
+    },
+    "last1_near64_mean": {
+      "layers": [
+        11
+      ],
+      "cap": 64,
+      "band": "near",
+      "ablation": "mean",
+      "val_nll": 2.897806,
+      "seconds": 9.9,
+      "delta_nll": 0.030342
+    },
+    "last3_near64_mask": {
+      "layers": [
+        9,
+        10,
+        11
+      ],
+      "cap": 64,
+      "band": "near",
+      "ablation": "mask",
+      "val_nll": 3.295855,
+      "seconds": 16.0,
+      "delta_nll": 0.42839
+    },
+    "last3_near64_mean": {
+      "layers": [
+        9,
+        10,
+        11
+      ],
+      "cap": 64,
+      "band": "near",
+      "ablation": "mean",
+      "val_nll": 3.178759,
+      "seconds": 21.4,
+      "delta_nll": 0.311295
+    },
+    "last6_near64_mask": {
+      "layers": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "cap": 64,
+      "band": "near",
+      "ablation": "mask",
+      "val_nll": 3.298101,
+      "seconds": 27.8,
+      "delta_nll": 0.430636
+    },
+    "last6_near64_mean": {
+      "layers": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "cap": 64,
+      "band": "near",
+      "ablation": "mean",
+      "val_nll": 3.262543,
+      "seconds": 38.7,
+      "delta_nll": 0.395078
+    },
+    "last9_near64_mask": {
+      "layers": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "cap": 64,
+      "band": "near",
+      "ablation": "mask",
+      "val_nll": 3.304197,
+      "seconds": 39.6,
+      "delta_nll": 0.436732
+    },
+    "last9_near64_mean": {
+      "layers": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "cap": 64,
+      "band": "near",
+      "ablation": "mean",
+      "val_nll": 3.358198,
+      "seconds": 55.9,
+      "delta_nll": 0.490733
+    },
+    "all_near256_mask": {
+      "layers": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "cap": 256,
+      "band": "near",
+      "ablation": "mask",
+      "val_nll": 2.954545,
+      "seconds": 51.4,
+      "delta_nll": 0.08708
+    },
+    "all_near256_mean": {
+      "layers": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "cap": 256,
+      "band": "near",
+      "ablation": "mean",
+      "val_nll": 3.028239,
+      "seconds": 73.1,
+      "delta_nll": 0.160775
+    },
+    "all_far256_mask": {
+      "layers": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "cap": 256,
+      "band": "far",
+      "ablation": "mask",
+      "val_nll": 6.821534,
+      "seconds": 51.4,
+      "delta_nll": 3.954069
+    },
+    "last1_near256_mask": {
+      "layers": [
+        11
+      ],
+      "cap": 256,
+      "band": "near",
+      "ablation": "mask",
+      "val_nll": 2.878214,
+      "seconds": 8.1,
+      "delta_nll": 0.010749
+    },
+    "last1_near256_mean": {
+      "layers": [
+        11
+      ],
+      "cap": 256,
+      "band": "near",
+      "ablation": "mean",
+      "val_nll": 2.877648,
+      "seconds": 9.9,
+      "delta_nll": 0.010183
+    },
+    "last3_near256_mask": {
+      "layers": [
+        9,
+        10,
+        11
+      ],
+      "cap": 256,
+      "band": "near",
+      "ablation": "mask",
+      "val_nll": 2.982111,
+      "seconds": 16.0,
+      "delta_nll": 0.114646
+    },
+    "last3_near256_mean": {
+      "layers": [
+        9,
+        10,
+        11
+      ],
+      "cap": 256,
+      "band": "near",
+      "ablation": "mean",
+      "val_nll": 2.972655,
+      "seconds": 21.4,
+      "delta_nll": 0.105191
+    },
+    "last6_near256_mask": {
+      "layers": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "cap": 256,
+      "band": "near",
+      "ablation": "mask",
+      "val_nll": 2.976153,
+      "seconds": 27.8,
+      "delta_nll": 0.108689
+    },
+    "last6_near256_mean": {
+      "layers": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "cap": 256,
+      "band": "near",
+      "ablation": "mean",
+      "val_nll": 2.999054,
+      "seconds": 38.6,
+      "delta_nll": 0.131589
+    },
+    "last9_near256_mask": {
+      "layers": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "cap": 256,
+      "band": "near",
+      "ablation": "mask",
+      "val_nll": 2.959038,
+      "seconds": 39.6,
+      "delta_nll": 0.091573
+    },
+    "last9_near256_mean": {
+      "layers": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "cap": 256,
+      "band": "near",
+      "ablation": "mean",
+      "val_nll": 3.008121,
+      "seconds": 55.9,
+      "delta_nll": 0.140657
+    },
+    "all_near1024_mask": {
+      "layers": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "cap": 1024,
+      "band": "near",
+      "ablation": "mask",
+      "val_nll": 2.87517,
+      "seconds": 51.4,
+      "delta_nll": 0.007705
+    },
+    "all_near1024_mean": {
+      "layers": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "cap": 1024,
+      "band": "near",
+      "ablation": "mean",
+      "val_nll": 2.880258,
+      "seconds": 73.1,
+      "delta_nll": 0.012793
+    },
+    "all_far1024_mask": {
+      "layers": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "cap": 1024,
+      "band": "far",
+      "ablation": "mask",
+      "val_nll": 7.733779,
+      "seconds": 51.3,
+      "delta_nll": 4.866315
+    },
+    "last1_near1024_mask": {
+      "layers": [
+        11
+      ],
+      "cap": 1024,
+      "band": "near",
+      "ablation": "mask",
+      "val_nll": 2.868113,
+      "seconds": 8.1,
+      "delta_nll": 0.000648
+    },
+    "last1_near1024_mean": {
+      "layers": [
+        11
+      ],
+      "cap": 1024,
+      "band": "near",
+      "ablation": "mean",
+      "val_nll": 2.868415,
+      "seconds": 9.9,
+      "delta_nll": 0.00095
+    },
+    "last3_near1024_mask": {
+      "layers": [
+        9,
+        10,
+        11
+      ],
+      "cap": 1024,
+      "band": "near",
+      "ablation": "mask",
+      "val_nll": 2.875085,
+      "seconds": 16.0,
+      "delta_nll": 0.00762
+    },
+    "last3_near1024_mean": {
+      "layers": [
+        9,
+        10,
+        11
+      ],
+      "cap": 1024,
+      "band": "near",
+      "ablation": "mean",
+      "val_nll": 2.877375,
+      "seconds": 21.4,
+      "delta_nll": 0.00991
+    },
+    "last6_near1024_mask": {
+      "layers": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "cap": 1024,
+      "band": "near",
+      "ablation": "mask",
+      "val_nll": 2.874901,
+      "seconds": 27.8,
+      "delta_nll": 0.007437
+    },
+    "last6_near1024_mean": {
+      "layers": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "cap": 1024,
+      "band": "near",
+      "ablation": "mean",
+      "val_nll": 2.878541,
+      "seconds": 38.6,
+      "delta_nll": 0.011076
+    },
+    "last9_near1024_mask": {
+      "layers": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "cap": 1024,
+      "band": "near",
+      "ablation": "mask",
+      "val_nll": 2.874797,
+      "seconds": 39.6,
+      "delta_nll": 0.007332
+    },
+    "last9_near1024_mean": {
+      "layers": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "cap": 1024,
+      "band": "near",
+      "ablation": "mean",
+      "val_nll": 2.878709,
+      "seconds": 55.9,
+      "delta_nll": 0.011245
+    }
+  },
+  "calibration": {
+    "n_seq": 32,
+    "mean_abs_value": {
+      "0": 0.003117,
+      "1": 0.017357,
+      "2": 0.028199,
+      "3": 0.033797,
+      "4": 0.030166,
+      "5": 0.061129,
+      "6": 0.044806,
+      "7": 0.051,
+      "8": 0.079278,
+      "9": 0.10023,
+      "10": 0.16425,
+      "11": 0.21956
+    }
+  },
+  "patched_attention_calls": 1032,
+  "control_uncapped_nll": 2.867465,
+  "control_delta_vs_native": 3.7e-05,
+  "control_gate_passed": true
+}

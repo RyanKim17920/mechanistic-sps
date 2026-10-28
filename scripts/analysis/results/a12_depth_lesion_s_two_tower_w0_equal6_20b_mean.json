@@ -1,0 +1,524 @@
+{
+  "analysis": "a12_depth_lesion",
+  "run": "s_two_tower_w0_equal6_20b",
+  "model_id": "s_two_tower_w0_equal6_20b",
+  "label": "s_two_tower_w0_equal6_20b",
+  "family": "two_tower",
+  "checkpoint": "${DATA_ROOT}/out/s_two_tower_w0_equal6_20b/ckpt_tokens_20000145408_final.pt",
+  "geometry": {
+    "state_n_layer": 6,
+    "pred_n_layer": 6,
+    "state_hidden": 768,
+    "pred_hidden": 768,
+    "state_intermediate": 2304,
+    "pred_intermediate": 2304,
+    "read_map": "post",
+    "read_source": "pred_proj",
+    "read_levels": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "pred_window": 0
+  },
+  "scoring": {
+    "kind": "sub-sweep",
+    "n_seq": 512,
+    "n_tokens": 2094978,
+    "val_bin": "${DATA_ROOT}/data/fineweb-edu-100bt/val.bin",
+    "paired_floor": 0.0005,
+    "seed_floor": 0.00219,
+    "note": "paired deltas: one ckpt, one val slice, one order; only the lesion differs",
+    "full_sweep_tokens": 13085928,
+    "full_sweep_seqs": 3198,
+    "sub_sweep_offset": 0.005228
+  },
+  "native_sub_sweep_nll": 2.843341,
+  "lesions": {
+    "state_00_attn": {
+      "stream": "state",
+      "block": 0,
+      "kind": "attn",
+      "val_nll": 9.887852,
+      "delta": 7.044511,
+      "seconds": 3.7
+    },
+    "state_00_mlp": {
+      "stream": "state",
+      "block": 0,
+      "kind": "mlp",
+      "val_nll": 4.54361,
+      "delta": 1.700269,
+      "seconds": 3.7
+    },
+    "state_00_block": {
+      "stream": "state",
+      "block": 0,
+      "kind": "block",
+      "val_nll": 9.995021,
+      "delta": 7.15168,
+      "seconds": 3.6
+    },
+    "state_01_attn": {
+      "stream": "state",
+      "block": 1,
+      "kind": "attn",
+      "val_nll": 3.199061,
+      "delta": 0.35572,
+      "seconds": 3.7
+    },
+    "state_01_mlp": {
+      "stream": "state",
+      "block": 1,
+      "kind": "mlp",
+      "val_nll": 3.240377,
+      "delta": 0.397036,
+      "seconds": 3.7
+    },
+    "state_01_block": {
+      "stream": "state",
+      "block": 1,
+      "kind": "block",
+      "val_nll": 3.707983,
+      "delta": 0.864642,
+      "seconds": 3.6
+    },
+    "state_02_attn": {
+      "stream": "state",
+      "block": 2,
+      "kind": "attn",
+      "val_nll": 3.64543,
+      "delta": 0.802089,
+      "seconds": 3.7
+    },
+    "state_02_mlp": {
+      "stream": "state",
+      "block": 2,
+      "kind": "mlp",
+      "val_nll": 3.217317,
+      "delta": 0.373976,
+      "seconds": 3.7
+    },
+    "state_02_block": {
+      "stream": "state",
+      "block": 2,
+      "kind": "block",
+      "val_nll": 3.982919,
+      "delta": 1.139578,
+      "seconds": 3.6
+    },
+    "state_03_attn": {
+      "stream": "state",
+      "block": 3,
+      "kind": "attn",
+      "val_nll": 3.188086,
+      "delta": 0.344745,
+      "seconds": 3.7
+    },
+    "state_03_mlp": {
+      "stream": "state",
+      "block": 3,
+      "kind": "mlp",
+      "val_nll": 2.980302,
+      "delta": 0.136961,
+      "seconds": 3.7
+    },
+    "state_03_block": {
+      "stream": "state",
+      "block": 3,
+      "kind": "block",
+      "val_nll": 3.264533,
+      "delta": 0.421192,
+      "seconds": 3.6
+    },
+    "state_04_attn": {
+      "stream": "state",
+      "block": 4,
+      "kind": "attn",
+      "val_nll": 2.987449,
+      "delta": 0.144108,
+      "seconds": 3.7
+    },
+    "state_04_mlp": {
+      "stream": "state",
+      "block": 4,
+      "kind": "mlp",
+      "val_nll": 3.033022,
+      "delta": 0.189681,
+      "seconds": 3.7
+    },
+    "state_04_block": {
+      "stream": "state",
+      "block": 4,
+      "kind": "block",
+      "val_nll": 3.152415,
+      "delta": 0.309074,
+      "seconds": 3.7
+    },
+    "state_05_attn": {
+      "stream": "state",
+      "block": 5,
+      "kind": "attn",
+      "val_nll": 2.886885,
+      "delta": 0.043544,
+      "seconds": 3.7
+    },
+    "state_05_mlp": {
+      "stream": "state",
+      "block": 5,
+      "kind": "mlp",
+      "val_nll": 2.975001,
+      "delta": 0.13166,
+      "seconds": 3.7
+    },
+    "state_05_block": {
+      "stream": "state",
+      "block": 5,
+      "kind": "block",
+      "val_nll": 3.048183,
+      "delta": 0.204842,
+      "seconds": 3.6
+    },
+    "pred_00_attn": {
+      "stream": "pred",
+      "block": 0,
+      "kind": "attn",
+      "val_nll": 2.934733,
+      "delta": 0.091392,
+      "seconds": 3.7
+    },
+    "pred_00_mlp": {
+      "stream": "pred",
+      "block": 0,
+      "kind": "mlp",
+      "val_nll": 3.324695,
+      "delta": 0.481354,
+      "seconds": 3.7
+    },
+    "pred_00_block": {
+      "stream": "pred",
+      "block": 0,
+      "kind": "block",
+      "val_nll": 3.332031,
+      "delta": 0.48869,
+      "seconds": 3.6
+    },
+    "pred_01_attn": {
+      "stream": "pred",
+      "block": 1,
+      "kind": "attn",
+      "val_nll": 2.971531,
+      "delta": 0.12819,
+      "seconds": 3.7
+    },
+    "pred_01_mlp": {
+      "stream": "pred",
+      "block": 1,
+      "kind": "mlp",
+      "val_nll": 2.938847,
+      "delta": 0.095506,
+      "seconds": 3.7
+    },
+    "pred_01_block": {
+      "stream": "pred",
+      "block": 1,
+      "kind": "block",
+      "val_nll": 3.028132,
+      "delta": 0.184791,
+      "seconds": 3.6
+    },
+    "pred_02_attn": {
+      "stream": "pred",
+      "block": 2,
+      "kind": "attn",
+      "val_nll": 2.926096,
+      "delta": 0.082755,
+      "seconds": 3.7
+    },
+    "pred_02_mlp": {
+      "stream": "pred",
+      "block": 2,
+      "kind": "mlp",
+      "val_nll": 2.943345,
+      "delta": 0.100004,
+      "seconds": 3.7
+    },
+    "pred_02_block": {
+      "stream": "pred",
+      "block": 2,
+      "kind": "block",
+      "val_nll": 3.015837,
+      "delta": 0.172496,
+      "seconds": 3.6
+    },
+    "pred_03_attn": {
+      "stream": "pred",
+      "block": 3,
+      "kind": "attn",
+      "val_nll": 3.156522,
+      "delta": 0.31318,
+      "seconds": 3.7
+    },
+    "pred_03_mlp": {
+      "stream": "pred",
+      "block": 3,
+      "kind": "mlp",
+      "val_nll": 2.986733,
+      "delta": 0.143392,
+      "seconds": 3.7
+    },
+    "pred_03_block": {
+      "stream": "pred",
+      "block": 3,
+      "kind": "block",
+      "val_nll": 3.388565,
+      "delta": 0.545224,
+      "seconds": 3.6
+    },
+    "pred_04_attn": {
+      "stream": "pred",
+      "block": 4,
+      "kind": "attn",
+      "val_nll": 3.069807,
+      "delta": 0.226465,
+      "seconds": 3.7
+    },
+    "pred_04_mlp": {
+      "stream": "pred",
+      "block": 4,
+      "kind": "mlp",
+      "val_nll": 3.071566,
+      "delta": 0.228225,
+      "seconds": 3.7
+    },
+    "pred_04_block": {
+      "stream": "pred",
+      "block": 4,
+      "kind": "block",
+      "val_nll": 3.369328,
+      "delta": 0.525987,
+      "seconds": 3.6
+    },
+    "pred_05_attn": {
+      "stream": "pred",
+      "block": 5,
+      "kind": "attn",
+      "val_nll": 3.29717,
+      "delta": 0.453829,
+      "seconds": 3.7
+    },
+    "pred_05_mlp": {
+      "stream": "pred",
+      "block": 5,
+      "kind": "mlp",
+      "val_nll": 3.577516,
+      "delta": 0.734175,
+      "seconds": 3.7
+    },
+    "pred_05_block": {
+      "stream": "pred",
+      "block": 5,
+      "kind": "block",
+      "val_nll": 4.380399,
+      "delta": 1.537058,
+      "seconds": 3.6
+    }
+  },
+  "ablation": "mean",
+  "lesion_semantics_ablation": "MEAN-ablation: the lesioned write is replaced, at every position of the lesioned stream/slot type, by its per-channel clean-run mean over held-out val sequences disjoint from the scored sub-sweep",
+  "mean_ablation": {
+    "source": "val.bin (same file as the scored sub-sweep)",
+    "selection": "BLOCK-strided grid[512:], evenly strided, first 256",
+    "n_seq": 256,
+    "first_start": 2097152,
+    "last_start": 12541952,
+    "disjoint_from_scored": true,
+    "seconds": 15.1,
+    "per_write": {
+      "state_00_attn": {
+        "mean_norm": 16.731782,
+        "write_rms_norm": 25.588357,
+        "rows": 1048576
+      },
+      "state_00_mlp": {
+        "mean_norm": 12.324714,
+        "write_rms_norm": 21.94869,
+        "rows": 1048576
+      },
+      "state_01_attn": {
+        "mean_norm": 5.417777,
+        "write_rms_norm": 14.850348,
+        "rows": 1048576
+      },
+      "state_01_mlp": {
+        "mean_norm": 13.706169,
+        "write_rms_norm": 24.3938,
+        "rows": 1048576
+      },
+      "state_02_attn": {
+        "mean_norm": 2.021207,
+        "write_rms_norm": 20.399266,
+        "rows": 1048576
+      },
+      "state_02_mlp": {
+        "mean_norm": 10.928628,
+        "write_rms_norm": 56.919516,
+        "rows": 1048576
+      },
+      "state_03_attn": {
+        "mean_norm": 5.104418,
+        "write_rms_norm": 27.339363,
+        "rows": 1048576
+      },
+      "state_03_mlp": {
+        "mean_norm": 22.616326,
+        "write_rms_norm": 46.298747,
+        "rows": 1048576
+      },
+      "state_04_attn": {
+        "mean_norm": 4.39342,
+        "write_rms_norm": 45.911526,
+        "rows": 1048576
+      },
+      "state_04_mlp": {
+        "mean_norm": 50.15901,
+        "write_rms_norm": 666.892169,
+        "rows": 1048576
+      },
+      "state_05_attn": {
+        "mean_norm": 10.730204,
+        "write_rms_norm": 43.058238,
+        "rows": 1048576
+      },
+      "state_05_mlp": {
+        "mean_norm": 43.521779,
+        "write_rms_norm": 128.92863,
+        "rows": 1048576
+      },
+      "pred_00_attn": {
+        "mean_norm": 2.372283,
+        "write_rms_norm": 2.5877,
+        "rows": 1048576
+      },
+      "pred_00_mlp": {
+        "mean_norm": 5.863935,
+        "write_rms_norm": 10.701856,
+        "rows": 1048576
+      },
+      "pred_01_attn": {
+        "mean_norm": 8.330843,
+        "write_rms_norm": 9.92072,
+        "rows": 1048576
+      },
+      "pred_01_mlp": {
+        "mean_norm": 3.744403,
+        "write_rms_norm": 7.957265,
+        "rows": 1048576
+      },
+      "pred_02_attn": {
+        "mean_norm": 5.629513,
+        "write_rms_norm": 9.063518,
+        "rows": 1048576
+      },
+      "pred_02_mlp": {
+        "mean_norm": 5.729999,
+        "write_rms_norm": 12.642507,
+        "rows": 1048576
+      },
+      "pred_03_attn": {
+        "mean_norm": 6.740171,
+        "write_rms_norm": 15.132018,
+        "rows": 1048576
+      },
+      "pred_03_mlp": {
+        "mean_norm": 7.96484,
+        "write_rms_norm": 19.193,
+        "rows": 1048576
+      },
+      "pred_04_attn": {
+        "mean_norm": 8.650522,
+        "write_rms_norm": 20.079761,
+        "rows": 1048576
+      },
+      "pred_04_mlp": {
+        "mean_norm": 14.226924,
+        "write_rms_norm": 34.393782,
+        "rows": 1048576
+      },
+      "pred_05_attn": {
+        "mean_norm": 4.632158,
+        "write_rms_norm": 33.564389,
+        "rows": 1048576
+      },
+      "pred_05_mlp": {
+        "mean_norm": 29.645899,
+        "write_rms_norm": 54.522577,
+        "rows": 1048576
+      }
+    }
+  },
+  "native_full_sweep_nll": 2.838113,
+  "control_noop_nll": 2.843341,
+  "control_delta_vs_native": 0.0,
+  "patched_calls": 172,
+  "control_gate_passed": true,
+  "summary": {
+    "state_attn": {
+      "total_delta": 8.734717,
+      "max_delta": 7.044511,
+      "argmax_block": 0,
+      "min_delta": 0.043544,
+      "argmin_block": 5,
+      "n_below_1e_2": 0,
+      "blocks_below_1e_2": []
+    },
+    "state_mlp": {
+      "total_delta": 2.929583,
+      "max_delta": 1.700269,
+      "argmax_block": 0,
+      "min_delta": 0.13166,
+      "argmin_block": 5,
+      "n_below_1e_2": 0,
+      "blocks_below_1e_2": []
+    },
+    "state_block": {
+      "total_delta": 10.091008,
+      "max_delta": 7.15168,
+      "argmax_block": 0,
+      "min_delta": 0.204842,
+      "argmin_block": 5,
+      "n_below_1e_2": 0,
+      "blocks_below_1e_2": []
+    },
+    "pred_attn": {
+      "total_delta": 1.295811,
+      "max_delta": 0.453829,
+      "argmax_block": 5,
+      "min_delta": 0.082755,
+      "argmin_block": 2,
+      "n_below_1e_2": 0,
+      "blocks_below_1e_2": []
+    },
+    "pred_mlp": {
+      "total_delta": 1.782656,
+      "max_delta": 0.734175,
+      "argmax_block": 5,
+      "min_delta": 0.095506,
+      "argmin_block": 1,
+      "n_below_1e_2": 0,
+      "blocks_below_1e_2": []
+    },
+    "pred_block": {
+      "total_delta": 3.454246,
+      "max_delta": 1.537058,
+      "argmax_block": 5,
+      "min_delta": 0.172496,
+      "argmin_block": 2,
+      "n_below_1e_2": 0,
+      "blocks_below_1e_2": []
+    }
+  }
+}

@@ -1,0 +1,208 @@
+{
+  "analysis": "a2_knockout",
+  "run": "s_sps_w64_20b_fw100_untied",
+  "model_id": "s_sps_w64_20b_fw100_untied",
+  "label": "s_sps_w64_20b_fw100_untied",
+  "family": "sps",
+  "checkpoint": "${DATA_ROOT}/out/s_sps_w64_20b_fw100_untied/ckpt_tokens_20000145408_final.pt",
+  "arm": "trained",
+  "window_size": 64,
+  "caps": [
+    16,
+    64,
+    256,
+    1024
+  ],
+  "scoring": {
+    "kind": "sub-sweep",
+    "n_seq": 512,
+    "n_tokens": 2094978,
+    "paired_floor": 0.0005,
+    "seed_floor": 0.00219
+  },
+  "native_sub_sweep_nll": 2.803686,
+  "sweeps": {
+    "control_uncapped": {
+      "query_stream": "pred",
+      "cap": null,
+      "band": "near",
+      "ablation": "mask",
+      "val_nll": 2.803702,
+      "seconds": 190.7
+    },
+    "pred_near16_mask": {
+      "query_stream": "pred",
+      "cap": 16,
+      "band": "near",
+      "ablation": "mask",
+      "val_nll": 3.310935,
+      "seconds": 191.0,
+      "delta_nll": 0.507234
+    },
+    "pred_near16_mean": {
+      "query_stream": "pred",
+      "cap": 16,
+      "band": "near",
+      "ablation": "mean",
+      "val_nll": 4.474999,
+      "seconds": 272.7,
+      "delta_nll": 1.671298
+    },
+    "pred_far16_mask": {
+      "query_stream": "pred",
+      "cap": 16,
+      "band": "far",
+      "ablation": "mask",
+      "val_nll": 8.290614,
+      "seconds": 191.2,
+      "delta_nll": 5.486912
+    },
+    "pred_near64_mask": {
+      "query_stream": "pred",
+      "cap": 64,
+      "band": "near",
+      "ablation": "mask",
+      "val_nll": 3.028746,
+      "seconds": 191.0,
+      "delta_nll": 0.225044
+    },
+    "pred_near64_mean": {
+      "query_stream": "pred",
+      "cap": 64,
+      "band": "near",
+      "ablation": "mean",
+      "val_nll": 3.477329,
+      "seconds": 272.6,
+      "delta_nll": 0.673627
+    },
+    "pred_far64_mask": {
+      "query_stream": "pred",
+      "cap": 64,
+      "band": "far",
+      "ablation": "mask",
+      "val_nll": 9.225197,
+      "seconds": 191.2,
+      "delta_nll": 6.421495
+    },
+    "pred_near256_mask": {
+      "query_stream": "pred",
+      "cap": 256,
+      "band": "near",
+      "ablation": "mask",
+      "val_nll": 2.859936,
+      "seconds": 191.0,
+      "delta_nll": 0.056235
+    },
+    "pred_near256_mean": {
+      "query_stream": "pred",
+      "cap": 256,
+      "band": "near",
+      "ablation": "mean",
+      "val_nll": 2.937271,
+      "seconds": 272.6,
+      "delta_nll": 0.133569
+    },
+    "pred_far256_mask": {
+      "query_stream": "pred",
+      "cap": 256,
+      "band": "far",
+      "ablation": "mask",
+      "val_nll": 9.960286,
+      "seconds": 191.2,
+      "delta_nll": 7.156584
+    },
+    "pred_near1024_mask": {
+      "query_stream": "pred",
+      "cap": 1024,
+      "band": "near",
+      "ablation": "mask",
+      "val_nll": 2.809262,
+      "seconds": 191.1,
+      "delta_nll": 0.005561
+    },
+    "pred_near1024_mean": {
+      "query_stream": "pred",
+      "cap": 1024,
+      "band": "near",
+      "ablation": "mean",
+      "val_nll": 2.812296,
+      "seconds": 272.6,
+      "delta_nll": 0.008595
+    },
+    "pred_far1024_mask": {
+      "query_stream": "pred",
+      "cap": 1024,
+      "band": "far",
+      "ablation": "mask",
+      "val_nll": 11.591988,
+      "seconds": 191.2,
+      "delta_nll": 8.788286
+    },
+    "control_uncapped_state": {
+      "query_stream": "state",
+      "cap": null,
+      "band": "near",
+      "ablation": "mask",
+      "val_nll": 2.803702,
+      "seconds": 190.7
+    },
+    "state_near16_mask": {
+      "query_stream": "state",
+      "cap": 16,
+      "band": "near",
+      "ablation": "mask",
+      "val_nll": 2.905919,
+      "seconds": 191.1,
+      "delta_nll": 0.102218
+    },
+    "state_near64_mask": {
+      "query_stream": "state",
+      "cap": 64,
+      "band": "near",
+      "ablation": "mask",
+      "val_nll": 2.849852,
+      "seconds": 191.1,
+      "delta_nll": 0.046151
+    },
+    "state_near256_mask": {
+      "query_stream": "state",
+      "cap": 256,
+      "band": "near",
+      "ablation": "mask",
+      "val_nll": 2.817979,
+      "seconds": 191.1,
+      "delta_nll": 0.014277
+    },
+    "state_near1024_mask": {
+      "query_stream": "state",
+      "cap": 1024,
+      "band": "near",
+      "ablation": "mask",
+      "val_nll": 2.805853,
+      "seconds": 191.2,
+      "delta_nll": 0.002152
+    }
+  },
+  "calibration": {
+    "n_seq": 32,
+    "mean_abs_value": {
+      "0": 0.054562,
+      "1": 0.086253,
+      "2": 0.143038,
+      "3": 0.150589,
+      "4": 0.193822,
+      "5": 0.126739,
+      "6": 0.17168,
+      "7": 0.151244,
+      "8": 0.167987,
+      "9": 0.168668,
+      "10": 0.195327,
+      "11": 0.214593
+    }
+  },
+  "patched_attention_calls": 1416,
+  "control_uncapped_nll": 2.803702,
+  "control_delta_vs_native": 1.6e-05,
+  "control_gate_passed": true,
+  "control_uncapped_state_nll": 2.803702
+}

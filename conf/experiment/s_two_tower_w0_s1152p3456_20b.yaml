@@ -1,0 +1,34 @@
+# @package _global_
+# MLP reallocation control: Two-tower 12+12 with the FFN width moved from the state
+# tower (1152) to the prediction tower (3456); total parameters unchanged.
+defaults:
+  - override /model: two_tower
+experiment:
+  name: s_two_tower_w0_s1152p3456_20b
+  tags: [s, two_tower, parallel, mlp_realloc, 20b, fw100]
+model:
+  config:
+    n_head: 12
+    hidden_size: 768
+    intermediate_size: 2304
+    dropout: 0.0
+    state_n_layer: 12
+    pred_n_layer: 12
+    state_intermediate: 1152
+    pred_intermediate: 3456
+    read_map: post
+    read_source: pred_proj
+    predict_embedding: separate
+    tie_lm_head: false
+    attn_backend: flex   # what ran: no flash-attn wheel was installed
+logging:
+  wandb_log: false
+  wandb_run_name: ${experiment.name}
+training:
+  max_tokens: 20000000000
+  eval_interval_tokens: 1000000000
+  save_every: 1000000000
+  skip_first_eval: false
+scheduler:
+  lr_decay_tokens: 2000000000
+  warmup_tokens: 50000000

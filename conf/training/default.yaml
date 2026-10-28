@@ -1,0 +1,57 @@
+# Training configuration
+
+# Batch size configuration
+micro_batch_size: 6  # Batch size per GPU per forward pass
+global_batch_size: 96  # gradient_accumulation_steps = global_batch_size / (micro_batch_size * world size)
+world_size: 8  # train.py refuses any other DDP world size: each rank's data stream depends on
+               # it, and every paper run used 8. Pass training.world_size=null to run elsewhere.
+
+# Training loop
+max_tokens: 10000000000  # Stop after this many tokens (tokens per iteration = global_batch_size * block_size)
+
+# Evaluation
+eval_total_tokens: 10000000  # Total tokens to evaluate per evaluation call
+eval_interval_tokens: 20000000  # Evaluate every N tokens
+eval_only: false     # If true, only run evaluation and exit
+skip_first_eval: false  # If true, skip the eval at iter 0 (unless eval_only)
+val_seed: 42  # Seed of the generator that picks the (fixed) val windows of every in-training eval
+
+# Logging
+log_interval: 1     # Log training metrics every N iterations
+anomaly_nll_threshold: 0.5  # A rank whose train NLL is below this (or non-finite) prints diagnostics
+
+# Checkpointing
+save_every: 1000000000  # Save a named, permanent ckpt_tokens_{N}.pt every N tokens (default: 1B) — additional snapshots
+rolling_save_every: 100000000  # Refresh the rolling resume checkpoint ckpt.pt every N tokens (default: 100M, pre-decay only)
+
+# Sampler (src/training/sampler.py, FixedRandomChunkDistributedSampler)
+chunk_shuffle_seed: 1337
+sampler_max_start_offset: 1000000  # A fresh DDP run starts rank r's stream at
+                                   # Random(seed + r).randint(0, min(this, len(dataset) // 2)).
+sampler_resume: legacy  # On resume: 'legacy' gives every rank rank 0's saved start offset, which is
+                        # how all paper runs resumed (docs/REPRODUCIBILITY.md); 'per_rank' restores
+                        # each rank's own offset, i.e. exactly the uninterrupted stream.
+num_workers: 0  # DataLoader workers; the dataset is a memmap, so 0 is fast enough
+
+# Base seed for torch / Python RNGs (model init, dropout masks, sampler start offset)
+# Independent from chunk_shuffle_seed; tie them together in seed-sweep yamls.
+seed: 1337
+chunk_size_units: 262144  # Number of block-sized sequence starts per chunk (~1.07B tokens at block_size=4096)
+
+# Initialization
+init_from: resume  # 'scratch' or 'resume' - defaults to resume (falls back to scratch if no checkpoint)
+resume_checkpoint: null  # Optional explicit named checkpoint/path for resume; defaults to latest non-final ckpt_tokens_*.pt
+
+# Equalize per-rank stream length in FixedRandomChunkDistributedSampler by
+# dropping the partial tail chunk and truncating the chunk list to a multiple of
+# world_size. Without it, the rank holding the short tail exhausts first and
+# replays the head of its own stream (measured: 4.28% of rank 2's stream on the
+# 8-GPU 20B runs). Changes which tokens each rank sees, so it is OFF by default.
+sampler_fix: false
+
+# Freeze-and-retrain (paper §6.3). The name of a finished two-tower run; when set, the
+# STATE tower (transformer.wte + transformer.state_h [+ state_read_head]) is loaded from
+# that run's final checkpoint, <system.out_root>/out/<run>/ckpt_tokens_*_final.pt, and
+# frozen (requires_grad=False: no grad, no optimizer state), and only the prediction tower
+# trains. null = off. Requires fully untied towers.
+freeze_state_from: null

@@ -1,0 +1,38 @@
+# @package _global_
+# Analysis input, not a paper arm: the first AF-SPS run, whose prediction stream read
+# through its own projection (read_source pred_proj) instead of the state tower's K/V.
+# The paper's AF-SPS arm is s_two_tower_afsps_faithful_20b. This run's checkpoint ladder
+# is the `afsps` arm of scripts/analysis/a17_trajectory.py (Fig. app-gradcos caption).
+defaults:
+  - override /model: two_tower
+experiment:
+  name: s_two_tower_afsps_20b
+  tags: [s, two_tower, afsps, shared, pred_proj, 20b, fw100]
+model:
+  config:
+    n_head: 12
+    hidden_size: 768
+    intermediate_size: 2304
+    dropout: 0.0
+    state_n_layer: 12
+    pred_n_layer: 12
+    state_intermediate: 2304
+    pred_intermediate: 2304
+    read_map: pre
+    read_source: pred_proj
+    predict_embedding: constant
+    tie_lm_head: true
+    tie_attn_across_towers: true
+    share_ffn_across_towers: true
+    attn_backend: flex   # what ran: no flash-attn wheel was installed
+logging:
+  wandb_log: false
+  wandb_run_name: ${experiment.name}
+training:
+  max_tokens: 20000000000
+  eval_interval_tokens: 1000000000
+  save_every: 1000000000
+  skip_first_eval: false
+scheduler:
+  lr_decay_tokens: 2000000000
+  warmup_tokens: 50000000

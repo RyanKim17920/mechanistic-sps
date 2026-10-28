@@ -1,0 +1,507 @@
+{
+  "analysis": "a12_depth_lesion",
+  "run": "s_full_attention_20b_fw100_untied_seed2",
+  "model_id": "s_full_attention_20b_fw100_untied_seed2",
+  "label": "s_full_attention_20b_fw100_untied_seed2",
+  "family": "standard",
+  "branch": "standard",
+  "checkpoint": "${DATA_ROOT}/out/s_full_attention_20b_fw100_untied_seed2/ckpt_tokens_20000145408_final.pt",
+  "lesion_semantics": "single-stream lesion: zero the block's attention and/or MLP residual write at every position; keys/values untouched",
+  "geometry": {
+    "n_layer": 12,
+    "hidden": 768,
+    "intermediate": 2304,
+    "tie_lm_head": false,
+    "block_class": "TritonFullAttentionBlock"
+  },
+  "scoring": {
+    "kind": "sub-sweep",
+    "n_seq": 512,
+    "n_tokens": 2094978,
+    "val_bin": "${DATA_ROOT}/data/fineweb-edu-100bt/val.bin",
+    "paired_floor": 0.0005,
+    "seed_floor": 0.00219,
+    "note": "paired deltas: one ckpt, one val slice, one order; only the lesion differs",
+    "full_sweep_tokens": 13085928,
+    "full_sweep_seqs": 3198,
+    "sub_sweep_offset": 0.004839
+  },
+  "native_sub_sweep_nll": 2.872533,
+  "lesions": {
+    "single_00_attn": {
+      "stream": "single",
+      "block": 0,
+      "kind": "attn",
+      "val_nll": 2.977671,
+      "delta": 0.105138,
+      "seconds": 4.2
+    },
+    "single_00_mlp": {
+      "stream": "single",
+      "block": 0,
+      "kind": "mlp",
+      "val_nll": 10.52865,
+      "delta": 7.656117,
+      "seconds": 4.2
+    },
+    "single_00_block": {
+      "stream": "single",
+      "block": 0,
+      "kind": "block",
+      "val_nll": 10.643353,
+      "delta": 7.77082,
+      "seconds": 4.2
+    },
+    "single_01_attn": {
+      "stream": "single",
+      "block": 1,
+      "kind": "attn",
+      "val_nll": 2.898319,
+      "delta": 0.025786,
+      "seconds": 4.2
+    },
+    "single_01_mlp": {
+      "stream": "single",
+      "block": 1,
+      "kind": "mlp",
+      "val_nll": 3.190947,
+      "delta": 0.318415,
+      "seconds": 4.2
+    },
+    "single_01_block": {
+      "stream": "single",
+      "block": 1,
+      "kind": "block",
+      "val_nll": 3.446289,
+      "delta": 0.573757,
+      "seconds": 4.2
+    },
+    "single_02_attn": {
+      "stream": "single",
+      "block": 2,
+      "kind": "attn",
+      "val_nll": 2.985895,
+      "delta": 0.113362,
+      "seconds": 4.2
+    },
+    "single_02_mlp": {
+      "stream": "single",
+      "block": 2,
+      "kind": "mlp",
+      "val_nll": 3.03086,
+      "delta": 0.158327,
+      "seconds": 4.2
+    },
+    "single_02_block": {
+      "stream": "single",
+      "block": 2,
+      "kind": "block",
+      "val_nll": 3.176982,
+      "delta": 0.304449,
+      "seconds": 4.2
+    },
+    "single_03_attn": {
+      "stream": "single",
+      "block": 3,
+      "kind": "attn",
+      "val_nll": 2.963699,
+      "delta": 0.091166,
+      "seconds": 4.2
+    },
+    "single_03_mlp": {
+      "stream": "single",
+      "block": 3,
+      "kind": "mlp",
+      "val_nll": 3.020611,
+      "delta": 0.148078,
+      "seconds": 4.2
+    },
+    "single_03_block": {
+      "stream": "single",
+      "block": 3,
+      "kind": "block",
+      "val_nll": 3.118065,
+      "delta": 0.245532,
+      "seconds": 4.2
+    },
+    "single_04_attn": {
+      "stream": "single",
+      "block": 4,
+      "kind": "attn",
+      "val_nll": 3.005626,
+      "delta": 0.133093,
+      "seconds": 4.2
+    },
+    "single_04_mlp": {
+      "stream": "single",
+      "block": 4,
+      "kind": "mlp",
+      "val_nll": 3.053666,
+      "delta": 0.181133,
+      "seconds": 4.2
+    },
+    "single_04_block": {
+      "stream": "single",
+      "block": 4,
+      "kind": "block",
+      "val_nll": 3.330104,
+      "delta": 0.457571,
+      "seconds": 4.2
+    },
+    "single_05_attn": {
+      "stream": "single",
+      "block": 5,
+      "kind": "attn",
+      "val_nll": 3.063597,
+      "delta": 0.191064,
+      "seconds": 4.2
+    },
+    "single_05_mlp": {
+      "stream": "single",
+      "block": 5,
+      "kind": "mlp",
+      "val_nll": 3.010464,
+      "delta": 0.137932,
+      "seconds": 4.2
+    },
+    "single_05_block": {
+      "stream": "single",
+      "block": 5,
+      "kind": "block",
+      "val_nll": 3.265505,
+      "delta": 0.392972,
+      "seconds": 4.2
+    },
+    "single_06_attn": {
+      "stream": "single",
+      "block": 6,
+      "kind": "attn",
+      "val_nll": 3.101727,
+      "delta": 0.229194,
+      "seconds": 4.2
+    },
+    "single_06_mlp": {
+      "stream": "single",
+      "block": 6,
+      "kind": "mlp",
+      "val_nll": 3.014281,
+      "delta": 0.141748,
+      "seconds": 4.2
+    },
+    "single_06_block": {
+      "stream": "single",
+      "block": 6,
+      "kind": "block",
+      "val_nll": 3.172439,
+      "delta": 0.299907,
+      "seconds": 4.2
+    },
+    "single_07_attn": {
+      "stream": "single",
+      "block": 7,
+      "kind": "attn",
+      "val_nll": 3.108944,
+      "delta": 0.236411,
+      "seconds": 4.2
+    },
+    "single_07_mlp": {
+      "stream": "single",
+      "block": 7,
+      "kind": "mlp",
+      "val_nll": 3.064532,
+      "delta": 0.191999,
+      "seconds": 4.2
+    },
+    "single_07_block": {
+      "stream": "single",
+      "block": 7,
+      "kind": "block",
+      "val_nll": 3.266283,
+      "delta": 0.393751,
+      "seconds": 4.2
+    },
+    "single_08_attn": {
+      "stream": "single",
+      "block": 8,
+      "kind": "attn",
+      "val_nll": 3.014366,
+      "delta": 0.141833,
+      "seconds": 4.2
+    },
+    "single_08_mlp": {
+      "stream": "single",
+      "block": 8,
+      "kind": "mlp",
+      "val_nll": 3.040232,
+      "delta": 0.1677,
+      "seconds": 4.2
+    },
+    "single_08_block": {
+      "stream": "single",
+      "block": 8,
+      "kind": "block",
+      "val_nll": 3.161143,
+      "delta": 0.288611,
+      "seconds": 4.2
+    },
+    "single_09_attn": {
+      "stream": "single",
+      "block": 9,
+      "kind": "attn",
+      "val_nll": 3.162809,
+      "delta": 0.290277,
+      "seconds": 4.2
+    },
+    "single_09_mlp": {
+      "stream": "single",
+      "block": 9,
+      "kind": "mlp",
+      "val_nll": 3.040124,
+      "delta": 0.167592,
+      "seconds": 4.2
+    },
+    "single_09_block": {
+      "stream": "single",
+      "block": 9,
+      "kind": "block",
+      "val_nll": 3.39876,
+      "delta": 0.526227,
+      "seconds": 4.2
+    },
+    "single_10_attn": {
+      "stream": "single",
+      "block": 10,
+      "kind": "attn",
+      "val_nll": 3.084896,
+      "delta": 0.212363,
+      "seconds": 4.2
+    },
+    "single_10_mlp": {
+      "stream": "single",
+      "block": 10,
+      "kind": "mlp",
+      "val_nll": 3.133493,
+      "delta": 0.260961,
+      "seconds": 4.2
+    },
+    "single_10_block": {
+      "stream": "single",
+      "block": 10,
+      "kind": "block",
+      "val_nll": 3.435555,
+      "delta": 0.563023,
+      "seconds": 4.2
+    },
+    "single_11_attn": {
+      "stream": "single",
+      "block": 11,
+      "kind": "attn",
+      "val_nll": 3.21265,
+      "delta": 0.340117,
+      "seconds": 4.2
+    },
+    "single_11_mlp": {
+      "stream": "single",
+      "block": 11,
+      "kind": "mlp",
+      "val_nll": 3.87361,
+      "delta": 1.001078,
+      "seconds": 4.2
+    },
+    "single_11_block": {
+      "stream": "single",
+      "block": 11,
+      "kind": "block",
+      "val_nll": 5.3842,
+      "delta": 2.511667,
+      "seconds": 4.2
+    }
+  },
+  "ablation": "mean",
+  "lesion_semantics_ablation": "MEAN-ablation: the lesioned write is replaced, at every position of the lesioned stream/slot type, by its per-channel clean-run mean over held-out val sequences disjoint from the scored sub-sweep",
+  "mean_ablation": {
+    "source": "val.bin (same file as the scored sub-sweep)",
+    "selection": "BLOCK-strided grid[512:], evenly strided, first 256",
+    "n_seq": 256,
+    "first_start": 2097152,
+    "last_start": 12541952,
+    "disjoint_from_scored": true,
+    "seconds": 2.4,
+    "per_write": {
+      "single_00_attn": {
+        "mean_norm": 1.37981,
+        "write_rms_norm": 1.566235,
+        "rows": 1048576
+      },
+      "single_00_mlp": {
+        "mean_norm": 2.756506,
+        "write_rms_norm": 8.281401,
+        "rows": 1048576
+      },
+      "single_01_attn": {
+        "mean_norm": 5.185584,
+        "write_rms_norm": 5.489651,
+        "rows": 1048576
+      },
+      "single_01_mlp": {
+        "mean_norm": 4.077069,
+        "write_rms_norm": 6.373062,
+        "rows": 1048576
+      },
+      "single_02_attn": {
+        "mean_norm": 0.586031,
+        "write_rms_norm": 3.620613,
+        "rows": 1048576
+      },
+      "single_02_mlp": {
+        "mean_norm": 2.817348,
+        "write_rms_norm": 6.331103,
+        "rows": 1048576
+      },
+      "single_03_attn": {
+        "mean_norm": 1.31263,
+        "write_rms_norm": 4.447634,
+        "rows": 1048576
+      },
+      "single_03_mlp": {
+        "mean_norm": 3.090534,
+        "write_rms_norm": 7.551242,
+        "rows": 1048576
+      },
+      "single_04_attn": {
+        "mean_norm": 1.36242,
+        "write_rms_norm": 5.850133,
+        "rows": 1048576
+      },
+      "single_04_mlp": {
+        "mean_norm": 3.673843,
+        "write_rms_norm": 11.758982,
+        "rows": 1048576
+      },
+      "single_05_attn": {
+        "mean_norm": 1.716914,
+        "write_rms_norm": 7.248228,
+        "rows": 1048576
+      },
+      "single_05_mlp": {
+        "mean_norm": 3.358421,
+        "write_rms_norm": 11.309499,
+        "rows": 1048576
+      },
+      "single_06_attn": {
+        "mean_norm": 1.423505,
+        "write_rms_norm": 8.945393,
+        "rows": 1048576
+      },
+      "single_06_mlp": {
+        "mean_norm": 3.181597,
+        "write_rms_norm": 14.464344,
+        "rows": 1048576
+      },
+      "single_07_attn": {
+        "mean_norm": 2.38834,
+        "write_rms_norm": 11.561487,
+        "rows": 1048576
+      },
+      "single_07_mlp": {
+        "mean_norm": 4.777541,
+        "write_rms_norm": 52.038178,
+        "rows": 1048576
+      },
+      "single_08_attn": {
+        "mean_norm": 5.764419,
+        "write_rms_norm": 15.092995,
+        "rows": 1048576
+      },
+      "single_08_mlp": {
+        "mean_norm": 5.453806,
+        "write_rms_norm": 21.737172,
+        "rows": 1048576
+      },
+      "single_09_attn": {
+        "mean_norm": 11.926204,
+        "write_rms_norm": 26.52934,
+        "rows": 1048576
+      },
+      "single_09_mlp": {
+        "mean_norm": 8.037039,
+        "write_rms_norm": 27.751869,
+        "rows": 1048576
+      },
+      "single_10_attn": {
+        "mean_norm": 13.034975,
+        "write_rms_norm": 30.369607,
+        "rows": 1048576
+      },
+      "single_10_mlp": {
+        "mean_norm": 11.899664,
+        "write_rms_norm": 48.786261,
+        "rows": 1048576
+      },
+      "single_11_attn": {
+        "mean_norm": 36.529563,
+        "write_rms_norm": 71.051321,
+        "rows": 1048576
+      },
+      "single_11_mlp": {
+        "mean_norm": 38.469382,
+        "write_rms_norm": 130.513891,
+        "rows": 1048576
+      }
+    }
+  },
+  "native_full_sweep_nll": 2.867694,
+  "control_noop_nll": 2.872533,
+  "control_delta_vs_native": 0.0,
+  "patched_calls": 172,
+  "gates": {
+    "noop": {
+      "nll": 2.872533,
+      "delta": 0.0,
+      "calls": 86,
+      "passed": true
+    },
+    "identity_lesion": {
+      "nll": 2.872533,
+      "delta": 0.0,
+      "calls": 86,
+      "passed": true
+    }
+  },
+  "control_gate_passed": true,
+  "summary": {
+    "single_attn": {
+      "total_delta": 2.109804,
+      "max_delta": 0.340117,
+      "argmax_block": 11,
+      "min_delta": 0.025786,
+      "argmin_block": 1,
+      "n_below_1e_2": 0,
+      "blocks_below_1e_2": [],
+      "block0_share_of_total": 0.049833,
+      "first_third_share_of_total": 0.158997
+    },
+    "single_mlp": {
+      "total_delta": 10.53108,
+      "max_delta": 7.656117,
+      "argmax_block": 0,
+      "min_delta": 0.137932,
+      "argmin_block": 5,
+      "n_below_1e_2": 0,
+      "blocks_below_1e_2": [],
+      "block0_share_of_total": 0.727002,
+      "first_third_share_of_total": 0.786333
+    },
+    "single_block": {
+      "total_delta": 14.328287,
+      "max_delta": 7.77082,
+      "argmax_block": 0,
+      "min_delta": 0.245532,
+      "argmin_block": 3,
+      "n_below_1e_2": 0,
+      "blocks_below_1e_2": [],
+      "block0_share_of_total": 0.542341,
+      "first_third_share_of_total": 0.620769
+    }
+  }
+}

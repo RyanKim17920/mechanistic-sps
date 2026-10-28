@@ -1,0 +1,18 @@
+# FineWeb-Edu, 100BT sample (a 36-shard subset): the single-epoch corpus of every 20B-token
+# paper run. `prepare` is the exact recipe src/data/prepare.py used to build it;
+# data/MANIFEST.json records the result.
+dataset: fineweb-edu-100bt
+prepare:
+  hf_repo: HuggingFaceFW/fineweb-edu
+  hf_revision: 87f09149ef4734204d70ed1d046ddc9ca3f2b8f9  # Hub main at download time; the 36 shards' LFS sha256 match it
+  sample: 100BT               # sample/100BT/*.parquet, 140 shards
+  max_files: 36               # keep 36 of them (~27.1B train tokens, enough for one 20B epoch)
+  file_select: head           # the first 36 in sorted order: 000_00000 .. 003_00005
+  file_offset: 0
+  shuffle_seed: 2357          # shard order (random.Random) and each worker's document shuffle buffer
+  shuffle_buffer_size: 200000
+  val_fraction: 0.0005        # share of documents (by a hash of their id) that go to val.bin
+  val_split_seed: 42
+  batch_size: 2000            # documents per tokenizer call
+  tokenizer: gpt2             # tiktoken encoding; each document ends with its EOT token (50256)
+  num_proc: 86                # workers; train.bin order depends on it (identical for any value >= 36)

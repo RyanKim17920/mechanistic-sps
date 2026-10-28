@@ -1,0 +1,208 @@
+{
+  "analysis": "a2_knockout",
+  "run": "s_sps_w64_20b_fw100_untied_seed2",
+  "model_id": "s_sps_w64_20b_fw100_untied_seed2",
+  "label": "s_sps_w64_20b_fw100_untied_seed2",
+  "family": "sps",
+  "checkpoint": "${DATA_ROOT}/out/s_sps_w64_20b_fw100_untied_seed2/ckpt_tokens_20000145408_final.pt",
+  "arm": "trained",
+  "window_size": 64,
+  "caps": [
+    16,
+    64,
+    256,
+    1024
+  ],
+  "scoring": {
+    "kind": "sub-sweep",
+    "n_seq": 512,
+    "n_tokens": 2094978,
+    "paired_floor": 0.0005,
+    "seed_floor": 0.00219
+  },
+  "native_sub_sweep_nll": 2.800159,
+  "sweeps": {
+    "control_uncapped": {
+      "query_stream": "pred",
+      "cap": null,
+      "band": "near",
+      "ablation": "mask",
+      "val_nll": 2.800175,
+      "seconds": 190.6
+    },
+    "pred_near16_mask": {
+      "query_stream": "pred",
+      "cap": 16,
+      "band": "near",
+      "ablation": "mask",
+      "val_nll": 4.249592,
+      "seconds": 191.0,
+      "delta_nll": 1.449417
+    },
+    "pred_near16_mean": {
+      "query_stream": "pred",
+      "cap": 16,
+      "band": "near",
+      "ablation": "mean",
+      "val_nll": 4.397323,
+      "seconds": 272.8,
+      "delta_nll": 1.597148
+    },
+    "pred_far16_mask": {
+      "query_stream": "pred",
+      "cap": 16,
+      "band": "far",
+      "ablation": "mask",
+      "val_nll": 7.865152,
+      "seconds": 191.2,
+      "delta_nll": 5.064977
+    },
+    "pred_near64_mask": {
+      "query_stream": "pred",
+      "cap": 64,
+      "band": "near",
+      "ablation": "mask",
+      "val_nll": 3.631794,
+      "seconds": 191.0,
+      "delta_nll": 0.831619
+    },
+    "pred_near64_mean": {
+      "query_stream": "pred",
+      "cap": 64,
+      "band": "near",
+      "ablation": "mean",
+      "val_nll": 3.943076,
+      "seconds": 272.7,
+      "delta_nll": 1.142901
+    },
+    "pred_far64_mask": {
+      "query_stream": "pred",
+      "cap": 64,
+      "band": "far",
+      "ablation": "mask",
+      "val_nll": 8.584794,
+      "seconds": 191.2,
+      "delta_nll": 5.784619
+    },
+    "pred_near256_mask": {
+      "query_stream": "pred",
+      "cap": 256,
+      "band": "near",
+      "ablation": "mask",
+      "val_nll": 3.105001,
+      "seconds": 191.0,
+      "delta_nll": 0.304826
+    },
+    "pred_near256_mean": {
+      "query_stream": "pred",
+      "cap": 256,
+      "band": "near",
+      "ablation": "mean",
+      "val_nll": 3.383546,
+      "seconds": 272.7,
+      "delta_nll": 0.583371
+    },
+    "pred_far256_mask": {
+      "query_stream": "pred",
+      "cap": 256,
+      "band": "far",
+      "ablation": "mask",
+      "val_nll": 10.26575,
+      "seconds": 191.2,
+      "delta_nll": 7.465575
+    },
+    "pred_near1024_mask": {
+      "query_stream": "pred",
+      "cap": 1024,
+      "band": "near",
+      "ablation": "mask",
+      "val_nll": 2.862488,
+      "seconds": 191.1,
+      "delta_nll": 0.062313
+    },
+    "pred_near1024_mean": {
+      "query_stream": "pred",
+      "cap": 1024,
+      "band": "near",
+      "ablation": "mean",
+      "val_nll": 2.937896,
+      "seconds": 272.6,
+      "delta_nll": 0.137721
+    },
+    "pred_far1024_mask": {
+      "query_stream": "pred",
+      "cap": 1024,
+      "band": "far",
+      "ablation": "mask",
+      "val_nll": 11.902447,
+      "seconds": 191.1,
+      "delta_nll": 9.102272
+    },
+    "control_uncapped_state": {
+      "query_stream": "state",
+      "cap": null,
+      "band": "near",
+      "ablation": "mask",
+      "val_nll": 2.800175,
+      "seconds": 190.6
+    },
+    "state_near16_mask": {
+      "query_stream": "state",
+      "cap": 16,
+      "band": "near",
+      "ablation": "mask",
+      "val_nll": 2.981494,
+      "seconds": 191.0,
+      "delta_nll": 0.181319
+    },
+    "state_near64_mask": {
+      "query_stream": "state",
+      "cap": 64,
+      "band": "near",
+      "ablation": "mask",
+      "val_nll": 2.902723,
+      "seconds": 191.0,
+      "delta_nll": 0.102548
+    },
+    "state_near256_mask": {
+      "query_stream": "state",
+      "cap": 256,
+      "band": "near",
+      "ablation": "mask",
+      "val_nll": 2.843614,
+      "seconds": 191.0,
+      "delta_nll": 0.043439
+    },
+    "state_near1024_mask": {
+      "query_stream": "state",
+      "cap": 1024,
+      "band": "near",
+      "ablation": "mask",
+      "val_nll": 2.808874,
+      "seconds": 191.1,
+      "delta_nll": 0.008699
+    }
+  },
+  "calibration": {
+    "n_seq": 32,
+    "mean_abs_value": {
+      "0": 0.049052,
+      "1": 0.078495,
+      "2": 0.106221,
+      "3": 0.133487,
+      "4": 0.128483,
+      "5": 0.1773,
+      "6": 0.142587,
+      "7": 0.145461,
+      "8": 0.194102,
+      "9": 0.204079,
+      "10": 0.268115,
+      "11": 0.216874
+    }
+  },
+  "patched_attention_calls": 1416,
+  "control_uncapped_nll": 2.800175,
+  "control_delta_vs_native": 1.6e-05,
+  "control_gate_passed": true,
+  "control_uncapped_state_nll": 2.800175
+}

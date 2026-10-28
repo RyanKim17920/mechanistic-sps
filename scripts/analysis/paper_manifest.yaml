@@ -1,0 +1,393 @@
+# The paper's models, their seed runs, and the role each plays in the figures and tables.
+# Every generator and analysis script reads this file (through src/plotting/paper_style.py
+# or common.py); no analysis code types a run name. Outside scripts/analysis, run names
+# appear only as Hydra config names and as gate / test fixtures.
+#
+# arms: one entry per model, keyed by its primary run (= Hydra experiment config).
+#   label        name in figures and tables
+#   name         row name in the appendix tables when it differs from the label (the
+#                paper's name: a qualifier only where the arm departs from its family's
+#                default -- untied head; own prediction table, <predict> input for SPS)
+#   body_label   name in the body figures when it differs from the label
+#   palette      hue family (paper_style.PALETTE); marker: matplotlib marker
+#   shared       weights shared across the two streams (open marker) or separate (filled)
+#   roster_only  listed in the rosters (loss, params, FLOPs) but in no per-model analysis table
+#   seeds        every run of this config; a seed is used iff its ledger row / result exists
+#   mean_seeds   seed order for reported means when it differs from `seeds`
+#   extra_note   {run: why} for a run outside the seed-rule mean (tab:roster_full footnote)
+#   tying / read / head / pred_input
+#                the architecture as the paper names it; make_tables.py cross-checks each
+#                against the instantiated config
+arms:
+  s_full_attention_20b_fw100:
+    label: Transformer
+    name: Transformer, tied head
+    palette: transformer
+    marker: "^"
+    shared: false
+    seeds: [s_full_attention_20b_fw100]
+    tying: single stream
+    read: "--"
+    head: tied
+    pred_input: null
+  s_full_attention_20b_fw100_untied:
+    label: Transformer, untied head
+    name: Transformer
+    body_label: Transformer
+    palette: transformer
+    marker: "^"
+    shared: false
+    seeds: [s_full_attention_20b_fw100_untied, s_full_attention_20b_fw100_untied_seed2]
+    tying: single stream
+    read: "--"
+    head: untied
+    pred_input: null
+  s_sps_w64_20b_fw100:
+    label: SPS
+    name: SPS, tied head
+    palette: sps
+    marker: o
+    shared: true
+    seeds: [s_sps_w64_20b_fw100, s_sps_w64_20b_fw100_seed2, s_sps_w64_20b_fw100_seed3]
+    # the seed-1337 run's checkpoint is lost: means use seeds 2 and 3
+    mean_seeds: [s_sps_w64_20b_fw100_seed2, s_sps_w64_20b_fw100_seed3]
+    extra_note: {s_sps_w64_20b_fw100: "seed 1337, checkpoint lost"}
+    tying: one stack
+    read: layer-aligned (pre)
+    head: tied
+    pred_input: pause
+  s_sps_w64_20b_fw100_untied:
+    label: SPS, untied head
+    name: SPS
+    body_label: SPS
+    palette: sps
+    marker: o
+    shared: true
+    seeds: [s_sps_w64_20b_fw100_untied, s_sps_w64_20b_fw100_untied_seed2]
+    tying: one stack
+    read: layer-aligned (pre)
+    head: untied
+    pred_input: pause
+  s_two_tower_afsps_faithful_20b:
+    label: AF-SPS
+    palette: afsps
+    marker: D
+    shared: true
+    seeds: [s_two_tower_afsps_faithful_20b]
+    tying: attn+MLP
+    read: layer-aligned (pre)
+    head: tied
+    pred_input: pause
+  s_two_tower_w0_equal_20b:
+    label: Two-tower 12+12
+    palette: two_tower
+    marker: s
+    shared: false
+    seeds: [s_two_tower_w0_equal_20b, s_two_tower_w0_equal_20b_seed2, s_two_tower_w0_equal_20b_seed3]
+    tying: none
+    read: layer-aligned (post)
+    head: untied
+    pred_input: table
+  s_two_tower_w0_equal_tiedattn_20b:
+    label: Two-tower 12+12 (shared attn. only)
+    palette: two_tower
+    marker: s
+    shared: true
+    seeds: [s_two_tower_w0_equal_tiedattn_20b]
+    tying: attn
+    read: layer-aligned (post)
+    head: untied
+    pred_input: table
+  # the MLP-reallocation control: MLP width 1152 in state, 3456 in prediction, at Two-tower
+  # 12+12's parameters and FLOPs
+  s_two_tower_w0_s1152p3456_20b:
+    label: Two-tower 12+12 (MLP realloc.)
+    name: Two-tower 12+12 (MLP realloc.)
+    roster_only: true            # the paper reports its loss only, no per-model analyses
+    palette: two_tower
+    marker: s
+    shared: false
+    seeds: [s_two_tower_w0_s1152p3456_20b]
+    tying: none
+    read: layer-aligned (post)
+    head: untied
+    pred_input: table
+  s_two_tower_w0_equal6_20b:
+    label: Two-tower 6+6
+    palette: two_tower
+    marker: X
+    shared: false
+    seeds: [s_two_tower_w0_equal6_20b, s_two_tower_w0_equal6_20b_seed2]
+    tying: none
+    read: layer-aligned (post)
+    head: untied
+    pred_input: table
+  # the shared-weight Sequential with SPS's own l-1 read: the shared Two-tower cell of tab:2x2
+  s_two_tower_w0_shared_20b:
+    label: Two-tower 12+12, shared weights
+    name: Shared Two-tower 12+12
+    palette: two_tower
+    marker: s
+    shared: true
+    seeds: [s_two_tower_w0_shared_20b]
+    tying: attn+MLP
+    read: layer-aligned (pre)
+    head: tied
+    pred_input: pause
+  s_two_tower_asym_20b:
+    label: Two-tower 12+6 (top-aligned)
+    palette: asym
+    marker: s
+    shared: false
+    seeds: [s_two_tower_asym_20b]
+    tying: none
+    read: top-aligned
+    head: untied
+    pred_input: table
+  s_two_tower_seq12_20b:
+    label: Sequential 12+12
+    palette: sequential
+    marker: h
+    shared: false
+    seeds: [s_two_tower_seq12_20b, s_two_tower_seq12_20b_seed2, s_two_tower_seq12_20b_seed3]
+    tying: none
+    read: final layer
+    head: untied
+    pred_input: table
+  s_two_tower_seq12_tied_20b:
+    label: Sequential 12+12, shared weights
+    name: Shared Sequential 12+12
+    palette: sequential
+    marker: h
+    shared: true
+    seeds: [s_two_tower_seq12_tied_20b, s_two_tower_seq12_tied_20b_seed2]
+    tying: attn+MLP
+    read: final layer
+    head: tied
+    pred_input: pause
+  s_two_tower_seq3p9_20b:
+    label: Sequential 3+9
+    palette: sequential_light
+    marker: v
+    shared: false
+    seeds: [s_two_tower_seq3p9_20b]
+    tying: none
+    read: final layer
+    head: untied
+    pred_input: table
+  # the three Sequential 6+6 variants, named by head tying x prediction input
+  s_two_tower_seq6_20b:
+    label: Sequential 6+6 (untied head, own table)
+    name: Sequential 6+6
+    body_label: Sequential 6+6
+    palette: sequential_mid
+    marker: X
+    shared: false
+    seeds: [s_two_tower_seq6_20b, s_two_tower_seq6_20b_seed2]
+    tying: none
+    read: final layer
+    head: untied
+    pred_input: table
+  s_two_tower_seq6_cpause_20b:
+    label: Sequential 6+6 (untied head, $\langle$predict$\rangle$ input)
+    name: Sequential 6+6 ($\langle$predict$\rangle$ input)
+    palette: sequential_mid
+    marker: P
+    shared: false
+    seeds: [s_two_tower_seq6_cpause_20b]
+    tying: none
+    read: final layer
+    head: untied
+    pred_input: pause
+  s_two_tower_seq6_slim_20b:
+    label: Sequential 6+6 (tied head, $\langle$predict$\rangle$ input)
+    palette: sequential_mid
+    marker: "*"
+    shared: false
+    seeds: [s_two_tower_seq6_slim_20b, s_two_tower_seq6_slim_20b_seed2]
+    tying: none
+    read: final layer
+    head: tied
+    pred_input: pause
+  s_two_tower_seq9p3_20b:
+    label: Sequential 9+3
+    palette: sequential_dark
+    marker: "^"
+    shared: false
+    seeds: [s_two_tower_seq9p3_20b]
+    tying: none
+    read: final layer
+    head: untied
+    pred_input: table
+
+# the six models of the body figures and tables (untied LM head throughout)
+body:
+  head: untied
+  transformer: s_full_attention_20b_fw100_untied
+  sps: s_sps_w64_20b_fw100_untied
+  arms: [s_full_attention_20b_fw100_untied, s_sps_w64_20b_fw100_untied,
+         s_two_tower_w0_equal_20b, s_two_tower_seq12_20b,
+         s_two_tower_w0_equal6_20b, s_two_tower_seq6_20b]
+
+# SEED RULE: every reported mean uses the first n_mean_seeds runs (in mean-seed order)
+# that have the data; further seeds appear only in the per-run appendix tables.
+n_mean_seeds: 2
+
+# the single runs (arms) the analysis code and numbers.tex refer to by role
+roles:
+  transformer: s_full_attention_20b_fw100          # tied head
+  sps: s_sps_w64_20b_fw100                         # tied head
+  two_tower12: s_two_tower_w0_equal_20b
+  two_tower6: s_two_tower_w0_equal6_20b
+  tied_attn: s_two_tower_w0_equal_tiedattn_20b     # Two-tower 12+12, shared attention only
+  sequential12: s_two_tower_seq12_20b
+  sequential6: s_two_tower_seq6_20b
+  sequential6_slim: s_two_tower_seq6_slim_20b      # tied head, <predict> input
+  sequential3p9: s_two_tower_seq3p9_20b
+  sequential9p3: s_two_tower_seq9p3_20b
+  shared_two_tower: s_two_tower_w0_shared_20b
+  shared_sequential: s_two_tower_seq12_tied_20b
+  afsps: s_two_tower_afsps_faithful_20b
+  asym: s_two_tower_asym_20b                       # Two-tower 12+6 (top-aligned)
+
+# ---------------------------------------------------------------------------------------
+# roles: which runs each table and appendix figure shows
+# ---------------------------------------------------------------------------------------
+# tab:model-definitions: [group title, [[row name, [arms that share its facts]]]]
+model_definitions:
+  - [Main, [[Transformer, [s_full_attention_20b_fw100_untied]],
+            [SPS, [s_sps_w64_20b_fw100_untied]],
+            ['Two-tower $N{+}N$', [s_two_tower_w0_equal_20b, s_two_tower_w0_equal6_20b]],
+            ['Sequential $N{+}N$', [s_two_tower_seq12_20b, s_two_tower_seq6_20b]]]]
+  - [Controls, [[Shared Two-tower 12+12, [s_two_tower_w0_shared_20b]],
+                [Shared Sequential 12+12, [s_two_tower_seq12_tied_20b]],
+                [Two-tower 12+12 (MLP realloc.), [s_two_tower_w0_s1152p3456_20b]],
+                ['Sequential 6+6 ($\langle$predict$\rangle$ input)', [s_two_tower_seq6_cpause_20b]],
+                [Two-tower 12+6, [s_two_tower_asym_20b]]]]
+
+# tab:2x2: weight sharing x read.  The separate-weight rows (also the read contrast of
+# tab:token-gain and tab:finalread) and the one-read controls, then below a rule the shared
+# row and the body references
+two_by_two:
+  rows:                          # [weights, towers, Two-tower arm, Sequential arm]
+    - [Separate, 12+12, s_two_tower_w0_equal_20b, s_two_tower_seq12_20b]
+    - ["", 6+6, s_two_tower_w0_equal6_20b, s_two_tower_seq6_20b]
+  two_tower_only: s_two_tower_w0_s1152p3456_20b
+  sequential_only: s_two_tower_seq6_cpause_20b
+  shared: [Shared, 12+12, s_two_tower_w0_shared_20b, s_two_tower_seq12_tied_20b]
+  references: [s_full_attention_20b_fw100_untied, s_sps_w64_20b_fw100_untied]
+
+# tab:control-counts rows (two seeds each)
+control_counts: [s_full_attention_20b_fw100_untied, s_sps_w64_20b_fw100_untied,
+                 s_two_tower_w0_equal_20b, s_two_tower_seq12_20b,
+                 s_two_tower_w0_equal6_20b, s_two_tower_seq6_20b]
+
+wallclock:                       # tab:efficiency, and the Speed column of tab:roster_full
+  tag: final_mb12                # the benchmark rows of wallclock.jsonl the paper uses
+  arms:                          # bench_wallclock.py arm tag -> config
+    standard_tied: s_full_attention_20b_fw100
+    standard_untied: s_full_attention_20b_fw100_untied
+    sps_tied: s_sps_w64_20b_fw100
+    sps_untied: s_sps_w64_20b_fw100_untied
+    tt_w0_equal: s_two_tower_w0_equal_20b
+    tt_seq12: s_two_tower_seq12_20b
+    tt_tiedattn: s_two_tower_w0_equal_tiedattn_20b
+    tt_asym: s_two_tower_asym_20b
+    tt_seq6: s_two_tower_seq6_20b
+    tt_seq6_cpause: s_two_tower_seq6_cpause_20b
+    tt_seq6_slim: s_two_tower_seq6_slim_20b
+    tt_afsps_faithful: s_two_tower_afsps_faithful_20b
+    tt_seq9p3: s_two_tower_seq9p3_20b
+    tt_seq3p9: s_two_tower_seq3p9_20b
+    # the Transformer on torch flex-attention, the kernel the two-tower models run on
+    standard_tied_flex: s_full_attention_20b_fw100
+    standard_untied_flex: s_full_attention_20b_fw100_untied
+  overrides:                     # arm tag -> extra Hydra overrides
+    standard_tied_flex: [model.config.use_triton_full_attention=false]
+    standard_untied_flex: [model.config.use_triton_full_attention=false]
+  rows: [standard_tied, standard_tied_flex, sps_tied, tt_w0_equal, tt_seq12, tt_seq6,
+         tt_seq6_slim, tt_afsps_faithful]
+  reference: standard_tied       # same-kernel speed reference (Triton)
+  flex_reference: standard_tied_flex
+  # tied vs untied head of the same model and kernel: justifies one tied-head reference
+  head_pairs: [[standard_tied, standard_untied], [standard_tied_flex, standard_untied_flex],
+               [sps_tied, sps_untied]]
+
+circuit:                         # tab:circuit rows, and the Holm-corrected Spec. verdicts
+  rows: [s_full_attention_20b_fw100_untied, s_two_tower_w0_equal_20b, s_two_tower_seq12_20b,
+         s_two_tower_w0_equal6_20b, s_two_tower_seq6_20b, s_sps_w64_20b_fw100_untied]
+  # the Holm-corrected specificity codes the text reports, per control pool (random,
+  # pattern-matched), "seed 1/seed 2": all = significant with control heads from all layers
+  # and with layer 1 excluded; excl. = only with layer 1 excluded; -- = neither.
+  # make_tables asserts them.
+  verdicts:
+    s_full_attention_20b_fw100_untied: ["--/all", "all/all"]
+    s_two_tower_w0_equal_20b: ["--/all", "all/all"]
+    s_two_tower_seq12_20b: ["all/all", "all/all"]
+    s_two_tower_w0_equal6_20b: ["excl./--", "excl./excl."]
+    s_two_tower_seq6_20b: ["all/--", "excl./excl."]
+    s_sps_w64_20b_fw100_untied: ["--/excl.", "excl./excl."]
+
+circuit_full: [s_full_attention_20b_fw100, s_full_attention_20b_fw100_untied,
+               s_sps_w64_20b_fw100, s_sps_w64_20b_fw100_untied,
+               s_two_tower_afsps_faithful_20b,
+               s_two_tower_w0_equal_20b, s_two_tower_w0_equal_tiedattn_20b,
+               s_two_tower_w0_equal6_20b, s_two_tower_asym_20b,
+               s_two_tower_seq12_20b, s_two_tower_seq12_tied_20b,
+               s_two_tower_seq3p9_20b, s_two_tower_seq6_20b, s_two_tower_seq6_cpause_20b,
+               s_two_tower_seq6_slim_20b, s_two_tower_seq9p3_20b, s_two_tower_w0_shared_20b]
+
+ctrl_dist:                       # Fig. app-ctrl-dist: one row per body model ...
+  runs: [s_full_attention_20b_fw100_untied, s_sps_w64_20b_fw100_untied,
+         s_two_tower_w0_equal_20b, s_two_tower_seq12_20b,
+         s_two_tower_w0_equal6_20b, s_two_tower_seq6_20b]
+  printed: [s_sps_w64_20b_fw100_seed2, s_sps_w64_20b_fw100_seed3,   # ... k only printed
+            s_two_tower_w0_equal_20b_seed2, s_two_tower_seq12_20b_seed2,
+            s_two_tower_seq6_20b_seed2]
+
+gradcos:                         # Fig. app-gradcos: shared-weight arms and their init controls
+  panels:                        # [arm, [untrained-init a16 runs, index-paired with seeds], title]
+    - [s_two_tower_w0_equal_tiedattn_20b, [s_two_tower_w0_equal_tiedattn_20b_init],
+       "Two-tower 12+12\n(shared attn. only)"]
+    - [s_two_tower_afsps_faithful_20b, [s_two_tower_afsps_faithful_20b_init],
+       AF-SPS]
+    - [s_sps_w64_20b_fw100, [s_sps_w64_20b_fw100_seed2_init, s_sps_w64_20b_fw100_seed3_init_s4321],
+       "SPS, tied head"]
+    - [s_two_tower_w0_shared_20b, [s_two_tower_w0_shared_20b_init], Shared Two-tower 12+12]
+    - [s_two_tower_seq12_tied_20b, [s_two_tower_seq12_tied_20b_init, s_two_tower_seq12_tied_20b_seed2_init],
+       Shared Sequential 12+12]
+  printed:                       # caption statistics only, not drawn
+    - [s_sps_w64_20b_fw100_untied, [s_sps_w64_20b_fw100_untied_init]]
+  macros:                        # numbers.tex macro stem (\Grad<stem>Mean, ...) per arm
+    s_two_tower_w0_equal_tiedattn_20b: TiedAttn
+    s_two_tower_afsps_faithful_20b: AFSPS
+    s_sps_w64_20b_fw100: SPSTied
+    s_sps_w64_20b_fw100_untied: SPSUntied
+    s_two_tower_w0_shared_20b: SharedTT
+    s_two_tower_seq12_tied_20b: SharedSeq
+  ladder: [tiedattn, afsps]      # a17 part-B tags (results/a17), printed only
+
+# ---------------------------------------------------------------------------------------
+# runs of the analysis scripts outside the paper generators
+# ---------------------------------------------------------------------------------------
+trajectory:                      # a17_trajectory.py: arm tag (result file names) -> run
+  untied: s_two_tower_w0_equal_20b
+  seq6: s_two_tower_seq6_20b
+  tiedattn: s_two_tower_w0_equal_tiedattn_20b
+  afsps: s_two_tower_afsps_20b           # AF-SPS before the faithful split (not a paper arm)
+  single: s_full_attention_20b_fw100
+  seq12: s_two_tower_seq12_20b           # no checkpoint ladder on disk: every point MISSING
+
+lesion_compare:                  # a12_compare_ablation.py: the SPS runs of C2
+  sps: [s_sps_w64_20b_fw100_untied, s_sps_w64_20b_fw100_seed2, s_sps_w64_20b_fw100_seed3]
+
+standard_compare:                # g4_standard_compare.py (App. readreach): label -> runs
+  transformers:
+    Transformer (untied): s_full_attention_20b_fw100_untied
+    Transformer (tied): s_full_attention_20b_fw100
+  separated:
+    Sequential 12+12: [s_two_tower_seq12_20b, s_two_tower_seq12_20b_seed2]
+    Two-tower 12+12: [s_two_tower_w0_equal_20b, s_two_tower_w0_equal_20b_seed2]
+    Sequential 6+6: [s_two_tower_seq6_20b, s_two_tower_seq6_20b_seed2]
+    Two-tower 6+6: [s_two_tower_w0_equal6_20b]
+    SPS (untied): [s_sps_w64_20b_fw100_untied]

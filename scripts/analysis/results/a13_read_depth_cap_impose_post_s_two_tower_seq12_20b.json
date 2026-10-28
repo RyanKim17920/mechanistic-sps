@@ -1,0 +1,66 @@
+{
+  "analysis": "a13_read_depth_cap_impose_post",
+  "run": "s_two_tower_seq12_20b",
+  "model_id": "s_two_tower_seq12_20b",
+  "label": "s_two_tower_seq12_20b",
+  "family": "two_tower",
+  "checkpoint": "${DATA_ROOT}/out/s_two_tower_seq12_20b/ckpt_tokens_20000145408_final.pt",
+  "geometry": {
+    "state_n_layer": 12,
+    "pred_n_layer": 12,
+    "state_hidden": 768,
+    "pred_hidden": 768,
+    "state_intermediate": 2304,
+    "pred_intermediate": 2304,
+    "read_map": "final",
+    "read_source": "pred_proj",
+    "native_read_levels": [
+      12,
+      12,
+      12,
+      12,
+      12,
+      12,
+      12,
+      12,
+      12,
+      12,
+      12,
+      12
+    ],
+    "pred_window": 0,
+    "max_available_level": 12
+  },
+  "scoring": {
+    "kind": "sub-sweep",
+    "n_seq": 512,
+    "n_tokens": 2094978,
+    "val_bin": "${DATA_ROOT}/data/fineweb-edu-100bt/val.bin",
+    "paired_floor": 0.0005,
+    "seed_floor": 0.00219
+  },
+  "native_sub_sweep_nll": 2.707719,
+  "baseline_flops_per_token": 750773760.0,
+  "caps": {},
+  "floors": {},
+  "imposed_map": {
+    "map": "post",
+    "read_levels": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "val_nll": 5.646479,
+    "delta": 2.938759,
+    "seconds": 6.5
+  }
+}

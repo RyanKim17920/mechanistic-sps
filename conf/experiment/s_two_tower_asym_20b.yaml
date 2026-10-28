@@ -1,0 +1,35 @@
+# @package _global_
+# Two-tower 12+6: 12 state blocks, 6 pred blocks reading the top six state levels
+# (read_map top); state FFN widths [4608, 2304 x 8, 1152 x 3].
+defaults:
+  - override /model: two_tower
+experiment:
+  name: s_two_tower_asym_20b
+  tags: [s, two_tower, asym, 20b, fw100]
+model:
+  config:
+    n_head: 12
+    hidden_size: 768
+    intermediate_size: 2304
+    dropout: 0.0
+    state_n_layer: 12
+    pred_n_layer: 6
+    state_intermediate: 2304
+    state_intermediate_per_block: [4608, 2304, 2304, 2304, 2304, 2304, 2304, 2304, 2304, 1152, 1152, 1152]
+    pred_intermediate: 2304
+    read_map: top
+    read_source: pred_proj
+    predict_embedding: separate
+    tie_lm_head: false
+    attn_backend: flex   # what ran: no flash-attn wheel was installed
+logging:
+  wandb_log: false
+  wandb_run_name: ${experiment.name}
+training:
+  max_tokens: 20000000000
+  eval_interval_tokens: 1000000000
+  save_every: 1000000000
+  skip_first_eval: false
+scheduler:
+  lr_decay_tokens: 2000000000
+  warmup_tokens: 50000000
