@@ -69,4 +69,4 @@ independent of where the repo, the venv or any system font lives.
 - **Trained frozen sources.** The default `make check` covers the freeze-and-retrain code
   path with a synthetic source; only `FRZ=real` checks against the trained checkpoints.
 - **GPU training.** `make smoke GPU=1` trains every model family for 3 steps on one GPU;
-  "Smoke test" in the top-level README also shows a few-step run on a full node.
+  "2. Training" in `docs/REPRODUCIBILITY.md` also shows a few-step run on a full node.
